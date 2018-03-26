@@ -1,0 +1,78 @@
+/*------------------------------------------------ 
+	//comments
+------------------------------------------------*/
+.dashboard{
+	.lowest-fair{
+		.panel{
+			min-height: 193px;
+
+			@include screen(medium){
+				min-height: 0;
+			}
+		}
+	}
+}
+
+.lowest-fair{
+	.inline{
+		>li{
+			vertical-align: top;
+		}
+	}
+
+	.input{
+		width: 100%;
+	}
+
+	.left{
+		border-right: 1px solid $color-border;
+
+		&:after{
+			margin-top: 15px;
+			content:"";
+			height: 1px;
+			background-color: $color-border;
+		}
+		
+		@include visible-screen($screen-lg, 1220px){
+			border-right: 0 none;
+			
+			&:after{
+				display: block;
+			}
+		}
+
+		@include screen(large){
+			border-right: 0 none;
+
+			&:after{
+				display: block;
+			}
+		}
+
+		.col-xlg-6{
+			max-width: 200px;
+	    padding-right: 30px;
+		}
+
+		.icon-long-arrow-right{
+			&:before{
+				position: absolute;
+		    right: 3px;
+		    top: 10px;
+			}
+		}
+
+		.lowest-fair-content{
+			padding-right: ($gutter / 2);
+		}
+	}
+
+	.left, .right{
+		margin-top: 10px;
+
+		@include visible-screen($screen-lg, 1220px){
+			width: 100%;
+		}
+	}
+}

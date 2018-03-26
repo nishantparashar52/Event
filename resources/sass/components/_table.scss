@@ -1,0 +1,114 @@
+/*------------------------------------------------ 
+	Basic table
+------------------------------------------------*/
+.table {
+  width: 100%;
+  max-width: 100%;
+
+  th,
+  td {
+    padding: $table-cell-padding;
+    line-height: $table-line-height;
+    vertical-align: top;
+    border-top: $table-border-width solid $table-border-color;
+  }
+
+  thead th {
+    vertical-align: bottom;
+    border-bottom: $table-border-width solid $table-border-color;
+  }
+
+  tbody + tbody {
+    border-top: $table-border-width solid $table-border-color;
+  }
+
+  .table {
+    background-color: $table-bg-color;
+  }
+}
+
+/*------------------------------------------------ 
+  Condensed table w/ half padding
+------------------------------------------------*/
+.table-sm {
+  th,
+  td {
+    padding: $table-sm-cell-padding;
+  }
+}
+
+/*------------------------------------------------ 
+  Add borders all around the table and between all the columns.
+------------------------------------------------*/
+.table-bordered {
+  border: $table-border-width solid $table-border-color;
+
+  th,
+  td {
+    border: $table-border-width solid $table-border-color;
+  }
+
+  thead {
+    th,
+    td {
+      border-bottom-width: $table-border-width;
+    }
+  }
+}
+
+
+// Zebra-striping
+//
+// 
+/*------------------------------------------------ 
+  Default zebra-stripe styles 
+  (alternating gray and transparent backgrounds)
+------------------------------------------------*/
+.table-striped {
+  tbody tr:nth-of-type(odd) {
+    background-color: $table-bg-accent;
+  }
+}
+
+
+// Hover effect
+//
+// 
+/*------------------------------------------------ 
+  Placed here since it has to come after the potential zebra striping
+------------------------------------------------*/
+.table-hover {
+  tbody tr {
+    &:hover{
+      background-color: $table-bg-hover;
+    }
+  }
+}
+
+
+/*------------------------------------------------ 
+  Generate vatiations.
+  Exact selectors below required to override `.table-striped` and prevent
+  inheritance to nested tables.
+------------------------------------------------*/
+
+@if $table-color-variation{
+  @include table-row-variant(primary, $color-primary);
+  @include table-row-variant(secondary, $color-secondary);
+  @include table-row-variant(error, $color-error);
+  @include table-row-variant(success, $color-success);  
+}
+
+
+/*------------------------------------------------ 
+  Responsive tables
+  Wrap your tables in `.table-responsive` and we'll make them mobile friendly
+  by enabling horizontal scrolling. Only applies <768px. Everything above that
+  will display normally.
+------------------------------------------------*/
+.table-responsive {
+  display: block;
+  width: 100%;
+  min-height: 0.01%;
+  overflow-x: auto;
+}

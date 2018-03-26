@@ -1,0 +1,55 @@
+/*------------------------------------------------ 
+	//comments
+------------------------------------------------*/
+.route-detail{
+	.panel-footer{
+		@include screen(medium){
+			text-align: center;
+		}
+	}
+}
+
+.route-list{
+	max-width: 450px;
+	margin: 0 auto;
+
+	@include screen(medium){
+		max-width: 100%;
+	}
+
+	@extend %underline;
+}
+
+.route-detail-list{
+	max-width: 450px;
+
+	@include screen(medium){
+		max-width: 100%;
+	}
+
+	@extend %underline;
+}
+
+.route-detail-holder{
+	max-width: 250px;
+	margin: 0 auto;
+
+	@include screen(medium){
+		max-width: 100%;
+	}
+}
+
+%underline{
+	.underline{
+		position: absolute;
+		left: 100%;
+		white-space: nowrap;
+		margin-left: 10px;
+
+		@include screen(medium){
+			position: relative;
+			display: block;
+			left: auto;
+		}
+	}
+}

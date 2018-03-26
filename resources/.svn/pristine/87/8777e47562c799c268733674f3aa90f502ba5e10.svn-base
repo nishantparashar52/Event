@@ -1,0 +1,38 @@
+/*---------------------------------------------------------- 
+  default input styling
+----------------------------------------------------------*/
+.input{
+	@extend %input;
+
+	&:focus{
+		border-color: darken($inputBorderColor, $inputFocusVariation);
+		@include box-shadow( 0 0 5px 0 rgba($inputBorderColor, 0.2));
+		outline: 0;
+	}
+
+	&:disabled, 
+	&.disabled{
+		cursor: not-allowed;
+	}
+
+	&.full, 
+	&.block{
+		width: 100%;
+		display: block;
+	}
+
+	// Vertically space out multiple block buttons
+	&.block + &.block {
+	  margin-bottom: 5px;
+	}
+}
+
+/*---------------------------------------------------------- 
+  if required mulitple input variation.
+----------------------------------------------------------*/
+@if $inputColorOption{
+	@include inputVariation(primary, $color-primary);
+	@include inputVariation(secondary, $color-secondary);
+	@include inputVariation(error, $color-error);
+	@include inputVariation(success, $color-success);
+}

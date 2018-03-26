@@ -1,0 +1,23 @@
+/*---------------------------------------------------------- 
+  @mixin for create button color variation
+  @param: $name - name of button color.
+  @param: $color - for background color.
+----------------------------------------------------------*/
+
+@mixin buttonWithIconVariation($name, $color){
+  .button-icon{
+    &.#{$name}{
+      color: $color;
+
+      &:after{
+        background-color: $color;
+      }
+
+      @include hover-focus-active{
+        &:after{
+          background-color: darken($color, $buttonHoverVariation);
+        }
+      }
+    }
+  }
+}

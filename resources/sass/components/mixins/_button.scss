@@ -1,0 +1,48 @@
+/*---------------------------------------------------------- 
+  @mixin for disabled button
+  @param: $color - background color in disabled mode.
+  @param: $color - font color in disabled mode.
+----------------------------------------------------------*/
+@mixin buttonDisabled($color){
+  &.disabled,
+  &:disabled{
+    cursor: not-allowed;
+    background-color: $color;
+
+    &:hover, 
+    &:focus{
+      background-color: $color;
+    }
+  }
+}
+
+/*---------------------------------------------------------- 
+  @mixin for create button color variation
+  @param: $name - name of button color.
+  @param: $color - for background color.
+----------------------------------------------------------*/
+
+@mixin buttonVariation($name, $color){
+  .button{
+    &.#{$name}{
+      background-color: $color;
+      border-color: darken($color, 5%);
+
+      @include hover-focus-active{
+        background-color: darken($color, $buttonHoverVariation);
+      }
+
+      @include buttonDisabled($color);
+
+      &.bordered{
+        background-color: $color-white;
+        color: $color;
+
+        @include hover-focus-active{
+          background-color: darken($color, $buttonHoverVariation);
+          color: $color-white;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,92 @@
+/*------------------------------------------------ 
+	//comments
+------------------------------------------------*/
+.claim-refund-details{
+	.top-section{
+		.left, 
+		.right{
+			border: 1px solid $color-border;
+			float: left;
+			width: 50%;
+			padding: ($gutter / 2);
+
+			@include screen(medium){
+				width: 100%;
+			}
+		}
+
+		.left{
+			border-right-width: 0;
+			@include border-radius($borderRadius 0 0 $borderRadius);
+
+			@include screen(medium){
+				@include border-radius($borderRadius);
+				border-right-width: 1px;
+			}
+		}
+
+		.right{
+			@include border-radius(0 $borderRadius $borderRadius 0);
+
+			@include screen(medium){
+				@include border-radius($borderRadius);
+				border-top-width: 0;
+			}
+		}
+	}
+
+	.bottom-section{
+		position: relative;
+
+		&:before{
+			content:'';
+			position: absolute;
+			width: 1px;
+			height: 100%;
+			top: 0;
+			left: 50%;
+			background-color: $color-border;
+
+			@include screen(medium){
+				display: none;
+			}
+		}
+
+		.right{
+			padding-left: 10px;
+
+			@include screen(medium){
+				padding-left: 0;
+				padding-top: 20px;
+			}
+		}
+	}
+
+	.dl-horizontal{
+		padding-right: 10px;
+
+		@include screen(medium){
+			padding-right: 0;
+		}
+
+		dt, dd{
+			padding: 5px 0;
+		}
+
+		hr{
+			float: left;
+			width: 100%;
+		}
+
+		dd{
+			text-align: right;
+			@extend %bold;
+		}
+	}
+
+	.list{
+		>li{
+			padding: 5px 0;
+		}
+	}
+}

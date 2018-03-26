@@ -1,0 +1,112 @@
+.modal-open{
+	overflow: hidden;
+
+	.modal-backdrop{
+		height: 100%;
+		width: 100%;
+	}
+
+	.modal{
+		display: block;
+		height: 100%;
+		width: 100%;
+	}
+}
+
+.modal{
+	display: none;
+	left: 0;
+	overflow: hidden;
+	overflow-y: auto;
+	position: fixed;
+	top: 0;
+	z-index: 100;
+	padding-left: $gutter;
+	padding-right: $gutter;
+
+	&.modal-xlg{
+		.panel{
+			max-width:800px;
+		}
+	}
+	
+	&.modal-lg{
+		.panel{
+			max-width:600px;
+		}
+	}
+
+	&.modal-md{
+		.panel{
+			max-width:600px;
+		}
+	}
+
+	&.modal-sm{
+		.panel{
+			max-width:400px;
+		}
+	}
+
+	&.modal-xs{
+		.panel{
+			max-width:300px;
+		}
+	}
+
+	.panel{
+		//@include transform(translate(0px, -25%));
+		//@include transition(transform);
+		margin: 30px auto;
+		position: relative;
+		max-width: 500px;
+		padding: 0;
+	}
+
+	.panel-heading, 
+	.panel-body,
+	.panel-footer{
+		padding: $gutter;
+	}
+
+	/*
+	
+	.input{
+		width: 100%;
+	} */
+
+	/* .angle{
+		border: 1px solid $color-sky;
+		height: 70px;
+		width: 70px;
+		@include border-radius(50%);
+	
+		&:after{
+			left: 30%;
+			top: 15%;
+			border-width: 0 1px 1px 0;
+			width: 25px;
+		}
+	
+		&.center{
+			margin: 0 auto;
+		}
+	
+		&.angle-right{
+			&:after{
+				@include transform(rotate(45deg));
+				height: 45px;
+			}
+		}
+	} */
+}
+
+.modal-backdrop{
+	background-color: $color-black;
+	background-color: rgba($color-black, 0.8);
+	left: 0;
+  overflow: hidden;
+  position: fixed;
+	top: 0;
+	z-index: 99;
+}

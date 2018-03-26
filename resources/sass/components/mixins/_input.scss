@@ -1,0 +1,19 @@
+/*---------------------------------------------------------- 
+  @mixin for create input box color variation
+  @param: $name - name of input box color.
+  @param: $color - for border color.
+----------------------------------------------------------*/
+
+@mixin inputVariation($name, $color){
+  .input{
+    &.#{$name}{
+      border-color: $color;
+
+      &:focus{
+        outline: 0;
+        border-color: $color;
+        @include box-shadow( 0 0 5px 0 rgba($color, 0.2));
+      }
+    }
+  }
+}

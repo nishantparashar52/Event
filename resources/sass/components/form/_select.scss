@@ -1,0 +1,58 @@
+/*------------------------------------------------ 
+	//comments
+------------------------------------------------*/
+.select-box{
+	@include border-radius($selectBorderRadius);
+	background-color: $color-white;
+	border: 1px solid $selectBorderColor;
+	position: relative;
+
+	&:after{
+		content:'';
+		position: absolute;
+		@include transform(rotate(45deg));
+		border-bottom: 1px solid $selectBorderColor;
+		border-right: 1px solid $selectBorderColor;
+		height: 0.5rem;
+		right: 14px;
+		top: 12px;
+		width: 0.5rem;
+	}
+
+	&.custom{
+		select{
+			@include opacity(0);
+		}
+
+		.input-value{
+			display: block;
+    	padding: ($gutter / 2) ($gutter * 2) ($gutter / 2) ($gutter / 2);
+		}
+
+		select{
+			position: absolute;
+		}
+	}
+
+	select{
+		@include appearance(none);
+		background: transparent;
+		border: 0 none;
+		color: inherit;
+		font-family: inherit;
+		font-size: inherit;
+		padding: ($gutter / 2) ($gutter * 2) ($gutter / 2) ($gutter / 2);
+		position: relative;
+		top: 0;
+		width: 100%;
+		z-index: 1;
+
+		&::-ms-expand {
+		  display: none;
+		}
+
+		@include hover-focus{
+			outline: 0;
+		}
+	}
+}

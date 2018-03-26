@@ -1,0 +1,23 @@
+/*------------------------------------------------ 
+	//comments
+------------------------------------------------*/
+.ecash-wallet{
+	.left{
+		padding: $gutter $gutter 0 $gutter;
+		@include border-radius($borderRadius 0 0 $borderRadius);
+
+		@include screen(medium){
+			@include border-radius($borderRadius $borderRadius 0 0);
+		}
+	}
+
+	.right{
+		padding: $gutter;
+		background: $color-white;
+		@include border-radius(0 $borderRadius $borderRadius 0);
+
+		@include screen(medium){
+			@include border-radius(0 0 $borderRadius $borderRadius);
+		}
+	}
+}

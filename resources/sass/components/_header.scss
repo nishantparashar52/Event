@@ -1,0 +1,23 @@
+/*------------------------------------------------ 
+	Header Structure
+------------------------------------------------*/
+.header{
+	z-index: 99;
+	background-color: $color-white;    
+	position: fixed;
+    box-shadow: inset 0 -1px 0 0 hsla(0,0%,80%,.96);
+    width: 100vw;
+    transition : transform .2s ease-in;
+    &.header-scroll {
+
+    }
+	.header-wrapper{
+		height: 80px;
+	}
+	/*.right-header{
+		width : 25%;
+	}*/
+	a{
+		color: #fff;
+	}
+}

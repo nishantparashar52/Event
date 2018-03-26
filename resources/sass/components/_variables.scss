@@ -1,0 +1,219 @@
+/*
+	variable declaration
+*/
+
+/*----------------------------------------------
+  base colors 
+------------------------------------------------*/
+$body-base                    :#f2f1f1 !default;
+$color-base                   :#999999 !default;
+
+$color-white                  :#ffffff !default;
+$color-black                  :#000000 !default;
+$color-link                   :#0072bb !default;
+$color-link-hover             :#ff7400 !default;
+
+$color-gray                   :#b7b7b7 !default;
+$color-lt-gray                :#999999 !default;
+
+/*----------------------------------------------
+  color options 
+------------------------------------------------*/
+$color-primary                :#0072bb;
+$color-secondary              :#ff7400;
+$color-error                  :#ff0000;
+$color-success                :#008000;
+
+/*----------------------------------------------
+  new colors 
+------------------------------------------------*/
+
+$color-border                 :#e0e0e0 !default;
+$color-blue                   :#2b4e72 !default;
+$color-sky                    :#4ea5df !default;
+$color-dark                   :#333333 !default;
+$color-light                  :#f4f7fa !default;
+$color-nav                    :#223e5b !default;
+$color-nav-active             :#d3dbe3 !default;
+
+$color-primary                :$color-sky;
+$color-success                :#6abe2e;
+$color-link                   :$color-sky;
+$color-link-hover             :$color-blue;
+
+/*----------------------------------------------
+  Image sprite 
+------------------------------------------------*/
+$main-sprite                  :"sprite-hotels.png";
+
+/*----------------------------------------------
+  font family 
+------------------------------------------------*/
+$font-family-base             :"Lato Regular"!default;
+$font-family-bold             :"Lato Bold" !default;
+$font-family-rs               :"RupeeSign" !default;
+
+/*----------------------------------------------
+  icon size sizes.
+  This is for auto genereated sprite from gulp 
+------------------------------------------------*/
+$icon-size                    :(20px, 25px, 30px);
+
+/*----------------------------------------------
+  font sizes 
+------------------------------------------------*/
+$font-size-base               :14px;
+$font-size-xs                 :0.786em	!default; //11px
+$font-size-sm                 :0.857em	!default; //12px
+$font-size-md                 :1.143em	!default; //16px
+$font-size-lg                 :1.286em	!default; //18px
+$font-size-xlg                :2.143em !default; //30px
+
+/*----------------------------------------------
+  screen sizes 
+------------------------------------------------*/
+$screen                       :1140px !default;
+$screen-xs                    :480px !default;
+$screen-sm                    :640px !default;
+$screen-md                    :768px !default;
+$screen-lg                    :990px !default;
+$screen-xlg                   :$screen;
+
+/*----------------------------------------------
+  grid structure 
+------------------------------------------------*/
+$gutter												:1rem !default;
+$enable-grid									:false !default;
+$grid-columns									:12 !default;
+
+$grid-breakpoints: (
+  // Extra large screen / wide desktop
+  xlg: 0,
+  // Large screen / desktop
+  lg: $screen-lg,
+  // Medium screen / tablet
+  md: $screen-md,
+  // Small screen / phone
+  sm: $screen-sm,
+  // Extra small screen / phone
+  xs: $screen-xs
+) !default;
+
+/*----------------------------------------------
+  Basic Things 
+------------------------------------------------*/
+$basicTextColor               :true;
+$basicBackgroundColor         :true;
+$basicTextAlignment           :true;
+$basicTypeCase                :true;
+$basicFontSize                :true;
+$borderRadius                 :4px;
+
+/*----------------------------------------------
+  table customization 
+------------------------------------------------*/
+$table-cell-padding           :10px;
+$table-sm-cell-padding        :5px;
+$table-line-height            :1.2;
+$table-border-width           :1px;
+$table-color-variation        :false;
+$table-border-color           :$color-border;
+$table-bg-color               :$color-white;
+$table-bg-accent              :darken($color-gray, 10%);
+$table-bg-hover               :$color-gray;
+
+/*----------------------------------------------
+  button customization 
+------------------------------------------------*/
+$buttonColorOption            :true; //add color options. (primary, secondary, error, success)
+$buttonSizeOption             :true; //add size options. (eg. xs, sm, lg, xlg)
+$buttonHoverVariation         :10%; //
+$buttonBorderRadius           :$borderRadius;
+$buttonPaddingX               :20px !default;
+$buttonPaddingY               :8px !default;
+
+$buttonWithIconColorOption		:true; //add color options. (primary, secondary, error, success)
+
+/*----------------------------------------------
+  input customizaton 
+------------------------------------------------*/
+$inputColorOption             :true; //add input box color options.
+$inputFocusVariation          :10%; //color varition on focus.
+$inputBorderRadius            :$borderRadius;
+$inputBorderColor             :$color-border;
+$inputPaddingX                :10px !default;
+$inputPaddingY                :8px !default;
+
+$inputGroupColorOption        :true; //add input group color options.
+$inputIconColorOption					:true; //add input with icon color options.
+
+/*----------------------------------------------
+  upload button customizaton 
+------------------------------------------------*/
+$uploadBorderColor            :$color-border;
+$uploadBorderRadius           :$borderRadius;
+$uploadButtonColorOption      :true;
+
+/*----------------------------------------------
+  radio and checkbox customizaton 
+------------------------------------------------*/
+$radioCheckBorderColor        :$color-border;
+$radioCheckBorderRadius       :$borderRadius;
+$radioCheckColorOption        :true;
+
+/*----------------------------------------------
+  panel customizaton 
+------------------------------------------------*/
+$panelBorderRadius            :$borderRadius;
+$panelBorderColor             :$color-border;
+$panelColorOption             :false;
+
+
+/*----------------------------------------------
+  panel popup customizaton 
+------------------------------------------------*/
+$panelPopupBorderRadius       :$borderRadius;
+$panelPopupBorderColor        :$color-border;
+$panelPopupBgColor            :$color-white;
+
+/*----------------------------------------------
+  select customization 
+------------------------------------------------*/
+$selectBorderColor            :$color-border;
+$selectBorderRadius           :$borderRadius;
+
+/*----------------------------------------------
+  tab customization 
+------------------------------------------------*/
+$tabBorderRadius                  :$borderRadius;
+$tabBorderColor                   :$color-border;
+$tabBgColor                       :$color-white;
+
+
+/*----------------------------------------------
+  tooltip customization 
+------------------------------------------------*/
+$tooltipBgColor               :$color-black;
+$tooltipColor                 :$color-white;
+$tooltipBorderRadius          :$borderRadius;
+
+/*----------------------------------------------
+  timeline customization 
+------------------------------------------------*/
+$timelineBgColor              :$color-gray;
+$timelineBorderColor          :$color-border;
+$timelineColor                :$color-white;
+$timelineBorderRadius         :$borderRadius;
+
+/*----------------------------------------------
+  tag customization 
+------------------------------------------------*/
+$tagBorderColor               :$color-border;
+$tagBorderRadius              :$borderRadius;
+
+/*----------------------------------------------
+  pagination customization
+------------------------------------------------*/
+$paginationBorderRadius              :$borderRadius;
+$paginationBorderColor               :$color-border;
+$paginationBgColor                   :$color-white;

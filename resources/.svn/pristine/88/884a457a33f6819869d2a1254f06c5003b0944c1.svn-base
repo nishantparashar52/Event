@@ -1,0 +1,32 @@
+/*------------------------------------------------ 
+	//comments
+------------------------------------------------*/
+.travel-date{
+	.input{
+		width: 100%;
+		border-width: 1px 0 1px 0;
+		@include border-radius(0);
+		padding-left: 0;
+		padding-right: 20px;
+
+		&:focus{
+			@include box-shadow(0 0 0 0 !important);
+		}
+	}
+
+	.input-icon{
+		&:before{
+			right: 2px;
+		}
+
+	}
+
+	.travel-date-left, 
+	.travel-date-right{
+		padding: 0 40px;
+
+		@include screen(medium){
+			padding: ($gutter / 2) ($gutter / 2) 20px;
+		}
+	}
+}

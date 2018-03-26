@@ -1,0 +1,52 @@
+/*------------------------------------------------ 
+	//comments
+------------------------------------------------*/
+.upload-button{
+  border: 1px solid $uploadBorderColor;
+  @include border-radius($borderRadius);
+  @extend %clearfix;
+  position: relative;
+
+	input[type="file"] {
+	  display: none;
+	}
+
+  >span{
+    padding: ($gutter / 2) 25% ($gutter / 2) $gutter;
+    display: block;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    @extend %ellipsis;
+    z-index: 0;
+    color: inherit;
+    font-size: inherit;
+    font-family: inherit;
+  }
+
+  >label{
+  	position: relative;
+  	z-index: 1;
+    float: right;
+    background-color: $color-gray;
+    color: $color-white;
+    padding: ($gutter / 2) $gutter;
+    display: inline-block;
+    @include border-radius(0 $borderRadius $borderRadius 0);
+    @extend %transition;
+    cursor: pointer;
+
+    @include hover-focus{
+    	background-color: darken($uploadBorderColor, $buttonHoverVariation);
+    }
+  }
+}
+
+
+@if $uploadButtonColorOption{
+	@include buttonUploadVariation(primary, $color-primary);
+	//@include buttonUploadVariation(secondary, $color-secondary);
+	//@include buttonUploadVariation(error, $color-error);
+	//@include buttonUploadVariation(success, $color-success);
+}

@@ -1,0 +1,54 @@
+.panel-section{
+	padding: 0;
+
+	@include screen(medium){
+		.hide-content{
+			display: none;
+		}
+	}
+
+	.open{
+		@include screen(medium){
+			.hide-content{
+				display: block;
+				margin-top: 10px;
+				float: left;
+				padding-top: 10px;
+				width: 100%;
+				border-top: 1px dotted $color-border;
+			}
+		}
+	}	
+
+	.panel-border{
+		&:after{ 
+			border-right: 1px dotted $color-border;
+			content: "";
+			height: 35px;
+			position: absolute;
+			right: 0;
+			top: 0;
+		}
+
+		&.border-off{
+			@include screen(medium){
+				&:after{
+					display: none;
+				}
+			}
+		}
+	}
+
+	.panel-heading{
+		padding: 10px 15px;
+		border-bottom: 0;
+	}
+
+	.panel-body{
+		padding: 15px;
+
+		&:first-child{
+			border-top: 0;
+		}
+	}
+}

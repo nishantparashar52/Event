@@ -1,0 +1,25 @@
+/*---------------------------------------------------------- 
+  @mixin for create input box color variation
+  @param: $name - name of input box color.
+  @param: $color - for border color.
+----------------------------------------------------------*/
+
+@mixin inputIconVariation($name, $color){
+  .input-icon{
+    &.#{$name}{
+      
+      &:before, 
+      &:after{
+        color: $color;
+      }
+
+      .input{
+        border-color: $color;
+      }
+
+      &.disabled{
+        cursor: not-allowed;
+      }
+    }
+  }
+}

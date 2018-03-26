@@ -1,0 +1,23 @@
+/*---------------------------------------------------------- 
+  //comments
+----------------------------------------------------------*/
+
+@mixin arrow-tag($color, $name){
+  .arrow-tag{
+    &.#{$name}{
+      background-color: $color;
+
+      &.arrow-right{
+        &:after{
+          border-left-color: $color;
+        }
+      }
+
+      &.arrow-left{
+        &:before{
+          border-right-color: $color;
+        }
+      }
+    }
+  }
+}

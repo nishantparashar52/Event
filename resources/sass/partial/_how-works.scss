@@ -1,0 +1,17 @@
+.hw-icon{
+	height: 90px;
+    width: 100px;
+    margin: 10px auto;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-image: url(../../resources/images/sprite-why-how.png);
+    &.disco{
+    	background-position: 100% -8px;
+    }
+    &.visit{
+    	background-position: 100% -96px;
+    }
+    &.book{
+        background-position: 100% -189px;
+    }
+}

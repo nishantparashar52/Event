@@ -1,0 +1,19 @@
+/*---------------------------------------------------------- 
+  @mixin for create upload button color variation
+  @param: $name - name of button color.
+  @param: $color - for background color.
+----------------------------------------------------------*/
+
+@mixin buttonUploadVariation($name, $color){
+  .upload-button{
+    &.#{$name}{
+      >label{
+        background-color: $color;
+
+        @include hover-focus-active{
+          background-color: darken($color, $buttonHoverVariation);
+        }
+      }
+    }
+  }
+}

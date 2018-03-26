@@ -1,0 +1,56 @@
+html{
+	@include box-sizing('border-box');
+}
+
+*,*:before,*:after{
+	@include box-sizing('inherit');
+}
+
+body {
+	color: $color-base;
+	font: normal #{$font-size-base}/normal $font-family-base;
+	background-color: $body-base;
+	min-width: 320px;
+}
+
+a {
+	color: $color-link;
+	text-decoration: none;
+	@extend %transition;
+
+	&:hover {
+		color: $color-link-hover;
+	}
+}
+
+p {line-height: 1.2;}
+
+hr{
+	@include clearfix;
+	border: 0 none;
+	border-top: 1px solid $color-border;
+}
+
+.clearfix{@include clearfix;}
+
+.block{display: block;}
+.il-block{display: inline-block;}
+.user-select{@include user-select;}
+.no-border{border: 0 none !important;}
+
+.fl{float: left;}
+.fr{float: right;}
+.fn{float: none !important;}
+.fn-auto{float: none !important; margin: 0 auto;}
+
+/*---------------------------------------------
+	if $basicBackgroundColor is true.
+	generate basic background color which is defined.
+---------------------------------------------*/
+@if $basicBackgroundColor{
+  .bg-primary{background-color: $color-primary;}
+  .bg-secondary{background-color: $color-secondary;}
+  .bg-error{background-color: $color-error;}
+  .bg-success{background-color: $color-success;}
+  .bg-white{background-color: $color-white;}
+}

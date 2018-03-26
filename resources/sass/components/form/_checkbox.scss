@@ -1,0 +1,23 @@
+/*----------------------------------------------- 
+	comments
+-----------------------------------------------*/
+.checkbox{
+	@extend %radio-checkbox;
+
+	span{
+		&:before{
+			@include border-radius($radioCheckBorderRadius);
+		}
+
+		&:after{
+			content:'';
+			@include transform(rotate(45deg));
+			border-bottom: 1px solid $color-gray;
+			border-right: 1px solid $color-gray;
+			height: 0.5rem;
+			width: 0.3rem;
+			left: 6px;
+			top: 3px;
+		}
+	}
+}

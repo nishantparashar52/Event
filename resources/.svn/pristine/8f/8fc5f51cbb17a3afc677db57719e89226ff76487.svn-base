@@ -1,0 +1,39 @@
+/*------------------------------------------------ 
+	//common
+------------------------------------------------*/
+.ticket{
+	
+}
+
+.open-ticket{
+	.table{
+		.button {
+	    padding: 4px 10px;
+		}
+		
+		thead{
+			white-space: nowrap;
+		}
+
+		th{
+			border-top: 0;
+		}
+
+		tr{
+			th, 
+			td{
+				&:first-child{
+					padding-left: 0;
+				}
+
+				&:last-child{
+					padding-right: 0;
+				}
+
+				@include screen(medium){
+					white-space: nowrap;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,191 @@
+/*------------------------------------------------ 
+	//comments
+------------------------------------------------*/
+.manage-booking{
+	@include screen(medium){
+		overflow: hidden;
+	}
+
+	.panel-body{
+  	overflow: hidden;
+  	padding-left: 15px;
+		padding-right: 15px;
+
+		@include screen(medium){
+			overflow: visible;
+		}
+  }
+
+	.info-block{
+		i{
+			color: $color-lt-gray;
+		}
+
+		@include screen(medium){
+			float: left;
+		}
+	}
+}
+
+.manage-booking-list{
+	border-top: 1px solid $color-border;
+	margin: 15px auto 0;
+	padding-top: 10px;
+	max-width: 180px;
+
+	.icon-right{
+		padding: 5px 0;
+		display: block;
+		@extend %ellipsis;
+
+		&:before{
+			top: 7px;
+		}
+	}
+
+	@include screen(medium){
+		position: relative;
+		max-width: 100%;
+		display: block;
+		margin-left: 115px;
+		margin-top: 0;
+		padding-top: 0;
+		border-top: 0 none;
+		padding-left: 10px;
+	}
+}
+
+.manage-booking-cell{
+	position: relative;
+	padding-top: ($gutter / 2);
+	padding-bottom: ($gutter / 2);
+
+	&:not(:last-child){
+		a{
+			color: $color-dark;
+
+			@include hover-focus-active{
+				color: $color-dark;
+			}
+		}
+	}
+
+	&:before{
+		content:'';
+		width: 1px;
+		right: 0;
+		top: -10%;
+		position: absolute;
+		height: 200%;
+		background-color: $color-border;
+
+		@include screen(medium){
+			background-color: $body-base;
+			width: 110%;
+			height: 10px;
+			left: -10px;
+			top: auto;
+			bottom: 0;
+		}
+	}
+
+	@include screen(medium){
+		&:after{
+			display: block;
+			background-color: $body-base;
+			content:'';
+			height: 100%;
+			width: 1px;
+			position: absolute;
+			top: -0.5rem;
+			left: 124px;
+		}
+	}
+	
+	&:last-child{
+		&:before, &:after{
+			display: none;
+		}
+		
+		@include screen(medium){
+			padding-bottom: 0;
+		}
+	}
+
+	@include screen(medium){
+		padding-bottom: 20px;
+	}
+	
+	.button-icon{
+		width: 100%;
+		max-width: 245px;
+		margin: 10px auto;
+		text-align: left;
+		border-color: $color-border;
+		padding-right: 50px;
+		color: $color-gray;
+		padding-top: 12px;
+		padding-bottom: 10px;
+
+		@include screen(extra-large){
+			padding-left: 10px;
+		}
+
+		@include hover-focus{
+			&:after{
+				background-color: $color-blue;
+			}
+		}
+
+		.icon{
+			@extend %ellipsis;
+			display: block;
+
+			&:before{
+				margin-right: 5px;
+				font-size: 20px;
+				color: $color-gray;
+			}
+		}
+		
+		&:before{
+			content:'';
+			top: 0;
+			background-color: $color-blue;
+			width: 0;
+			height: 100%;
+			right: 0;
+			@extend %transition;
+			z-index: 0;
+		}
+	
+		&:after{
+			font: normal normal normal 25px/1.6 FontAwesome;
+			content: $fa-var-angle-right;
+			background-color: $color-blue;
+			color: $color-white;
+		}
+	
+		@include hover-focus-active{
+			border-color: $color-blue;
+
+			.text-dark{
+				color: $color-white;
+			}
+
+			&:before{
+				width: 100%;
+			}
+
+			.icon{
+				&:before{
+					color: $color-white;
+				}
+			}
+		}
+	
+		@include screen(medium){
+			max-width: 100%;
+		}
+	}
+}

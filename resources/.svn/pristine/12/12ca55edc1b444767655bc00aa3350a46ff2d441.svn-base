@@ -1,0 +1,19 @@
+/*----------------------------------------------- 
+	comments
+-----------------------------------------------*/
+.radio{
+	@extend %radio-checkbox;
+
+	span{
+		&:before{
+			@include border-radius(50%);
+		}
+
+		&:after{
+			content: '';
+			top: 3px;
+			border: 5px solid $radioCheckBorderColor;
+			@include border-radius(50%);
+		}
+	}
+}

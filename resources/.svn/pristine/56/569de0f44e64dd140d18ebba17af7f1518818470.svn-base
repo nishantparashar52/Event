@@ -1,0 +1,14 @@
+/*------------------------------------------------ 
+	//comments
+------------------------------------------------*/
+.dashboard-header{
+	@include font(20, bold);
+	padding-top: 15px;
+	padding-bottom: 15px;
+
+	.link{
+		padding: 5px;
+		margin-left: 10px;
+		color: $color-dark;
+	}
+}

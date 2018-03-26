@@ -1,0 +1,41 @@
+{
+  "name": "marketplace",
+  "version": "1.0.0",
+  "description": "Holiday Marketplace",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Yatra UI",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^6.3.1",
+    "browser-sync": "^2.11.1",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-compass": "^2.1.0",
+    "gulp-css-prefix": "^0.1.0",
+    "gulp-csscomb": "^3.0.7",
+    "gulp-csslint": "^0.2.0",
+    "gulp-csslint-filereporter": "0.0.5",
+    "gulp-group-css-media-queries": "^1.1.0",
+    "gulp-iconfont": "^5.0.1",
+    "gulp-if": "^2.0.0",
+    "gulp-imagemin": "^2.4.0",
+    "gulp-postcss": "^6.0.1",
+    "gulp-ruby-sass": "^2.0.6",
+    "gulp-sass": "^2.1.1",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-strip-css-comments": "^1.2.0",
+    "gulp-uglify": "^1.5.1",
+    "gulp-uncss": "^1.0.4",
+    "gulp-util": "^3.0.7",
+    "gulp.spritesmith": "^4.1.1",
+    "node-font-awesome": "^1.0.2",
+    "vinyl-buffer": "^1.0.0",
+    "yargs": "^3.32.0"
+  },
+  "dependencies": {
+    "compass": "^0.1.1"
+  }
+}

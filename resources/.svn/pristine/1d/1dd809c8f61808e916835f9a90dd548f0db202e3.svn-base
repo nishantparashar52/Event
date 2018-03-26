@@ -1,0 +1,24 @@
+/*------------------------------------------------ 
+	//comments
+------------------------------------------------*/
+.fare-details{
+	.route-list{
+		>li{
+			padding: 5px 0;
+		}
+	}
+
+	.list-bordered{
+		>li{
+			padding: ($gutter / 2);
+
+			&:first-child{
+				@include border-radius($borderRadius $borderRadius 0 0);
+			}
+
+			&:last-child{
+				@include border-radius(0 0 $borderRadius $borderRadius);
+			}
+		}
+	}
+}

@@ -1,0 +1,33 @@
+/*------------------------------------------------ 
+	images customization
+------------------------------------------------*/
+.img-fluid{
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.img-responsive{
+  display: inline-block;
+  max-width: 100%;
+  height: auto;
+}
+
+.img-response{
+  display: inline-block;
+  width: 100%;
+  height: auto;
+}
+
+.img-circle {
+  @include border-radius(50%);
+}
+
+.img-cover{
+  background-position: center center;
+  background-size: cover;
+}
+
+.img-rounded {
+  @include border-radius($borderRadius);
+}

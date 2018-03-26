@@ -1,0 +1,137 @@
+/*
+SCSS variables are information about icon's compiled state, stored under its original file name
+
+.icon-home {
+  width: $icon-home-width;
+}
+
+The large array-like variables contain all information about a single icon
+$icon-home: x y offset_x offset_y width height total_width total_height image_path;
+
+At the bottom of this section, we provide information about the spritesheet itself
+$spritesheet: width height image $spritesheet-sprites;
+*/
+
+$icon-img-bus-name: 'icon-img-bus';
+$icon-img-bus-x: 0px;
+$icon-img-bus-y: 0px;
+$icon-img-bus-offset-x: 0px;
+$icon-img-bus-offset-y: 0px;
+$icon-img-bus-width: 48px;
+$icon-img-bus-height: 48px;
+$icon-img-bus-total-width: 164px;
+$icon-img-bus-total-height: 106px;
+$icon-img-bus-image: 'sprite.png';
+$icon-img-bus: (0px, 0px, 0px, 0px, 48px, 48px, 164px, 106px, 'sprite.png', 'icon-img-bus', );
+$icon-img-flight-name: 'icon-img-flight';
+$icon-img-flight-x: 58px;
+$icon-img-flight-y: 0px;
+$icon-img-flight-offset-x: -58px;
+$icon-img-flight-offset-y: 0px;
+$icon-img-flight-width: 48px;
+$icon-img-flight-height: 48px;
+$icon-img-flight-total-width: 164px;
+$icon-img-flight-total-height: 106px;
+$icon-img-flight-image: 'sprite.png';
+$icon-img-flight: (58px, 0px, -58px, 0px, 48px, 48px, 164px, 106px, 'sprite.png', 'icon-img-flight', );
+$icon-img-food-name: 'icon-img-food';
+$icon-img-food-x: 0px;
+$icon-img-food-y: 58px;
+$icon-img-food-offset-x: 0px;
+$icon-img-food-offset-y: -58px;
+$icon-img-food-width: 48px;
+$icon-img-food-height: 48px;
+$icon-img-food-total-width: 164px;
+$icon-img-food-total-height: 106px;
+$icon-img-food-image: 'sprite.png';
+$icon-img-food: (0px, 58px, 0px, -58px, 48px, 48px, 164px, 106px, 'sprite.png', 'icon-img-food', );
+$icon-img-holidays-name: 'icon-img-holidays';
+$icon-img-holidays-x: 58px;
+$icon-img-holidays-y: 58px;
+$icon-img-holidays-offset-x: -58px;
+$icon-img-holidays-offset-y: -58px;
+$icon-img-holidays-width: 48px;
+$icon-img-holidays-height: 48px;
+$icon-img-holidays-total-width: 164px;
+$icon-img-holidays-total-height: 106px;
+$icon-img-holidays-image: 'sprite.png';
+$icon-img-holidays: (58px, 58px, -58px, -58px, 48px, 48px, 164px, 106px, 'sprite.png', 'icon-img-holidays', );
+$icon-img-hotel-name: 'icon-img-hotel';
+$icon-img-hotel-x: 116px;
+$icon-img-hotel-y: 0px;
+$icon-img-hotel-offset-x: -116px;
+$icon-img-hotel-offset-y: 0px;
+$icon-img-hotel-width: 48px;
+$icon-img-hotel-height: 48px;
+$icon-img-hotel-total-width: 164px;
+$icon-img-hotel-total-height: 106px;
+$icon-img-hotel-image: 'sprite.png';
+$icon-img-hotel: (116px, 0px, -116px, 0px, 48px, 48px, 164px, 106px, 'sprite.png', 'icon-img-hotel', );
+$icon-img-train-name: 'icon-img-train';
+$icon-img-train-x: 116px;
+$icon-img-train-y: 58px;
+$icon-img-train-offset-x: -116px;
+$icon-img-train-offset-y: -58px;
+$icon-img-train-width: 48px;
+$icon-img-train-height: 48px;
+$icon-img-train-total-width: 164px;
+$icon-img-train-total-height: 106px;
+$icon-img-train-image: 'sprite.png';
+$icon-img-train: (116px, 58px, -116px, -58px, 48px, 48px, 164px, 106px, 'sprite.png', 'icon-img-train', );
+$spritesheet-width: 164px;
+$spritesheet-height: 106px;
+$spritesheet-image: 'sprite.png';
+$spritesheet-sprites: ($icon-img-bus, $icon-img-flight, $icon-img-food, $icon-img-holidays, $icon-img-hotel, $icon-img-train, );
+$spritesheet: (164px, 106px, 'sprite.png', $spritesheet-sprites, );
+
+/*
+The provided mixins are intended to be used with the array-like variables
+
+.icon-home {
+  @include sprite-width($icon-home);
+}
+
+.icon-email {
+  @include sprite($icon-email);
+}
+*/
+@mixin sprite-width($sprite) {
+  width: nth($sprite, 5);
+}
+
+@mixin sprite-height($sprite) {
+  height: nth($sprite, 6);
+}
+
+@mixin sprite-position($sprite) {
+  $sprite-offset-x: nth($sprite, 3);
+  $sprite-offset-y: nth($sprite, 4);
+  background-position: $sprite-offset-x  $sprite-offset-y;
+}
+
+@mixin sprite-image($sprite) {
+  $sprite-image: nth($sprite, 9);
+  background-image: url(#{$sprite-image});
+}
+
+@mixin sprite($sprite) {
+  @include sprite-image($sprite);
+  @include sprite-position($sprite);
+  @include sprite-width($sprite);
+  @include sprite-height($sprite);
+}
+
+/*
+The `sprites` mixin generates identical output to the CSS template
+  but can be overridden inside of SCSS
+
+@include sprites($spritesheet-sprites);
+*/
+@mixin sprites($sprites) {
+  @each $sprite in $sprites {
+    $sprite-name: nth($sprite, 10);
+    .#{$sprite-name} {
+      @include sprite($sprite);
+    }
+  }
+}

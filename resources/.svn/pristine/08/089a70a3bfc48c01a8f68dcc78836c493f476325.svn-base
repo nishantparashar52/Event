@@ -1,0 +1,55 @@
+/*----------------------------------------------
+  Comments
+------------------------------------------------*/
+.button{
+	&.button-icon{
+		background-color: transparent;
+		color: $color-gray;
+		padding-right: 50px;
+		position: relative;
+		
+		&:after, 
+		&:before{
+			position: absolute;
+		}
+		
+		&:after{
+			@include border-radius(0 $buttonBorderRadius $buttonBorderRadius 0);
+			@extend %transition;
+			background-color: $color-gray;
+			bottom: -1px;
+			content:'';
+			right: -1px;
+			text-align: center;
+			top: -1px;
+			width: 40px;
+			z-index: 1;
+		}
+
+		&:before{
+			color: $color-white;
+			height: 100%;
+			line-height: 30px;
+			width: 40px;
+			z-index: 2;
+		}
+
+		@include hover-focus-active{
+      background-color: transparent;
+      
+      &:after{
+        background-color: darken($color-gray, $buttonHoverVariation);
+      }
+    }
+	}
+}
+
+/*---------------------------------------------------------- 
+  if required mulitple button variation.
+----------------------------------------------------------*/
+@if $buttonWithIconColorOption{
+	@include buttonWithIconVariation(primary, $color-primary);
+	@include buttonWithIconVariation(secondary, $color-secondary);
+	@include buttonWithIconVariation(error, $color-error);
+	@include buttonWithIconVariation(success, $color-success);
+}

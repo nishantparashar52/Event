@@ -1,0 +1,25 @@
+/*------------------------------------------------ 
+	breadcurm
+------------------------------------------------*/
+.breadcurm{
+  >li{
+    &:first-child{
+      &:before{
+        margin-right: 5px;
+        vertical-align: top;
+        margin-top: 1px;
+      }
+    }
+
+    &:after{
+      content:'/';
+      margin-left: 5px;
+    }
+
+    &:last-child{
+      &:after{
+        content:'';
+      }
+    }
+  }
+}

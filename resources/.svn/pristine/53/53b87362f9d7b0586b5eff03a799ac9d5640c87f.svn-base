@@ -1,0 +1,448 @@
+/// Mixin to add font family
+/// @param {String} $family - family name
+/// @param {String} $src - font source path
+/// @param {String} $weight - font weight ('normal','bold','light')
+/// @param {String} $style - font style (normal, italic);
+@mixin fontFace($family,$src,$weight: normal,$style: normal) {
+	@font-face {
+    font-family: $family;
+    src: url('#{$src}.eot'); // IE9 compat
+    src: url('#{$src}.eot?#iefix') format('embedded-opentype'), // IE8 and below
+         url('#{$src}.woff') format('woff'), // standards
+         url('#{$src}.ttf') format('truetype'), // Safari, Android, iOS
+         url('#{$src}.svg##{$family}') format('svg'); // legacy iOS
+
+    font-style: $style;
+    font-weight: $weight;
+	}
+}
+
+/// Mixin to user media quiery
+/// @param {*} $media - Screen size as given variable or in value in pixel(480px).
+@mixin screen($media) {
+	@if $media == very-small {
+		@media only screen and (max-width: ($screen-xs - 1px)) {
+			@content;
+		}
+	}@else if $media == small {
+		@media only screen and (max-width: ($screen-sm - 1px)) {
+			@content;
+		}
+	}@else if $media == medium {
+		@media only screen and (max-width: ($screen-md - 1px)) {
+			@content;
+		}
+	}@else if $media == large {
+		@media only screen and (max-width: ($screen-lg - 1px)) {
+			@content;
+		}
+	}
+	@else if $media == extra-large {
+		@media only screen and (max-width: ($screen-xlg - 1px)) {
+			@content;
+		}
+	}
+	/// screen size if not available in variable.
+	@else {
+		@media only screen and (max-width: $media) {
+			@content;
+		}
+	}
+}
+
+/// Mixin to use between two screen width.
+/// @param {*} $media1 - Screen size as given variable or in value in pixel(480px)
+/// @param {*} $media2 - Screen size as given variable or in value in pixel(480px)
+@mixin visible-screen($media1, $media2){
+  @media (max-width: $media1) and (min-width: $media2) {
+      @content;
+  }
+}
+
+/// Mixin to clearfix
+/* @mixin clearfix {
+  clear: both;
+  &:before,
+  &:after {
+    clear: both;
+    content: "\0020";
+    display: block;
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+  }
+} */
+
+@mixin clearfix() {
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+/// Mixin to prefix a property
+/// @param {String} $property - Property name
+/// @param {*} $value - Property value
+/// @param {List} $prefixes (()) - List of prefixes to print
+@mixin prefix($property, $value, $prefixes: (o moz ms webkit)) {
+  @each $prefix in $prefixes {
+    #{'-' + $prefix + '-' + $property}: $value;
+  }
+
+  // Output standard non-prefixed declaration
+  #{$property}: $value;
+}
+
+/// Mixin to convert 'px' to 'em';
+/// @param {*} $value - Size in pixel
+/// @param {String} $type - font weight Like:'Bold', 'Normal', 'Light'
+/// @param {*} $font-size - Base font size.
+@mixin font($value, $type: normal, $font-size:14){
+  @if $type == bold{
+      font: ($value/$font-size)+em $font-family-bold;
+  }@else if $type == light{
+      font: ($value/$font-size)+em $font-family-light;
+  } @else {
+      font-size: ($value/$font-size)+em ;
+  }
+}
+
+/// Mixin to padding classes. @include padding(5 10 15 20);
+/// @param {*} $vals - value of padding 
+@mixin paddingMargin($vals:()){
+	$dirs: (left,l),(right,r),(top,t),(bottom,b);
+	
+	@each $val in $vals{
+      .m#{$val}{margin: #{$val}px;}
+      .p#{$val}{padding: #{$val}px;}
+		@each $a,$b in $dirs{
+      .p#{$b}#{$val}{padding-#{$a}: #{$val}px;}
+			.m#{$b}#{$val}{margin-#{$a}: #{$val}px;}
+		}
+	}
+}
+
+/// Mixin for hi dpi
+/// @param {Number} $ration - dpi ratio
+@mixin hidpi($ratio: 1.3) {
+  @media only screen and (-webkit-min-device-pixel-ratio: $ratio),
+  only screen and (min--moz-device-pixel-ratio: $ratio),
+  only screen and (-o-min-device-pixel-ratio: #{$ratio}/1),
+  only screen and (min-resolution: round($ratio * 96dpi)),
+  only screen and (min-resolution: $ratio * 1dppx) {
+    @content;
+  }
+}
+
+/// Mixin for optimize image randering.
+/// @param {String} $mode - image rendring mode auto | crisp-edges | pixelated
+/// Reference url: https://css-tricks.com/almanac/properties/i/image-rendering/
+@mixin image-rendering ($mode) {
+  @if ($mode == crisp) {
+    -ms-interpolation-mode: nearest-neighbor; // IE8+
+    @include prefix(image-rendering, crisp-edges)
+  }
+  @else {
+  	@include prefix(image-rendering, $mode,  o moz ms webkit)
+  }
+}
+
+/// Mixin for keyframe animation
+/// @param {String} $animationName - Name of the animation
+@mixin keyframes($animationName) {
+  @-webkit-keyframes #{$animationName} {
+      @content;
+  }
+  @-moz-keyframes #{$animationName} {
+      @content;
+  }
+  @-o-keyframes #{$animationName} {
+      @content;
+  }
+  @keyframes #{$animationName} {
+      @content;
+  }
+}
+
+/// Mixin for placeholder
+/* input {
+  	width: 300px;
+	  @include placeholder {color: red;}
+} */
+@mixin placeholder {
+  $placeholders: ":-webkit-input" ":-moz" "-moz" "-ms-input";
+  @each $placeholder in $placeholders {
+    &:#{$placeholder}-placeholder {
+      @content;
+    }
+  }
+}
+
+/// Mixin for selection
+/// @param {Boolean} @current-selector - if "true" then define background and font color
+@mixin selection($current-selector: false) {
+  @if $current-selector {
+    &::-moz-selection {
+      @content;
+    }
+
+    &::selection {
+      @content;
+    }
+  } @else {
+    ::-moz-selection {
+      @content;
+    }
+
+    ::selection {
+      @content;
+    }
+  }
+}
+
+/// Mixin for user select option
+/// @param {String} $value - none | auto
+@mixin user-select($value: none) {
+  @include prefix(user-select, $value, webkit moz ms spec);
+}
+
+
+/// Mixin for ellipsis.
+/// @param {Number} $width - give width of the container.
+@mixin ellipsis($width: 100%) {
+  display: inline-block;
+  max-width: $width;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: normal;
+
+  @include my-screen(medium) {
+		overflow: visible;
+		text-overflow: inherit;
+		white-space: normal;
+	}
+}
+
+/// Mixin to create triangle or caret.
+/// @param {Number} $size - Size of traingle
+/// @param {*} $color - color of traingle
+/// @param {String} $direction - direction of traingle
+/// @include triangle(12px, gray, down);
+/// @include triangle(12px 6px, gray lavender, up-left);
+@mixin triangle($size, $color, $direction) {
+  $width: nth($size, 1);
+  $height: nth($size, length($size));
+  $foreground-color: nth($color, 1);
+  $background-color: if(length($color) == 2, nth($color, 2), transparent);
+  height: 0;
+  width: 0;
+
+  @if ($direction == up) or ($direction == down) or ($direction == right) or ($direction == left) {
+    $width: $width / 2;
+    $height: if(length($size) > 1, $height, $height/2);
+
+    @if $direction == up {
+      border-bottom: $height solid $foreground-color;
+      border-left: $width solid $background-color;
+      border-right: $width solid $background-color;
+    } @else if $direction == right {
+      border-bottom: $width solid $background-color;
+      border-left: $height solid $foreground-color;
+      border-top: $width solid $background-color;
+    } @else if $direction == down {
+      border-left: $width solid $background-color;
+      border-right: $width solid $background-color;
+      border-top: $height solid $foreground-color;
+    } @else if $direction == left {
+      border-bottom: $width solid $background-color;
+      border-right: $height solid $foreground-color;
+      border-top: $width solid $background-color;
+    }
+  } @else if ($direction == up-right) or ($direction == up-left) {
+    border-top: $height solid $foreground-color;
+
+    @if $direction == up-right {
+      border-left:  $width solid $background-color;
+    } @else if $direction == up-left {
+      border-right: $width solid $background-color;
+    }
+  } @else if ($direction == down-right) or ($direction == down-left) {
+    border-bottom: $height solid $foreground-color;
+
+    @if $direction == down-right {
+      border-left:  $width solid $background-color;
+    } @else if $direction == down-left {
+      border-right: $width solid $background-color;
+    }
+  } @else if ($direction == inset-up) {
+    border-color: $background-color $background-color $foreground-color;
+    border-style: solid;
+    border-width: $height $width;
+  } @else if ($direction == inset-down) {
+    border-color: $foreground-color $background-color $background-color;
+    border-style: solid;
+    border-width: $height $width;
+  } @else if ($direction == inset-right) {
+    border-color: $background-color $background-color $background-color $foreground-color;
+    border-style: solid;
+    border-width: $width $height;
+  } @else if ($direction == inset-left) {
+    border-color: $background-color $foreground-color $background-color $background-color;
+    border-style: solid;
+    border-width: $width $height;
+  }
+}
+
+@mixin transition($value: all 0.3s ease-in-out){
+	@include prefix(transition, $value);
+}
+
+/// star rating
+@mixin starRating($val:''){
+  .star-rating {
+    background: transparent url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAAjCAYAAAB2KjFhAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDIxIDc5LjE1NTc3MiwgMjAxNC8wMS8xMy0xOTo0NDowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTQgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjY5NEYzODc1MkY3NzExRTU5QjhDQjlENTdBMTc1MDQ3IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjY5NEYzODc2MkY3NzExRTU5QjhDQjlENTdBMTc1MDQ3Ij4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6Njk0RjM4NzMyRjc3MTFFNTlCOENCOUQ1N0ExNzUwNDciIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6Njk0RjM4NzQyRjc3MTFFNTlCOENCOUQ1N0ExNzUwNDciLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz5dubydAAABpElEQVR42qRVwW2EMBDE6N5RaMGUYErgSgglQAmclHekUEJogRIuJZASci1wSgNkJ1ojQ4ztwyOtwALG493ZRSQejOMocaG4FEXRb5/P87zcp4kfLUVGUfteTANUvfBS0bo8TGaoMte7EDuKQABV1w0ZUFF8Uf5u25wJ/hj5UEwgmSDzqAbZBGLcK6W6Ez8ojdyEQupcMmH3lzOSDOlDcgwDqSpWBWDC/gBRZa0mETYwZygRC3Bao+fE+tCH+EwGVNIsgJNMBR5ThSozgSN37KuHlUmDBHnJKdEoSsHFmfbIhKWVrqyi0y1jabWaTX4mayzFEmZvxUL4Xvh5e8ZxPtDgT6/3KWYEAe/cu3WUMlKleGTrguQudSHDUcM7uoUnV98Wz+2qExaSjN3dcq5sPYm4bUkFfdxapmwoJvYkYjjx7uVBa+lTIKaUfxCfkX4d6MhNyueOIeyIo1qsEUEIoourmmPgTBu0okfaKRgxk9Y9HLkXQ+Ed29LyEYrSWMb2v81Tx2745Z8pyYieIreQShdZxi9jEBYUK6sYpPpfsGq9XwEGAGqnk1VsH8JUAAAAAElFTkSuQmCC') 0 0 repeat-x;
+    display: inline-block;
+    height: 17px;
+    position: relative;
+    text-indent: -9999px;
+    width: 95px;
+    vertical-align: middle;
+
+    &:before {
+      background: transparent url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAAjCAYAAAB2KjFhAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDIxIDc5LjE1NTc3MiwgMjAxNC8wMS8xMy0xOTo0NDowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTQgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjY5NEYzODc1MkY3NzExRTU5QjhDQjlENTdBMTc1MDQ3IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjY5NEYzODc2MkY3NzExRTU5QjhDQjlENTdBMTc1MDQ3Ij4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6Njk0RjM4NzMyRjc3MTFFNTlCOENCOUQ1N0ExNzUwNDciIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6Njk0RjM4NzQyRjc3MTFFNTlCOENCOUQ1N0ExNzUwNDciLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz5dubydAAABpElEQVR42qRVwW2EMBDE6N5RaMGUYErgSgglQAmclHekUEJogRIuJZASci1wSgNkJ1ojQ4ztwyOtwALG493ZRSQejOMocaG4FEXRb5/P87zcp4kfLUVGUfteTANUvfBS0bo8TGaoMte7EDuKQABV1w0ZUFF8Uf5u25wJ/hj5UEwgmSDzqAbZBGLcK6W6Ez8ojdyEQupcMmH3lzOSDOlDcgwDqSpWBWDC/gBRZa0mETYwZygRC3Bao+fE+tCH+EwGVNIsgJNMBR5ThSozgSN37KuHlUmDBHnJKdEoSsHFmfbIhKWVrqyi0y1jabWaTX4mayzFEmZvxUL4Xvh5e8ZxPtDgT6/3KWYEAe/cu3WUMlKleGTrguQudSHDUcM7uoUnV98Wz+2qExaSjN3dcq5sPYm4bUkFfdxapmwoJvYkYjjx7uVBa+lTIKaUfxCfkX4d6MhNyueOIeyIo1qsEUEIoourmmPgTBu0okfaKRgxk9Y9HLkXQ+Ed29LyEYrSWMb2v81Tx2745Z8pyYieIreQShdZxi9jEBYUK6sYpPpfsGq9XwEGAGqnk1VsH8JUAAAAAElFTkSuQmCC') 0 -18px repeat-x;
+      content: " ";
+      display: inline-block;
+      height: 18px;
+      left: 0;
+      position: absolute;
+      top: 0; 
+    }
+    
+    @if ($val == small){
+      &.small{
+        background: transparent url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAaCAYAAACHD21cAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDIxIDc5LjE1NTc3MiwgMjAxNC8wMS8xMy0xOTo0NDowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTQgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjFENUZEOTlCMzZBODExRTU5NUEwQjNFNUY3RkUwODI4IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjFENUZEOTlDMzZBODExRTU5NUEwQjNFNUY3RkUwODI4Ij4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6MUQ1RkQ5OTkzNkE4MTFFNTk1QTBCM0U1RjdGRTA4MjgiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6MUQ1RkQ5OUEzNkE4MTFFNTk1QTBCM0U1RjdGRTA4MjgiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz5hwzcuAAAA6klEQVR42tySsQ3CMBBFE4saAaXLMIIZgazACGGEIFFTZAVWCSswAi7TJmIC/kk2nAKni1Ny0pcj20//fPlZJlTXdS1USOdGgCose6iWwFwAH1ii29Za61XH4MZb/Oma42IdLpIctBa6u0M+qCGwDe+ZWgTuDPov8XFLgEowfc7HrzhHyI+Hc1DcTny6HHQKWEi/o1BAJ4HxoKe2oA10DG/7AhejxzckmlrYu5JYBPV6XlYtlBZyAGrIjbAfgUpyNYKbHnJcnBdyGsKskC/PQ3LIwXxCPsE5Qukhj9A/hJymxkPOIviulwADAEyVZTGwp20CAAAAAElFTkSuQmCC') 0 0 repeat-x;
+        height: 13px;
+        width: 70px;
+
+        &:before {
+          background: transparent url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAaCAYAAACHD21cAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDIxIDc5LjE1NTc3MiwgMjAxNC8wMS8xMy0xOTo0NDowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTQgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjFENUZEOTlCMzZBODExRTU5NUEwQjNFNUY3RkUwODI4IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjFENUZEOTlDMzZBODExRTU5NUEwQjNFNUY3RkUwODI4Ij4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6MUQ1RkQ5OTkzNkE4MTFFNTk1QTBCM0U1RjdGRTA4MjgiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6MUQ1RkQ5OUEzNkE4MTFFNTk1QTBCM0U1RjdGRTA4MjgiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz5hwzcuAAAA6klEQVR42tySsQ3CMBBFE4saAaXLMIIZgazACGGEIFFTZAVWCSswAi7TJmIC/kk2nAKni1Ny0pcj20//fPlZJlTXdS1USOdGgCose6iWwFwAH1ii29Za61XH4MZb/Oma42IdLpIctBa6u0M+qCGwDe+ZWgTuDPov8XFLgEowfc7HrzhHyI+Hc1DcTny6HHQKWEi/o1BAJ4HxoKe2oA10DG/7AhejxzckmlrYu5JYBPV6XlYtlBZyAGrIjbAfgUpyNYKbHnJcnBdyGsKskC/PQ3LIwXxCPsE5Qukhj9A/hJymxkPOIviulwADAEyVZTGwp20CAAAAAElFTkSuQmCC') 0 -13px repeat-x;
+          height: 13px;
+        }
+      }
+    }
+
+    @each $rate in 5, 4, 3, 2, 1, 0 {
+      &.rating-#{$rate} {
+        &:before {        
+          width: 19px * $rate;
+        }
+        
+        @if ($val == small){
+          &.small{
+            &:before {        
+              width: 14px * $rate;
+            }
+          } 
+        } 
+      }
+    }
+  }
+}
+
+/*--------------------------------------------------------------------------
+  Mixin for generate sprite class which is created through gulp.
+  *** All icon should be in same size.
+--------------------------------------------------------------------------*/
+@function imageHeight($size){
+  $sprite-height: round(($size*100)/iconSize());
+  @return $sprite-height;
+}
+
+@function imageWidth($size){
+  $sprite-width: round(($size*100)/(iconSize()));
+  @return $sprite-width;
+}
+
+@function iconSize(){
+  $spritesheets-array: nth($spritesheet, 4);
+  $spritesheets-icon: nth($spritesheets-array, 1);
+  $spritesheets-icon-size: nth($spritesheets-icon, 5);
+
+  @return $spritesheets-icon-size;
+}
+
+@function imageSize($size){
+  $sprite-width: round(($spritesheet-width*imageWidth($size))/100);
+  $sprite-height: round(($spritesheet-height*imageHeight($size))/100);
+
+  @return $sprite-width $sprite-height;
+}
+
+@function imagePosition($sprite, $size){
+  $sprite-offset-x: (nth($sprite, 3)*imageWidth($size))/100;
+  $sprite-offset-y: (nth($sprite, 4)*imageHeight($size))/100;
+
+  @return $sprite-offset-x  $sprite-offset-y;
+}
+
+@function strSlice($str){
+  @return str-slice(unquote(#{$str}), 0, 2);
+}
+
+$counterFirst: false;
+$counterSecond: false;
+
+@mixin sprites-icon() {
+  .icon-img {
+    position: relative;
+    
+    &:before {
+      background: transparent url(../images/#{nth($spritesheet, 3)}) 0 0 no-repeat;
+      background-size: imageSize(nth($icon-size, 1));
+      height: nth($icon-size, 1);
+      width: nth($icon-size, 1);
+      content: "";
+      display: inline-block;
+      position: relative;
+      vertical-align: middle;
+    }
+
+    @each $iconSize in $icon-size{
+      @if $counterFirst{
+        &.icon-#{strSlice($iconSize)}{
+          &:before {
+            background-size: imageSize($iconSize);
+          }
+        }
+      }
+
+      $counterFirst: true;
+    }
+  }
+  
+  $sprites: nth($spritesheet, 4);
+  @each $sprite in $sprites {
+    $sprite-name: nth($sprite, 10);
+  
+    .#{$sprite-name} {
+      &:before {
+        background-position: imagePosition($sprite, nth($icon-size, 1));
+      }
+
+      @each $iconSize in $icon-size{
+        @if $counterSecond{
+          &.icon-#{strSlice($iconSize)}{
+            &:before {
+              background-position: imagePosition($sprite, $iconSize);
+              height: $iconSize;
+              width: $iconSize;
+            }
+          }
+        }
+        $counterSecond: true;
+      }
+    }
+  }
+}

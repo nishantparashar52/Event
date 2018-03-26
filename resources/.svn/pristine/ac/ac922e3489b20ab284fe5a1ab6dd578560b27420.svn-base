@@ -1,0 +1,12 @@
+/*------------------------------------------------ 
+	//info block
+------------------------------------------------*/
+.info-block{
+  position: relative;
+  background: $color-white;
+  @include border-radius($borderRadius);
+
+  i{
+  	@include font(60);
+  }
+}

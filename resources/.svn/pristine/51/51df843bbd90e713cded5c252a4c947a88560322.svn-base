@@ -1,0 +1,44 @@
+/*------------------------------------------------ 
+	Panel.
+------------------------------------------------*/
+.panel {
+	@include border-radius($panelBorderRadius);
+	margin-bottom: $gutter;
+  background-color: white;
+  border: 1px solid $panelBorderColor;
+  @include box-shadow(0 2px 0 rgba(12, 12, 12, 0.03));
+}
+
+.panel-heading {
+  padding: ($gutter / 2);
+  border-bottom: 1px solid $panelBorderColor;
+  @include border-radius($panelBorderRadius $panelBorderRadius 0 0);
+}
+
+.panel-btns{
+	float: right;
+}
+
+.panel-title{
+	@include font(16);
+}
+
+.panel-body {
+  padding: ($gutter / 2);
+}
+
+.panel-footer {
+  padding: ($gutter / 2);
+  border-top: 1px solid $panelBorderColor;
+  @include border-radius(0 0 $panelBorderRadius $panelBorderRadius);
+}
+
+/*---------------------------------------------------------- 
+  if required mulitple panel variation.
+----------------------------------------------------------*/
+@if $panelColorOption{
+	@include panelVariation(primary, $color-primary);
+	@include panelVariation(secondary, $color-secondary);
+	@include panelVariation(error, $color-error);
+	@include panelVariation(success, $color-success);
+}

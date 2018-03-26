@@ -1,0 +1,59 @@
+/*-----------------------------------------------------------
+  visible classes
+------------------------------------------------------------*/
+
+.hide,
+.visible-md,
+.visible-sm, 
+.visible-xs,
+.visible-md-il,
+.visible-sm-il, 
+.visible-xs-il,
+.visible-md-t,
+.visible-sm-t, 
+.visible-xs-t,
+.visible-md-tc,
+.visible-sm-tc, 
+.visible-xs-tc {
+  display: none !important;
+}
+
+@include screen(extra-large) {
+  .hidden-xlg {display: none !important;}
+  .visible-xlg {display: block !important;}
+  .visible-xlg-il {display: inline-block !important;}
+  .visible-xlg-t {display: table !important;}
+  .visible-xlg-tc {display: table-cell !important;}
+}
+
+@include screen(large) {
+  .hidden-lg {display: none !important;}
+  .visible-lg {display: block !important;}
+  .visible-lg-il {display: inline-block !important;}
+  .visible-lg-t {display: table !important;}
+  .visible-lg-tc {display: table-cell !important;}
+}
+
+@include screen(medium) {
+  .hidden-md {display: none !important;}
+  .visible-md {display: block !important;}
+  .visible-md-il {display: inline-block !important;}
+  .visible-md-t {display: table !important;}
+  .visible-md-tc {display: table-cell !important;}
+}
+
+@include screen(small) {
+  .hidden-sm {display: none !important;}
+  .visible-sm {display: block !important;}
+  .visible-sm-il {display: inline-block !important;}
+  .visible-sm-t {display: table !important;}
+  .visible-sm-tc {display: table-cell !important;}
+}
+
+@include screen(very-small) {
+  .hidden-xs {display: none !important;}
+  .visible-xs {display: block !important;}
+  .visible-xs-il {display: inline-block !important;}
+  .visible-xs-t {display: table !important;}
+  .visible-xs-tc {display: table-cell !important;}
+}

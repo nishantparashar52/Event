@@ -1,0 +1,100 @@
+/*------------------------------------------------ 
+	some classe which reused many times.
+------------------------------------------------*/
+
+%ellipsis{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: normal;
+}
+
+%list-table{
+  border-collapse: separate;
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+
+  >li{
+    display: table-cell;
+  }
+}
+
+%clearfix{
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+%bold{
+  font-family: $font-family-bold;
+  font-weight: normal;
+}
+
+%input{
+  border: 1px solid $inputBorderColor;
+  padding: ($gutter / 2);
+  @include border-radius($inputBorderRadius);
+  font-family: inherit;
+  color: inherit;
+  font-size: inherit;
+  @extend %transition;
+}
+
+%transition{
+  @include transition(all 0.3s ease-in-out);
+}
+
+%radio-checkbox{
+  position: relative;
+  display: inline-block;
+  @include user-select(none);
+
+  [type="radio"], 
+  [type="checkbox"]{
+    display: none;
+
+    &:checked{
+      +span{
+        &:after{
+          @include opacity(1);
+        }
+      }
+    }
+
+    &:disabled{
+      +span{
+        &:before{
+          background-color: $color-gray;
+        }
+      }
+    }
+  }
+
+  span{
+    position: relative;
+    cursor: pointer;
+    vertical-align: middle;
+    display: inline-block;
+    padding-left: 20px;
+
+    &:before{
+      position: absolute;
+      margin-right: 5px;
+      width: 16px;
+      height: 16px;
+      content: '';
+      border: 1px solid $radioCheckBorderColor;
+      left: 0;    
+    }
+
+    &:after{
+      position: absolute;
+      @include transition(opacity 0.2s);
+      left: 3px;
+      @include opacity(0);
+    }
+  }
+}

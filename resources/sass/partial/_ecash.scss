@@ -1,0 +1,22 @@
+/*------------------------------------------------ 
+	//comments
+------------------------------------------------*/
+.dashboard{
+	.ecash{
+		min-height: 317px;
+
+		@include screen(medium){
+			min-height: 0;
+		}
+	}
+}
+
+.ecash{
+	.angle{
+		&:after{
+			border-color: $color-white;
+			height: 20px;
+			width: 20px;
+		}
+	}
+}

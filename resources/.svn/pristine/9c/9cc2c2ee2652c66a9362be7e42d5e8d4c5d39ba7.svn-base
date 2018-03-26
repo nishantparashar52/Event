@@ -1,0 +1,36 @@
+/*------------------------------------------------ 
+	//comments
+------------------------------------------------*/
+.wishlist{
+	.arrow-tag{
+		height: 14px;
+	}
+
+	.arrow-right{
+		&:after{
+			border-width: 7px;
+		}
+	}
+
+	.close-button{
+		position: absolute;
+		@include border-radius($borderRadius);
+		padding: 5px 7px;
+		color: $color-white;
+		line-height: 1;
+		right: 10px;
+		top: 10px;
+		background-color: $color-black;
+		background-color: rgba($color-black, 0.5);
+
+		&:hover{
+			background-color: $color-black;
+		}
+	}
+}
+
+.wishlist-img{
+	position: relative;
+	height: 160px;
+	@include border-radius($borderRadius $borderRadius 0 0);
+}

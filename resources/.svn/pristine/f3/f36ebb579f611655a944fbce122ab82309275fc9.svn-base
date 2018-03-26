@@ -1,0 +1,73 @@
+/* ------------------------------------------------
+	comments
+------------------------------------------------- */
+.pagination{
+	display: inline-block;
+  padding-left: 0;
+  margin-top: ($gutter / 2);
+  margin-bottom: ($gutter / 2);
+
+  >li{
+  	display: inline;
+
+    &.active{
+      >a{
+        color: $color-dark;
+      }
+    }
+
+    &.disabled{
+      >a{
+        cursor: not-allowed;
+
+        @include hover-focus{
+          color: $color-base;
+        }
+      }
+    }
+
+  	&:first-child{
+  		>a{
+  			@include border-radius($paginationBorderRadius 0 0 $paginationBorderRadius);
+  		}
+  	}
+
+  	&:last-child{
+  		>a{
+  			@include border-radius(0 $paginationBorderRadius $paginationBorderRadius 0);
+  		}
+  	}
+  }
+
+  a{
+  	float: left;
+  	padding: 5px 10px;
+  	display: block;
+  	border: 1px solid $paginationBorderColor;
+  	margin-left: -1px;
+  	background-color: $paginationBgColor;
+  }
+}
+
+.pagination-split{
+	>li{
+		float: left;
+		margin-left: 5px;
+
+		&:first-child{
+  		>a{
+  			@include border-radius($paginationBorderRadius);
+  		}
+  	}
+
+  	&:last-child{
+  		>a{
+  			@include border-radius($paginationBorderRadius);
+  		}
+  	}
+
+		>a{
+			@include border-radius($paginationBorderRadius);
+		}
+	}
+}

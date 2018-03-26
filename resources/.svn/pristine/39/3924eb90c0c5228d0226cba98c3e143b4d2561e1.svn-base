@@ -1,0 +1,25 @@
+/*------------------------------------------------ 
+	comments
+------------------------------------------------*/
+.tag{
+  display: inline-block;
+  line-height: 1;
+  padding-right: 5px;
+  @include border-radius($tagBorderRadius);
+  background: #fccd03; /* Old browsers */
+  background: -moz-linear-gradient(top,  #fccd03 1%, #fba202 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top,  #fccd03 1%,#fba202 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom,  #fccd03 1%,#fba202 100%);
+  position: relative;
+
+  &:before{
+    padding: 2px 5px 4px;
+    margin-right: 5px;
+    content: attr(data-text);
+    display: inline-block;
+    background-color: white;
+    border: 1px solid $tagBorderColor;
+    border-right: 0;
+    @include border-radius($tagBorderRadius 0 0 $tagBorderRadius);
+  }
+}

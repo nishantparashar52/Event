@@ -1,0 +1,40 @@
+/*------------------------------------------------ 
+	//comments
+------------------------------------------------*/
+.claim-refund{
+	.navbar-inner-holder{
+		min-width: 0;
+	}
+
+	.hide-content{
+		@include screen(medium){
+			text-align: center;
+			margin-top: 0;
+
+			.panel-border{
+				&:after{
+					display: none;
+				}
+			}
+		}
+
+		.col-md-6{
+			&:nth-child(2){
+				&:after{
+					border-left: 1px dotted #e0e0e0;
+			    content: "";
+			    height: 35px;
+			    position: absolute;
+			    left: 0;
+			    top: 0;
+				}
+			}
+		}
+	}
+
+	.panel-border{
+		@include screen(medium){
+			margin-bottom: 15px;
+		}
+	}
+}

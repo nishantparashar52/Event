@@ -1,0 +1,123 @@
+/*------------------------------------------------ 
+	//common
+------------------------------------------------*/
+.booking-list{
+	position: relative;
+	width: 100%;
+
+	&.show-nav{
+		.booking-inner-wrapper{
+			overflow-x: auto;
+			margin: 0 30px;
+			display: block;
+			position: relative;
+		}
+
+		.left-nav, 
+		.right-nav{
+			display: block;
+		}
+	}
+
+	.booking-inner-wrapper{
+		overflow: hidden;
+
+		@include screen(medium){
+			overflow-x: auto;
+		}
+	}
+
+	.booking-inner-holder{
+		display: table;
+		border-collapse: collapse;
+
+		>li{
+			display: table-cell;
+			border-right: 1px dotted $color-border;
+
+			&:last-child{
+				border-right: 0;
+			}
+		}
+
+		a{
+			padding: 5px 15px;
+			display: block;
+			text-align: center;
+			color: $color-base;
+
+			@include hover-focus{
+				color: $color-link;
+
+				.icon{
+					border-color: $color-link;
+					background-color: $color-link;
+					color: $color-white;
+				}
+
+				.text-dark{
+					color: $color-link;
+				}
+			}
+		}
+
+		.text-dark,
+		.icon{
+			@extend %transition;
+		}
+
+		.icon{
+			display: inline-block;
+			@include border-radius(50%);
+			border: 1px solid $color-border;
+			height: 32px;
+			width: 32px;
+			line-height: 25px;
+			margin-bottom: 10px;
+		}
+	}
+
+	.left-nav,
+	.right-nav{
+		top: 50%;
+		margin-top: -10px;
+	}
+
+	.left-nav{
+		left: 0;
+	}
+
+	.right-nav{
+		right: 0;
+	}
+
+	/* .left-nav, 
+	.right-nav{
+		padding: 5px 10px;
+		display: none;
+		text-align: center;
+	
+		&:hover{
+			.icon{
+				color: $color-white;
+				background-color: $color-sky;
+				@include transition();
+			}
+	
+			.text-dark{
+				color: $color-blue;
+			}
+		}
+	} */
+
+	/* .align{
+		display: inline-block;
+		border-radius: 60px;
+		@include box-shadow(0px 0px 2px $color-border);
+		height: 30px;
+		width: 30px;
+		&:before{
+			top: 2px;
+		}
+	} */
+}

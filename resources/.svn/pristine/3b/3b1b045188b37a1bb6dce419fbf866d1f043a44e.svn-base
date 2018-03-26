@@ -1,0 +1,10 @@
+/*------------------------------------------------ 
+	//comments
+------------------------------------------------*/
+.itinerary-details{
+	.table{
+		@include screen(medium){
+	    white-space: nowrap;
+	  }
+	}
+}

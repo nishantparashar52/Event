@@ -1,0 +1,27 @@
+/*------------------------------------------------ 
+	//comments
+------------------------------------------------*/
+.profile{
+	.profile-pic{
+		max-width: 100px;
+		float: left;
+
+		@include screen(medium){
+			float: none;
+			margin: 0 auto;
+		}
+	}
+
+	.profile-info{
+		display: block;
+		margin-left: 120px;
+
+		@include screen(medium){
+			margin-left: 0;
+		}
+	}
+
+	.button{
+		padding: 3px 5px;
+	}
+}

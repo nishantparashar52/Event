@@ -1,0 +1,75 @@
+/*------------------------------------------------ 
+	//comments
+------------------------------------------------*/
+.activities{
+	.panel{
+		padding: 0;
+	}
+
+	.icon{
+		&:before{
+			vertical-align: top;
+		}
+	}
+
+	.icon-angle-down{
+		top: 12px;
+	}
+	
+	.table{
+		th, td{
+			padding: 15px;
+
+			@include screen(medium){
+				padding: 15px ($gutter / 2);
+			}
+		}
+
+		th{
+			border: 0;
+			color: $color-dark;
+			text-transform: uppercase;
+			@extend %bold;
+		}
+		
+		tbody{
+			tr{
+				cursor: pointer;
+				@extend %transition;
+
+				@include hover-focus{
+					background-color: $color-light;
+				}
+			}
+		}
+
+		td{
+			&:first-child{
+				@extend %ellipsis;
+
+				&:before{
+					color: $color-sky;
+					margin-top: 2px;
+					margin-right: 5px;
+				}
+
+				text-transform: uppercase;
+				@extend %bold;
+				color: $color-dark;
+			}
+		}
+
+		.angle{
+			width: 15px;
+			height: 15px;
+			display: inline-block;
+
+			&:after{
+				width: 15px;
+				height: 15px;
+				right: 0;
+		    top: 0;
+			}
+		}
+	}
+}

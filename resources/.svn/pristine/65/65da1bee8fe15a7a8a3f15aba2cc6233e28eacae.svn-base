@@ -1,0 +1,49 @@
+/*------------------------------------------------ 
+	//comments
+------------------------------------------------*/
+.dashboard{
+	.user-info{
+		min-height: 317px;
+
+		@include screen(medium){
+			min-height: 0;
+		}
+	}
+}
+
+.user-info{
+	.list-border{
+		>li{
+			@extend %clearfix;
+			
+			&:first-child{
+				border-top: 0;
+			}
+		}
+	}
+
+	.title, 
+	.value{
+		float: left;
+	}
+
+	.title{
+		width: 40%;
+		text-align: left;
+	}
+
+	.value{
+		text-align: right;
+		width: 60%;
+		@extend %ellipsis;
+	}
+}
+
+.profile-img-circle{
+	display: inline-block;
+	@include border-radius(50%);
+	border:1px solid $color-border;
+	padding: 4px;
+	width: 100px;
+	height: 100px;
+}

@@ -1,0 +1,27 @@
+/*------------------------------------------------ 
+	//comments
+------------------------------------------------*/
+.passenger-details{
+	.passengers-pic{
+		max-width: 50px;
+		float: left;
+
+		@include screen(medium){
+			float: none;
+			margin: 0 auto;
+		}
+	}
+
+	.passengers{
+		display: block;
+		margin-left: 60px;
+
+		@include screen(medium){
+			margin-left: 0;
+		}
+	}
+
+	.button{
+		padding: 3px 5px;
+	}
+}

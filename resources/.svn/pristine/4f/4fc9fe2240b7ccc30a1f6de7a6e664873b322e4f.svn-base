@@ -1,0 +1,407 @@
+.list-line{
+	>li{
+		padding-top: 10px;
+		padding-bottom: 10px;
+		border-top: 1px solid $color-border;
+
+		&:first-child{
+			padding-top: 0;
+			border-top-width: 0;
+		}
+	}
+}
+
+.list-inline{
+	>li{
+		display: inline-block;
+	}
+}
+
+.list-bullet{
+	>li{
+		padding-left: 10px;
+		position: relative;
+		
+		&:before{
+			position: absolute;
+			left: 0;
+			top: 11px;
+		}
+	}
+}
+
+.list-bordered{
+	>li{
+		border: 1px solid $color-border;
+		margin-top: -1px;
+
+		&:first-child{
+			border-top-width: 1px;
+		}
+	}
+}
+
+.list-check{
+	>li{
+		padding-left: 15px;
+		position: relative;
+
+		&:before{
+			font-family: "FontAwesome";
+			content:$fa-var-check;
+			position: absolute;
+			left: 0;
+			top: 2px;
+			margin-right: 5px;
+		}
+	}
+}
+
+/*------------------------------------------------ 
+	//common
+------------------------------------------------*/
+@include selection(){
+	color: $color-white;
+	background-color: $color-primary;
+}
+
+a{
+	&.underline{
+		text-decoration: underline;
+	}
+
+	&.panel{
+		display: block;
+	}
+
+	&.button{
+		color: $color-white;
+	}
+}
+
+hr{
+	&.dotted{
+		border-top-style: dotted;
+	}
+}
+
+.plan-trip{
+	color: $color-dark;
+
+	.panel-body{
+		padding-top: 20px;
+		padding-bottom: 20px;
+	}
+
+	.angle{
+		&:after{
+			height: 15px;
+	    margin-top: -6px;
+	    right: 0;
+	    top: 50%;
+	    width: 15px;
+		}
+	}
+}
+
+a{
+	&.plan-trip{
+		&:hover{
+			background-color: $color-blue;
+			color: $color-white;
+			
+			.angle{
+				&:after{
+					border-color: $color-white;
+				}
+			}
+		}
+	}
+}
+
+.ml30{margin-left: 30px;}
+.p0{padding: 0 !important;}
+.m0{margin: 0 !important;}
+.rel{position: relative;}
+.underline{text-decoration: underline;}
+.v-top{vertical-align: top; &:before{vertical-align: top;}}
+.v-middle{vertical-align: middle; &:before{vertical-align: middle;}}
+.v-bottom{vertical-align: bottom; &:before{vertical-align: bottom;}}
+
+/*------------------------------------------------ 
+	//breadcurm
+------------------------------------------------*/
+.breadcurm{
+	line-height: 1;
+	font-size: $font-size-sm;
+}
+
+/*------------------------------------------------ 
+	//button
+------------------------------------------------*/
+.button{
+	&.white{
+		background-color: $color-white;
+		color: $color-dark;
+		font-family: "Lato Bold";
+		
+		@include hover-focus-active{
+			background-color: $color-secondary;
+			color: $color-white;
+			border-color: $color-secondary;
+		}
+	}
+
+	&.bordered{
+    color: $color-dark;
+  }
+}
+
+/* --------------------------------------------
+	custom background color
+-------------------------------------------- */
+.bg-body-base{background-color: $body-base;}
+.bg-base{background-color: $color-base;}
+.bg-dark{background-color: $color-dark;}
+.bg-light{background-color: $color-light;}
+.bg-light-gray{background-color: $color-border !important;}
+.bg-sky{background-color: $color-sky;}
+.bg-blue{background-color: $color-blue;}
+
+/* --------------------------------------------
+	custom font colors
+-------------------------------------------- */
+.text-base{color: $color-base;}
+.text-dark{color: $color-dark;}
+.text-sky{color: $color-sky;}
+.text-blue{color: $color-blue;}
+
+.ellipsis{@extend %ellipsis};
+
+/*------------------------------------------------ 
+	//panel
+------------------------------------------------*/
+.panel{
+  padding: 0 15px;
+  border-color: $color-border;
+
+	&.panel-blue{
+		.panel-heading {
+      background-color: $color-blue;
+      color: $color-white;
+    }
+	}
+}
+
+.panel-heading {
+  padding: 15px 0;
+  border-color: $color-border;
+}
+
+.panel-body{
+	padding-left: 0;
+	padding-right: 0;
+}
+
+.line-middle{
+	position: relative;
+
+	&:before{
+		content:'';
+		border-top: 1px solid $color-border;
+		width: 100%;
+		position: absolute;
+		left: 0;
+		top: 50%;
+	}
+}
+
+.capsule-box{
+	background-color: $color-white;
+	border-radius: 10px;
+  display: inline-block;
+  padding: 3px 10px;
+  position: relative;
+
+ 	&.bordered{
+ 		border:1px solid $color-border;
+ 	}
+}
+
+.capsule-box-info{
+	width: 100%;
+	background-color: $color-border;
+	color: $color-dark;
+	padding: 5px 15px;
+	@include border-radius(25px);
+}
+
+.rectangle-box{
+	@include border-radius($borderRadius);
+	padding: ($gutter / 2) $gutter;
+}
+
+/*------------------------------------------------ 
+	//progress step
+------------------------------------------------*/
+.timeline-horizontal{
+	>li{
+		 &:before{
+		 	background-color: lighten($color-gray, 15%);
+		}
+		
+		&:after{
+			border-color: lighten($color-gray, 15%);
+		}
+	}
+}
+
+/*------------------------------------------------ 
+	//css based angle
+------------------------------------------------*/
+.angle{
+	position: relative;
+
+	&:after{
+		content: '';
+		position: absolute;
+		right: 6%;
+		top: 30%;
+		width: 30px;
+		height:30px;
+		border-width: 1px 1px 0 0;
+		border-style: solid;
+		border-color: $color-sky;
+	}
+	
+	&.angle-right{
+		&:after{
+			@include transform(rotate(45deg));
+		}
+	}
+}
+
+/*------------------------------------------------ 
+	//pagination
+------------------------------------------------*/
+.pagination{
+	>li{
+		&.active{
+			>a{
+				background-color: $color-white;
+				color: $color-dark;
+			}
+		}
+
+		&.disabled{
+			>a{
+				@include hover-focus{
+					background-color: $color-light;
+				}
+			}
+		}
+	}
+	a{
+		background-color: $color-light;
+
+		@include hover{
+			background-color: $color-white;
+			color: $color-dark;
+		}
+	}
+}
+
+/* ----------------------------------------------
+	//Tab
+------------------------------------------------*/
+.tab-nav{
+	>li{
+		padding-left: 2px;
+		padding-right: 2px;
+
+		&:first-child{
+			padding-left: 0;
+		}
+
+		&:last-child{
+			padding-right: 0;
+		}
+
+		a{
+			background-color: $color-light;
+		}
+
+		&.active{
+			a{
+				color: $color-dark;
+				background-color: $color-white;
+			}
+		}
+	}
+
+	a{
+		color: $color-base;
+		background-color: $color-light;
+	}
+}
+
+.tab-mob-accordion{
+	.tab-panel{
+		>label{
+			background-color: $color-light;
+
+			&:after, &:before{
+				background-color: $color-base;
+			}
+		}
+	}
+}
+
+.tab-panel{
+	[type="checkbox"], 
+	[type="radio"]{
+		&:checked{
+			+label{
+				color: $color-dark;
+			}
+		}
+	}
+}
+
+/* -----------------------------------------
+	//radio button
+-------------------------------------------*/
+.radio, .checkbox{
+	span{
+		&:after{
+			border-color: $color-primary;
+		}
+	}
+}
+
+/* -----------------------------------------
+	//select box
+-------------------------------------------*/
+.select-box{
+	&:after{
+		border-color: $color-primary;
+	}
+}
+
+/* -----------------------------------------
+	//tooltip box
+-------------------------------------------*/
+
+.fare-detail-tooltip{
+	@include box-shadow(0px 0px 3px 0px rgba(0,0,0,0.1));
+	.list{
+		>li{
+			padding: 5px 0;
+		}
+	}
+
+	.title{
+		border-bottom: 1px solid $color-border;
+		padding-top: 0 !important;
+	}
+}

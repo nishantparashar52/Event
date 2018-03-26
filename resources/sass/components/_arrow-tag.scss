@@ -1,0 +1,43 @@
+/*------------------------------------------------ 
+	comments
+------------------------------------------------*/
+.arrow-tag{
+  display: inline-block;
+  line-height: 1;
+  padding: 2px 5px;
+  color: $color-white;
+  background-color: $color-gray;
+  position: relative;
+  height: 16px;
+  @include border-radius(2px 0 0 2px);
+
+  &.arrow-right{
+    &:after{
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 0;
+      border: 8px solid transparent;
+      border-left-color: $color-gray;
+      top: 0;
+      left: 100%;
+    }
+  }
+
+  &.arrow-left{
+    &:before{
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 0;
+      border: 8px solid transparent;
+      border-right-color: $color-gray;
+      top: 0;
+      right: 100%;
+    }
+  }
+}
+
+@include arrow-tag($color-primary, primary);
+@include arrow-tag($color-secondary, secondary);
+@include arrow-tag($color-success, success);

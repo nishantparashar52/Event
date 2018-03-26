@@ -1,0 +1,45 @@
+/* --------------------------------------------
+	comments
+-------------------------------------------- */
+.tooltip{
+	position: absolute;
+	color: $color-base;
+	background: $color-white;
+	border: 1px solid $color-border;
+	@include border-radius($borderRadius);
+	padding: ($gutter / 2);
+	z-index: 1;
+	min-width: 300px;
+
+	&:after,
+	&:before{
+		bottom: 100%;
+		left: 50%;
+		border: solid transparent;
+		content: " ";
+		height: 0;
+		width: 0;
+		position: absolute;
+		pointer-events: none;
+	}
+
+	&:after {
+		border-color: transparent;
+		border-bottom-color: $color-white;
+		border-width: 10px;
+		margin-left: -10px;
+	}
+
+	&:before {
+		border-color: transparent;
+		border-bottom-color: $color-border;
+		border-width: 11px;
+		margin-left: -11px;
+	}
+}
+
+.tooltip-bottom{
+	margin-top: 15px;
+	top: 100%;
+	left: 20%;
+}

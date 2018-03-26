@@ -1,0 +1,207 @@
+/* --------------------------------------------
+	comments
+-------------------------------------------- */
+.tab{
+	margin-bottom: $gutter;	
+}
+
+.tab-nav{
+	display: table;
+	width: 100%;
+	table-layout: fixed;
+	position: relative;
+	z-index: 1;
+
+	>li{
+		border-right: 0;
+		display: table-cell;
+		text-align: center;
+		cursor: pointer;
+
+		a{
+			background-color: $tabBgColor;
+			padding: ($gutter / 2) $gutter; 
+			display: block;
+			border: 1px solid $tabBorderColor;
+			border-bottom: 0 none;
+			@include border-radius($tabBorderRadius $tabBorderRadius 0 0);
+			position: relative;
+
+			&:after{
+				content:'';
+				position: absolute;
+				border-bottom: 1px solid $tabBorderColor;
+				width: 100%;
+				display: block;
+				left: 0;
+				bottom: 0;
+			}
+		}
+
+		&.active{
+			a{
+				&:after{
+					border-bottom-color: $tabBgColor;
+					bottom: -1px;
+				}
+			}
+		}	
+	}
+}
+
+.tab-content{
+	background-color: $tabBgColor;
+	border: 1px solid $tabBorderColor;
+	border-top-width: 0;
+	padding: $gutter;
+	@include border-radius(0 0 $tabBorderRadius $tabBorderRadius);
+	@include box-shadow(0 2px 0 rgba(12, 12, 12, 0.03));
+
+	[type="checkbox"],
+	[type="radio"]{
+		display: none;
+
+		&:checked{
+			+label{
+				&:before{
+					transform: rotate(45deg);
+				}
+
+				&:after{
+					transform: rotate(-45deg);
+				}
+			}
+
+			~.tab-panel-content{
+				display: block;
+				@extend %transition;
+			}
+		}
+	}
+}
+
+.tab-panel{
+	display: none;
+
+	&.active{
+		display: block;
+
+		label{
+			display: none;
+		}
+	}
+}
+
+.tab-mob-accordion{
+	@include screen(medium){
+		.tab-nav{
+			display: none;
+		}
+
+		.tab-content{
+			padding: 0;
+			border-top: 1px solid $tabBorderColor;
+			@include border-radius($tabBorderRadius);
+
+			>li{
+				&:first-child{
+					>label{
+						@include border-radius($tabBorderRadius $tabBorderRadius 0 0);
+						border-top-width: 0;
+						margin-top: 0;
+					}
+				}
+			}
+		}
+
+		.tab-panel-content{
+			padding: ($gutter / 2) $gutter;
+			display: none;
+		}
+
+		.tab-panel{
+			display: block;
+
+			&.active{
+				label{
+					display: block;
+				}
+			}
+
+			>label{
+				background-color: $tabBgColor;
+				padding: ($gutter / 2) $gutter;
+				position: relative;
+				border-top: 1px solid $tabBorderColor;
+				border-bottom: 1px solid $tabBorderColor;
+				display: block;
+				margin-top: -1px;
+				@include transition();
+
+				&:after, 
+				&:before{
+					display: block;
+					content: '';
+					position: absolute;
+					width: 2px;
+					height: 10px;
+					top: 50%;
+					margin-top: -5px;
+					background-color: $tabBorderColor;
+					@include transition();
+				}
+
+				&:before{
+					right: 16px;
+					transform: rotate(-45deg);
+				}
+
+				&:after{
+					right: 10px;
+					transform: rotate(45deg);
+				}
+			}
+		}
+	}
+}
+
+.tab-mob-scroll{
+	@include screen(medium){
+		.tab-scroll{
+			overflow-x: auto;
+			overflow-y: hidden;
+		}
+
+		.tab-nav{
+			display: block;
+			white-space: nowrap;
+
+			>li{
+				a{
+					position: relative;
+
+					&:after{
+						border-color: 1px solid $tabBorderColor;
+					}
+
+					&.active{
+						&:after{
+							border-color: $tabBgColor;
+						}
+					}
+				}
+			}	
+		}
+
+		.tab-content{
+			margin-top: -1px;
+			border-top-width: 1px;
+		}
+
+		.tab-panel{
+			>label{
+				display: none;
+			}
+		}
+	}
+}

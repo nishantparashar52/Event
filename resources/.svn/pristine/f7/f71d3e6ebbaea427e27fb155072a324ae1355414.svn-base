@@ -1,0 +1,25 @@
+/*------------------------------------------------ 
+	Listing.
+------------------------------------------------*/
+.list{
+  >li{
+    padding: 10px 0;
+  }
+}
+
+.list-border{
+  >li{
+    border-top: 1px solid $color-border;
+  }
+}
+
+.inline{
+  >li{
+    display: inline-block;
+    margin-right: 5px;
+
+    &:last-child{
+      margin-right: 0;
+    }
+  }
+}

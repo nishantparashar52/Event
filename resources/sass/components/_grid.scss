@@ -1,0 +1,49 @@
+/*------------------------------------------------ 
+	grid structure.
+	Default wrapper with max screen width
+------------------------------------------------*/
+.wrapper {
+	max-width: $screen;
+  margin-right: auto;
+  margin-left: auto;
+  @include clearfix();
+  
+  @if $enable-grid == true{
+	  padding-right: ($gutter / 2);
+	  padding-left: ($gutter / 2);
+	}
+}
+
+/*------------------------------------------------ 
+	Full screen wrapper
+------------------------------------------------*/
+.fluid-wrapper {
+  margin-right: auto;
+  margin-left: auto;
+  
+  @if $enable-grid == true{
+		padding-right: ($gutter / 2);
+	  padding-left: ($gutter / 2);
+	}
+}
+
+/*------------------------------------------------ 
+	row
+------------------------------------------------*/
+.row{
+	@if $enable-grid == true{
+		clear: both;
+	  margin-left: -($gutter / 2);
+	  margin-right: -($gutter / 2);
+	}
+
+	@extend %clearfix;
+}
+
+/*------------------------------------------------ 
+	column creator.
+	If $enabled-grid is true.
+------------------------------------------------*/
+@if $enable-grid{
+  @include make-grid-columns();
+}

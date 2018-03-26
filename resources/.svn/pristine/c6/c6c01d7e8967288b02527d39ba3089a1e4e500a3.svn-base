@@ -1,0 +1,44 @@
+/*------------------------------------------------ 
+	//comments
+------------------------------------------------*/
+.dashboard{
+	.bookings{
+		min-height: 317px;
+
+		@include screen(medium){
+			min-height: 0;
+		}
+	}
+}
+
+.bookings{
+	.button{
+		padding: 5px 10px;
+	}
+
+	.booking-detail{
+		.icon{
+			&:before{
+				vertical-align: top;
+			}
+		}
+
+		>li{
+			float: left;
+			padding-top: 5px;
+			padding-bottom: 5px;
+
+			&:nth-child(3){
+				padding-top: 0;
+			}
+		}
+
+		.inline{
+			>li{
+				padding-top: 5px;
+				padding-bottom: 0;
+				max-width: 100%;
+			}
+		}
+	}
+}

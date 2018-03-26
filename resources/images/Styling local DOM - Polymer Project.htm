@@ -1,0 +1,1514 @@
+<!DOCTYPE html>
+<!-- saved from url=(0078)https://www.polymer-project.org/1.0/docs/devguide/styling#external-stylesheets -->
+<html itemscope="" itemtype="http://schema.org/Organization" lang="en" class="gr__polymer-project_org"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Styling local DOM - Polymer Project</title>
+
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<meta name="google-site-verification" content="k0e8DrbD40s54xHNBqwIsRrSSAkZoprwtEYDnNY06bU">
+<meta name="google-site-verification" content="pnjjbQFvjPwaWhEXY6nSyaS9iyghmH-M_yLHBveDX2M">
+<meta itemprop="image" content="https://www.polymer-project.org/images/logos/p-logo-32.png">
+<meta itemprop="description" content="Polymer is a library that uses the latest web technologies to let you create custom HTML elements. Build anything from a button to a complete application as an encapsulated, reusable component that works across desktop and mobile.">
+<meta name="theme-color" content="#1e88e5">
+<link rel="manifest" href="https://www.polymer-project.org/manifest.json">
+
+<link rel="publisher" href="https://plus.google.com/107187849809354688692">
+<link rel="shortcut icon" href="https://www.polymer-project.org/images/logos/p-logo-32.png">
+<link rel="stylesheet" href="./Styling local DOM - Polymer Project_files/css">
+
+<link rel="stylesheet" href="./Styling local DOM - Polymer Project_files/site.css">
+
+<!-- Load hljs before pw-shell in elements.html tries to use it. -->
+<script async="" src="./Styling local DOM - Polymer Project_files/analytics.js"></script><script src="./Styling local DOM - Polymer Project_files/highlight.js" async=""></script>
+
+<script>
+  window.Polymer = window.Polymer || {dom: 'shadow', lazyRegister: true};
+</script>
+<!-- Node: the webcomponents polyfill is lazily loaded in app.js -->
+<link rel="import" href="https://www.polymer-project.org/elements/pw-shell.html" async="">
+<style is="custom-style" include="iron-flex iron-flex-alignment iron-flex-factors">.layout.horizontal, .layout.vertical {
+  display:-ms-flexbox;display:-webkit-flex;display:flex;
+}
+
+.layout.inline {
+  display:-ms-inline-flexbox;display:-webkit-inline-flex;display:inline-flex;
+}
+
+.layout.horizontal {
+  -ms-flex-direction:row;-webkit-flex-direction:row;flex-direction:row;
+}
+
+.layout.vertical {
+  -ms-flex-direction:column;-webkit-flex-direction:column;flex-direction:column;
+}
+
+.layout.wrap {
+  -ms-flex-wrap:wrap;-webkit-flex-wrap:wrap;flex-wrap:wrap;
+}
+
+.layout.no-wrap {
+  -ms-flex-wrap:nowrap;-webkit-flex-wrap:nowrap;flex-wrap:nowrap;
+}
+
+.layout.center, .layout.center-center {
+  -ms-flex-align:center;-webkit-align-items:center;align-items:center;
+}
+
+.layout.center-justified, .layout.center-center {
+  -ms-flex-pack:center;-webkit-justify-content:center;justify-content:center;
+}
+
+.flex {
+  -ms-flex:1 1 0.000000001px;-webkit-flex:1;flex:1;-webkit-flex-basis:0.000000001px;flex-basis:0.000000001px;
+}
+
+.flex-auto {
+  -ms-flex:1 1 auto;-webkit-flex:1 1 auto;flex:1 1 auto;
+}
+
+.flex-none {
+  -ms-flex:none;-webkit-flex:none;flex:none;
+}
+
+.layout.start {
+  -ms-flex-align:start;-webkit-align-items:flex-start;align-items:flex-start;
+}
+
+.layout.center, .layout.center-center {
+  -ms-flex-align:center;-webkit-align-items:center;align-items:center;
+}
+
+.layout.end {
+  -ms-flex-align:end;-webkit-align-items:flex-end;align-items:flex-end;
+}
+
+.layout.baseline {
+  -ms-flex-align:baseline;-webkit-align-items:baseline;align-items:baseline;
+}
+
+.layout.start-justified {
+  -ms-flex-pack:start;-webkit-justify-content:flex-start;justify-content:flex-start;
+}
+
+.layout.center-justified, .layout.center-center {
+  -ms-flex-pack:center;-webkit-justify-content:center;justify-content:center;
+}
+
+.layout.end-justified {
+  -ms-flex-pack:end;-webkit-justify-content:flex-end;justify-content:flex-end;
+}
+
+.layout.around-justified {
+  -ms-flex-pack:distribute;-webkit-justify-content:space-around;justify-content:space-around;
+}
+
+.layout.justified {
+  -ms-flex-pack:justify;-webkit-justify-content:space-between;justify-content:space-between;
+}
+
+.self-start {
+  -ms-align-self:flex-start;-webkit-align-self:flex-start;align-self:flex-start;
+}
+
+.self-center {
+  -ms-align-self:center;-webkit-align-self:center;align-self:center;
+}
+
+.self-end {
+  -ms-align-self:flex-end;-webkit-align-self:flex-end;align-self:flex-end;
+}
+
+.self-stretch {
+  -ms-align-self:stretch;-webkit-align-self:stretch;align-self:stretch;
+}
+
+.self-baseline {
+  -ms-align-self:baseline;-webkit-align-self:baseline;align-self:baseline;
+}
+
+.layout.start-aligned {
+  -ms-flex-line-pack:start;-ms-align-content:flex-start;-webkit-align-content:flex-start;align-content:flex-start;
+}
+
+.layout.end-aligned {
+  -ms-flex-line-pack:end;-ms-align-content:flex-end;-webkit-align-content:flex-end;align-content:flex-end;
+}
+
+.layout.center-aligned {
+  -ms-flex-line-pack:center;-ms-align-content:center;-webkit-align-content:center;align-content:center;
+}
+
+.layout.between-aligned {
+  -ms-flex-line-pack:justify;-ms-align-content:space-between;-webkit-align-content:space-between;align-content:space-between;
+}
+
+.layout.around-aligned {
+  -ms-flex-line-pack:distribute;-ms-align-content:space-around;-webkit-align-content:space-around;align-content:space-around;
+}
+
+.flex, .flex-1 {
+  -ms-flex:1 1 0.000000001px;-webkit-flex:1;flex:1;-webkit-flex-basis:0.000000001px;flex-basis:0.000000001px;
+}
+
+.flex-2 {
+  -ms-flex:2;-webkit-flex:2;flex:2;
+}
+
+.flex-3 {
+  -ms-flex:3;-webkit-flex:3;flex:3;
+}
+
+.flex-4 {
+  -ms-flex:4;-webkit-flex:4;flex:4;
+}
+
+.flex-5 {
+  -ms-flex:5;-webkit-flex:5;flex:5;
+}
+
+.flex-6 {
+  -ms-flex:6;-webkit-flex:6;flex:6;
+}
+
+.flex-7 {
+  -ms-flex:7;-webkit-flex:7;flex:7;
+}
+
+.flex-8 {
+  -ms-flex:8;-webkit-flex:8;flex:8;
+}
+
+.flex-9 {
+  -ms-flex:9;-webkit-flex:9;flex:9;
+}
+
+.flex-10 {
+  -ms-flex:10;-webkit-flex:10;flex:10;
+}
+
+.flex-11 {
+  -ms-flex:11;-webkit-flex:11;flex:11;
+}
+
+.flex-12 {
+  -ms-flex:12;-webkit-flex:12;flex:12;
+}
+
+</style><style>
+   /* Styling while the resources are loading. */
+  devguide-shell[unresolved] .sidenav-content {
+    opacity: 0;
+  }
+  devguide-shell[unresolved] main {
+    opacity: 0;
+  }
+</style>
+<link rel="import" href="https://www.polymer-project.org/elements/pw-shell-lazy-elements.html"><link rel="import" href="https://www.polymer-project.org/elements/icons.html"><link rel="import" href="https://www.polymer-project.org/elements/devguide-shell.html"><link rel="import" href="https://www.polymer-project.org/elements/pw-footer.html"><link rel="import" href="https://www.polymer-project.org/elements/google-youtube.html"><link rel="import" href="https://www.polymer-project.org/elements/iron-doc-viewer.html"><link rel="import" href="https://www.polymer-project.org/elements/demo-tabs.html"></head>
+<body class="fullbleed" data-gr-c-s-loaded="true">
+  <!-- If JavaScript is disabled, we won't update any elements, so undo the FOUC styles -->
+<noscript>
+  &lt;style type="text/css"&gt;
+    body, devguide-shell .sidenav-content, devguide-shell main {
+      opacity: 1 !important;
+    }
+  &lt;/style&gt;
+</noscript>  <pw-shell active-docs-version="1.0" class="right-nav">
+      <style>
+    a.site-nav {
+      color: #6b6b6b;
+      background: white;
+      border-bottom: 1px solid #eaedef;
+      padding: 4px 4px 4px 30px;
+      font-weight: 300;
+      font-size: 15px;
+      line-height: 40px;  /* To match the nested paper-icon-button height */
+      display: block;
+      text-decoration: none;
+
+      /* The active links will have a pink border. */
+      border-left: 4px solid transparent;
+      flex-direction: row;
+
+      /* To avoid flashing the content before it's being distributed,
+       * hide the links initially, and revert to display:flex in pw-shell. */
+      display: none;
+    }
+
+    a.site-nav > span {
+      flex: 1;
+      flex-basis: 0;
+    }
+
+    /* The active page */
+    a.site-nav.iron-selected {
+      color: black;
+      border-left: 4px solid #f22c5a;
+      color: #f22c5a;
+    }
+
+    a.site-nav.level-1 {
+      font-family: 'Roboto Slab', 'Roboto', sans-serif;
+      font-weight: 400;
+    }
+
+    a.site-nav.level-2 {
+      color: black;
+    }
+
+    /* This is basically a level-3 link */
+    a.site-nav.level-2.indent {
+      padding-left: 40px;
+      color: black;
+    }
+
+    a.site-nav.greyed-out {
+      background: #f4f5f6;
+      color: #707070;
+      font-weight: 400;
+    }
+
+    a.site-nav.active {
+      color: black;
+      font-weight: 700;
+    }
+  </style>
+
+      <a class="site-nav level-1" href="https://www.polymer-project.org/" name="/" data-version="1.0">
+       <span>Home</span>
+
+            </a>
+
+          <a class="site-nav level-1" href="https://www.polymer-project.org/1.0/start/" name="/1.0/start/" data-version="1.0">
+       <span>Start</span>
+
+              <paper-icon-button icon="icons:expand-more" onclick="_expandClicked(event)" role="button" tabindex="0" aria-disabled="false">
+       </paper-icon-button>
+            </a>
+
+          <iron-collapse class="site-nav iron-collapse-closed" role="group" aria-hidden="true" aria-expanded="false" style="transition-property: max-height; transition-duration: 0s; max-height: 0px;">
+                              <a class="site-nav level-2 " href="https://www.polymer-project.org/1.0/start/index" name="/1.0/start/index">
+               <span>Get started</span>
+            </a>
+                                        <a class="site-nav level-2" onclick="_expandClicked(event)">
+               <span>Build an element</span>
+               <paper-icon-button icon="icons:expand-more" role="button" tabindex="0" aria-disabled="false"></paper-icon-button>
+            </a>
+            <iron-collapse role="group" aria-hidden="true" aria-expanded="false" class="iron-collapse-closed" style="transition-property: max-height; transition-duration: 0s; max-height: 0px;">
+                                        <a class="site-nav level-2 indent" href="https://www.polymer-project.org/1.0/start/first-element/intro" name="/1.0/start/first-element/intro">
+               <span>1. Get set up</span>
+            </a>
+                                        <a class="site-nav level-2 indent" href="https://www.polymer-project.org/1.0/start/first-element/step-2" name="/1.0/start/first-element/step-2">
+               <span>2. Add local DOM</span>
+            </a>
+                                        <a class="site-nav level-2 indent" href="https://www.polymer-project.org/1.0/start/first-element/step-3" name="/1.0/start/first-element/step-3">
+               <span>3. Data binding &amp; properties</span>
+            </a>
+                                        <a class="site-nav level-2 indent" href="https://www.polymer-project.org/1.0/start/first-element/step-4" name="/1.0/start/first-element/step-4">
+               <span>4. React to input</span>
+            </a>
+                                        <a class="site-nav level-2 indent" href="https://www.polymer-project.org/1.0/start/first-element/step-5" name="/1.0/start/first-element/step-5">
+               <span>5. Theming with custom properties</span>
+            </a>
+                                        </iron-collapse>
+                                        <a class="site-nav level-2" onclick="_expandClicked(event)">
+               <span>Build an app</span>
+               <paper-icon-button icon="icons:expand-more" role="button" tabindex="0" aria-disabled="false"></paper-icon-button>
+            </a>
+            <iron-collapse role="group" aria-hidden="true" aria-expanded="false" class="iron-collapse-closed" style="transition-property: max-height; transition-duration: 0s; max-height: 0px;">
+                                        <a class="site-nav level-2 indent" href="https://www.polymer-project.org/1.0/start/toolbox/set-up" name="/1.0/start/toolbox/set-up">
+               <span>1. Get set up</span>
+            </a>
+                                        <a class="site-nav level-2 indent" href="https://www.polymer-project.org/1.0/start/toolbox/create-a-page" name="/1.0/start/toolbox/create-a-page">
+               <span>2. Create a new page</span>
+            </a>
+                                        <a class="site-nav level-2 indent" href="https://www.polymer-project.org/1.0/start/toolbox/add-elements" name="/1.0/start/toolbox/add-elements">
+               <span>3. Add some elements</span>
+            </a>
+                                        <a class="site-nav level-2 indent" href="https://www.polymer-project.org/1.0/start/toolbox/deploy" name="/1.0/start/toolbox/deploy">
+               <span>4. Deploy</span>
+            </a>
+                                        </iron-collapse>
+                        </iron-collapse>
+          <a class="site-nav level-1 active" href="https://www.polymer-project.org/1.0/docs/devguide/feature-overview" name="/1.0/docs/devguide/feature-overview" data-version="1.0">
+       <span>Polymer</span>
+
+              <paper-icon-button icon="icons:expand-more" onclick="_expandClicked(event)" role="button" tabindex="0" aria-disabled="false">
+       </paper-icon-button>
+            </a>
+
+          <iron-collapse class="site-nav iron-collapse-closed" role="group" aria-hidden="true" aria-expanded="false" style="transition-property: max-height; transition-duration: 0s; max-height: 0px;">
+                              <a class="site-nav level-2 " href="https://www.polymer-project.org/1.0/docs/devguide/feature-overview" name="/1.0/docs/devguide/feature-overview">
+               <span>Feature overview</span>
+            </a>
+                                        <a class="site-nav level-2 " href="https://www.polymer-project.org/1.0/docs/devguide/quick-tour" name="/1.0/docs/devguide/quick-tour">
+               <span>Quick tour</span>
+            </a>
+                                        <a class="site-nav level-2" onclick="_expandClicked(event)">
+               <span>Define elements</span>
+               <paper-icon-button icon="icons:expand-more" role="button" tabindex="0" aria-disabled="false"></paper-icon-button>
+            </a>
+            <iron-collapse role="group" aria-hidden="true" aria-expanded="false" class="iron-collapse-closed" style="transition-property: max-height; transition-duration: 0s; max-height: 0px;">
+                                        <a class="site-nav level-2 indent" href="https://www.polymer-project.org/1.0/docs/devguide/registering-elements" name="/1.0/docs/devguide/registering-elements">
+               <span>Register an element</span>
+            </a>
+                                        <a class="site-nav level-2 indent" href="https://www.polymer-project.org/1.0/docs/devguide/properties" name="/1.0/docs/devguide/properties">
+               <span>Declare properties</span>
+            </a>
+                                        <a class="site-nav level-2 indent" href="https://www.polymer-project.org/1.0/docs/devguide/instance-methods" name="/1.0/docs/devguide/instance-methods">
+               <span>Instance methods</span>
+            </a>
+                                        <a class="site-nav level-2 indent" href="https://www.polymer-project.org/1.0/docs/devguide/behaviors" name="/1.0/docs/devguide/behaviors">
+               <span>Behaviors</span>
+            </a>
+                                        </iron-collapse>
+                                        <a class="site-nav level-2 active" onclick="_expandClicked(event)">
+               <span>Local DOM &amp; styling</span>
+               <paper-icon-button icon="icons:expand-more" role="button" tabindex="0" aria-disabled="false"></paper-icon-button>
+            </a>
+            <iron-collapse role="group" aria-hidden="true" aria-expanded="false" class="iron-collapse-closed" style="transition-property: max-height; transition-duration: 0s; max-height: 0px;">
+                                        <a class="site-nav level-2 indent" href="https://www.polymer-project.org/1.0/docs/devguide/local-dom" name="/1.0/docs/devguide/local-dom">
+               <span>Local DOM</span>
+            </a>
+                                        <a class="site-nav level-2 indent iron-selected active" href="https://www.polymer-project.org/1.0/docs/devguide/styling" name="/1.0/docs/devguide/styling">
+               <span>Styling</span>
+            </a>
+                                        </iron-collapse>
+                                        <a class="site-nav level-2" onclick="_expandClicked(event)">
+               <span>Events</span>
+               <paper-icon-button icon="icons:expand-more" role="button" tabindex="0" aria-disabled="false"></paper-icon-button>
+            </a>
+            <iron-collapse role="group" aria-hidden="true" aria-expanded="false" class="iron-collapse-closed" style="transition-property: max-height; transition-duration: 0s; max-height: 0px;">
+                                        <a class="site-nav level-2 indent" href="https://www.polymer-project.org/1.0/docs/devguide/events" name="/1.0/docs/devguide/events">
+               <span>Handle and fire events</span>
+            </a>
+                                        <a class="site-nav level-2 indent" href="https://www.polymer-project.org/1.0/docs/devguide/gesture-events" name="/1.0/docs/devguide/gesture-events">
+               <span>Gesture events</span>
+            </a>
+                                        </iron-collapse>
+                                        <a class="site-nav level-2" onclick="_expandClicked(event)">
+               <span>Data system</span>
+               <paper-icon-button icon="icons:expand-more" role="button" tabindex="0" aria-disabled="false"></paper-icon-button>
+            </a>
+            <iron-collapse role="group" aria-hidden="true" aria-expanded="false" class="iron-collapse-closed" style="transition-property: max-height; transition-duration: 0s; max-height: 0px;">
+                                        <a class="site-nav level-2 indent" href="https://www.polymer-project.org/1.0/docs/devguide/data-system" name="/1.0/docs/devguide/data-system">
+               <span>Data system concepts</span>
+            </a>
+                                        <a class="site-nav level-2 indent" href="https://www.polymer-project.org/1.0/docs/devguide/model-data" name="/1.0/docs/devguide/model-data">
+               <span>Work with object and array data</span>
+            </a>
+                                        <a class="site-nav level-2 indent" href="https://www.polymer-project.org/1.0/docs/devguide/observers" name="/1.0/docs/devguide/observers">
+               <span>Observers and computed properties</span>
+            </a>
+                                        <a class="site-nav level-2 indent" href="https://www.polymer-project.org/1.0/docs/devguide/data-binding" name="/1.0/docs/devguide/data-binding">
+               <span>Data binding</span>
+            </a>
+                                        <a class="site-nav level-2 indent" href="https://www.polymer-project.org/1.0/docs/devguide/templates" name="/1.0/docs/devguide/templates">
+               <span>Helper elements</span>
+            </a>
+                                        </iron-collapse>
+                                        <a class="site-nav level-2" onclick="_expandClicked(event)">
+               <span>Tools</span>
+               <paper-icon-button icon="icons:expand-more" role="button" tabindex="0" aria-disabled="false"></paper-icon-button>
+            </a>
+            <iron-collapse role="group" aria-hidden="true" aria-expanded="false" class="iron-collapse-closed" style="transition-property: max-height; transition-duration: 0s; max-height: 0px;">
+                                        <a class="site-nav level-2 indent" href="https://www.polymer-project.org/1.0/docs/tools/overview" name="/1.0/docs/tools/overview">
+               <span>Tools overview</span>
+            </a>
+                                        <a class="site-nav level-2 indent" href="https://www.polymer-project.org/1.0/docs/tools/polymer-cli" name="/1.0/docs/tools/polymer-cli">
+               <span>Polymer CLI</span>
+            </a>
+                                        <a class="site-nav level-2 indent" href="https://www.polymer-project.org/1.0/docs/tools/documentation" name="/1.0/docs/tools/documentation">
+               <span>Document your elements</span>
+            </a>
+                                        <a class="site-nav level-2 indent" href="https://www.polymer-project.org/1.0/docs/tools/tests" name="/1.0/docs/tools/tests">
+               <span>Test your elements</span>
+            </a>
+                                        <a class="site-nav level-2 indent" href="https://www.polymer-project.org/1.0/docs/tools/optimize-for-production" name="/1.0/docs/tools/optimize-for-production">
+               <span>Optimize for production</span>
+            </a>
+                                        <a class="site-nav level-2 indent" href="https://www.polymer-project.org/1.0/docs/tools/reusable-elements" name="/1.0/docs/tools/reusable-elements">
+               <span>Publish an element</span>
+            </a>
+                                        <a class="site-nav level-2 indent" href="https://www.polymer-project.org/1.0/docs/tools/advanced" name="/1.0/docs/tools/advanced">
+               <span>Advanced tools</span>
+            </a>
+                                        <a class="site-nav level-2 indent" href="https://www.polymer-project.org/1.0/docs/tools/services" name="/1.0/docs/tools/services">
+               <span>Services</span>
+            </a>
+                                        </iron-collapse>
+                                        <a class="site-nav level-2" onclick="_expandClicked(event)">
+               <span>What's new</span>
+               <paper-icon-button icon="icons:expand-more" role="button" tabindex="0" aria-disabled="false"></paper-icon-button>
+            </a>
+            <iron-collapse role="group" aria-hidden="true" aria-expanded="false" class="iron-collapse-closed" style="transition-property: max-height; transition-duration: 0s; max-height: 0px;">
+                                        <a class="site-nav level-2 indent" href="https://www.polymer-project.org/1.0/docs/release-notes" name="/1.0/docs/release-notes">
+               <span>Release notes</span>
+            </a>
+                                        <a class="site-nav level-2 indent" href="https://www.polymer-project.org/1.0/docs/migration" name="/1.0/docs/migration">
+               <span>1.0 Migration guide</span>
+            </a>
+                                        <a class="site-nav level-2 indent" href="https://www.polymer-project.org/1.0/docs/about_10" name="/1.0/docs/about_10">
+               <span>About Polymer 1.0</span>
+            </a>
+                                        </iron-collapse>
+                                        <a class="site-nav level-2" onclick="_expandClicked(event)">
+               <span>Resources</span>
+               <paper-icon-button icon="icons:expand-more" role="button" tabindex="0" aria-disabled="false"></paper-icon-button>
+            </a>
+            <iron-collapse role="group" aria-hidden="true" aria-expanded="false" class="iron-collapse-closed" style="transition-property: max-height; transition-duration: 0s; max-height: 0px;">
+                                        <a class="site-nav level-2 indent" href="https://www.polymer-project.org/1.0/docs/community" name="/1.0/docs/community">
+               <span>Community</span>
+            </a>
+                                        <a class="site-nav level-2 indent" href="https://www.polymer-project.org/1.0/docs/browsers" name="/1.0/docs/browsers">
+               <span>Browser compatibility</span>
+            </a>
+                                        </iron-collapse>
+                                        <a class="site-nav level-2" onclick="_expandClicked(event)">
+               <span>API Reference</span>
+               <paper-icon-button icon="icons:expand-more" role="button" tabindex="0" aria-disabled="false"></paper-icon-button>
+            </a>
+            <iron-collapse role="group" aria-hidden="true" aria-expanded="false" class="iron-collapse-closed" style="transition-property: max-height; transition-duration: 0s; max-height: 0px;">
+                                        <a class="site-nav level-2 indent" href="https://www.polymer-project.org/1.0/docs/api/Polymer.Base" name="/1.0/docs/api/Polymer.Base">
+               <span>Polymer.Base</span>
+            </a>
+                                        <a class="site-nav level-2 indent" href="https://www.polymer-project.org/1.0/docs/api/array-selector" name="/1.0/docs/api/array-selector">
+               <span>array-selector</span>
+            </a>
+                                        <a class="site-nav level-2 indent" href="https://www.polymer-project.org/1.0/docs/api/custom-style" name="/1.0/docs/api/custom-style">
+               <span>custom-style</span>
+            </a>
+                                        <a class="site-nav level-2 indent" href="https://www.polymer-project.org/1.0/docs/api/dom-bind" name="/1.0/docs/api/dom-bind">
+               <span>dom-bind</span>
+            </a>
+                                        <a class="site-nav level-2 indent" href="https://www.polymer-project.org/1.0/docs/api/dom-if" name="/1.0/docs/api/dom-if">
+               <span>dom-if</span>
+            </a>
+                                        <a class="site-nav level-2 indent" href="https://www.polymer-project.org/1.0/docs/api/dom-repeat" name="/1.0/docs/api/dom-repeat">
+               <span>dom-repeat</span>
+            </a>
+                                        <a class="site-nav level-2 indent" href="https://www.polymer-project.org/1.0/docs/api/dom-template" name="/1.0/docs/api/dom-template">
+               <span>dom-template</span>
+            </a>
+                                        <a class="site-nav level-2 indent" href="https://www.polymer-project.org/1.0/docs/api/Polymer.Templatizer" name="/1.0/docs/api/Polymer.Templatizer">
+               <span>Polymer.Templatizer</span>
+            </a>
+                                        <a class="site-nav level-2 indent" href="https://www.polymer-project.org/1.0/docs/devguide/settings" name="/1.0/docs/devguide/settings">
+               <span>Global settings</span>
+            </a>
+                                        </iron-collapse>
+                        </iron-collapse>
+          <a class="site-nav level-1" href="https://www.polymer-project.org/1.0/toolbox/" name="/1.0/toolbox/" data-version="1.0">
+       <span>App Toolbox</span>
+
+              <paper-icon-button icon="icons:expand-more" onclick="_expandClicked(event)" role="button" tabindex="0" aria-disabled="false">
+       </paper-icon-button>
+            </a>
+
+          <iron-collapse class="site-nav iron-collapse-closed" role="group" aria-hidden="true" aria-expanded="false" style="transition-property: max-height; transition-duration: 0s; max-height: 0px;">
+                              <a class="site-nav level-2 " href="https://www.polymer-project.org/1.0/toolbox/index" name="/1.0/toolbox/index">
+               <span>What's in the box?</span>
+            </a>
+                                        <a class="site-nav level-2" onclick="_expandClicked(event)">
+               <span>Using the Toolbox</span>
+               <paper-icon-button icon="icons:expand-more" role="button" tabindex="0" aria-disabled="false"></paper-icon-button>
+            </a>
+            <iron-collapse role="group" aria-hidden="true" aria-expanded="false" class="iron-collapse-closed" style="transition-property: max-height; transition-duration: 0s; max-height: 0px;">
+                                        <a class="site-nav level-2 indent" href="https://www.polymer-project.org/1.0/toolbox/templates" name="/1.0/toolbox/templates">
+               <span>App templates</span>
+            </a>
+                                        <a class="site-nav level-2 indent" href="https://www.polymer-project.org/1.0/toolbox/app-layout" name="/1.0/toolbox/app-layout">
+               <span>Responsive app layout</span>
+            </a>
+                                        <a class="site-nav level-2 indent" href="https://www.polymer-project.org/1.0/toolbox/routing" name="/1.0/toolbox/routing">
+               <span>Routing</span>
+            </a>
+                                        <a class="site-nav level-2 indent" href="https://www.polymer-project.org/1.0/toolbox/localize" name="/1.0/toolbox/localize">
+               <span>Localization</span>
+            </a>
+                                        <a class="site-nav level-2 indent" href="https://www.polymer-project.org/1.0/toolbox/app-storage" name="/1.0/toolbox/app-storage">
+               <span>App storage</span>
+            </a>
+                                        <a class="site-nav level-2 indent" href="https://www.polymer-project.org/1.0/toolbox/service-worker" name="/1.0/toolbox/service-worker">
+               <span>Service worker</span>
+            </a>
+                                        <a class="site-nav level-2 indent" href="https://www.polymer-project.org/1.0/toolbox/server" name="/1.0/toolbox/server">
+               <span>Serve your app</span>
+            </a>
+                                        </iron-collapse>
+                                        <a class="site-nav level-2" onclick="_expandClicked(event)">
+               <span>Case study</span>
+               <paper-icon-button icon="icons:expand-more" role="button" tabindex="0" aria-disabled="false"></paper-icon-button>
+            </a>
+            <iron-collapse role="group" aria-hidden="true" aria-expanded="false" class="iron-collapse-closed" style="transition-property: max-height; transition-duration: 0s; max-height: 0px;">
+                                        <a class="site-nav level-2 indent" href="https://www.polymer-project.org/1.0/toolbox/case-study" name="/1.0/toolbox/case-study">
+               <span>Shop</span>
+            </a>
+                                        <a class="site-nav level-2 indent" href="https://www.polymer-project.org/1.0/toolbox/news-case-study" name="/1.0/toolbox/news-case-study">
+               <span>News</span>
+            </a>
+                                        </iron-collapse>
+                        </iron-collapse>
+          <a class="site-nav level-1" href="https://www.polymer-project.org/blog/" name="/blog/" data-version="1.0">
+       <span>Blog</span>
+
+            </a>
+
+          <a class="site-nav level-1" href="https://www.polymer-project.org/community/" name="/community/" data-version="1.0">
+       <span>Community</span>
+
+            </a>
+
+      
+<script>
+function _expandClicked(event) {
+  var navLink = Polymer.dom(event).localTarget.parentNode;
+  var navCollapse = navLink.nextElementSibling;
+
+  document.querySelector('pw-shell').styleLinkPath(navLink, !navCollapse.opened);
+
+  // Don't actually click the link.
+  event.preventDefault();
+  event.stopImmediatePropagation();
+}
+</script>          <devguide-shell markdown="" page-title="Styling local DOM" page-subtitle="" v1-page-link="/1.0/docs/devguide/feature-overview" v2-page-link="/2.0/docs/devguide/feature-overview">
+    
+                                    <a class="sidenav-content " name="/1.0/docs/devguide/feature-overview" href="https://www.polymer-project.org/1.0/docs/devguide/feature-overview">Feature overview</a>
+                                        <a class="sidenav-content " name="/1.0/docs/devguide/quick-tour" href="https://www.polymer-project.org/1.0/docs/devguide/quick-tour">Quick tour</a>
+                                        <div class="sidenav-content sidenav-header">Define elements</div>
+                                        <a class="sidenav-content indent" name="/1.0/docs/devguide/registering-elements" href="https://www.polymer-project.org/1.0/docs/devguide/registering-elements">Register an element</a>
+                                        <a class="sidenav-content indent" name="/1.0/docs/devguide/properties" href="https://www.polymer-project.org/1.0/docs/devguide/properties">Declare properties</a>
+                                        <a class="sidenav-content indent" name="/1.0/docs/devguide/instance-methods" href="https://www.polymer-project.org/1.0/docs/devguide/instance-methods">Instance methods</a>
+                                        <a class="sidenav-content indent" name="/1.0/docs/devguide/behaviors" href="https://www.polymer-project.org/1.0/docs/devguide/behaviors">Behaviors</a>
+                                        <div class="sidenav-content sidenav-endheader"></div>
+                                        <div class="sidenav-content sidenav-header">Local DOM &amp; styling</div>
+                                        <a class="sidenav-content indent" name="/1.0/docs/devguide/local-dom" href="https://www.polymer-project.org/1.0/docs/devguide/local-dom">Local DOM</a>
+                                        <a class="sidenav-content indent iron-selected" name="/1.0/docs/devguide/styling" href="https://www.polymer-project.org/1.0/docs/devguide/styling">Styling</a>
+                                        <div class="sidenav-content sidenav-endheader"></div>
+                                        <div class="sidenav-content sidenav-header">Events</div>
+                                        <a class="sidenav-content indent" name="/1.0/docs/devguide/events" href="https://www.polymer-project.org/1.0/docs/devguide/events">Handle and fire events</a>
+                                        <a class="sidenav-content indent" name="/1.0/docs/devguide/gesture-events" href="https://www.polymer-project.org/1.0/docs/devguide/gesture-events">Gesture events</a>
+                                        <div class="sidenav-content sidenav-endheader"></div>
+                                        <div class="sidenav-content sidenav-header">Data system</div>
+                                        <a class="sidenav-content indent" name="/1.0/docs/devguide/data-system" href="https://www.polymer-project.org/1.0/docs/devguide/data-system">Data system concepts</a>
+                                        <a class="sidenav-content indent" name="/1.0/docs/devguide/model-data" href="https://www.polymer-project.org/1.0/docs/devguide/model-data">Work with object and array data</a>
+                                        <a class="sidenav-content indent" name="/1.0/docs/devguide/observers" href="https://www.polymer-project.org/1.0/docs/devguide/observers">Observers and computed properties</a>
+                                        <a class="sidenav-content indent" name="/1.0/docs/devguide/data-binding" href="https://www.polymer-project.org/1.0/docs/devguide/data-binding">Data binding</a>
+                                        <a class="sidenav-content indent" name="/1.0/docs/devguide/templates" href="https://www.polymer-project.org/1.0/docs/devguide/templates">Helper elements</a>
+                                        <div class="sidenav-content sidenav-endheader"></div>
+                                        <div class="sidenav-content sidenav-header">Tools</div>
+                                        <a class="sidenav-content indent" name="/1.0/docs/tools/overview" href="https://www.polymer-project.org/1.0/docs/tools/overview">Tools overview</a>
+                                        <a class="sidenav-content indent" name="/1.0/docs/tools/polymer-cli" href="https://www.polymer-project.org/1.0/docs/tools/polymer-cli">Polymer CLI</a>
+                                        <a class="sidenav-content indent" name="/1.0/docs/tools/documentation" href="https://www.polymer-project.org/1.0/docs/tools/documentation">Document your elements</a>
+                                        <a class="sidenav-content indent" name="/1.0/docs/tools/tests" href="https://www.polymer-project.org/1.0/docs/tools/tests">Test your elements</a>
+                                        <a class="sidenav-content indent" name="/1.0/docs/tools/optimize-for-production" href="https://www.polymer-project.org/1.0/docs/tools/optimize-for-production">Optimize for production</a>
+                                        <a class="sidenav-content indent" name="/1.0/docs/tools/reusable-elements" href="https://www.polymer-project.org/1.0/docs/tools/reusable-elements">Publish an element</a>
+                                        <a class="sidenav-content indent" name="/1.0/docs/tools/advanced" href="https://www.polymer-project.org/1.0/docs/tools/advanced">Advanced tools</a>
+                                        <a class="sidenav-content indent" name="/1.0/docs/tools/services" href="https://www.polymer-project.org/1.0/docs/tools/services">Services</a>
+                                        <div class="sidenav-content sidenav-endheader"></div>
+                                        <div class="sidenav-content sidenav-header">What's new</div>
+                                        <a class="sidenav-content indent" name="/1.0/docs/release-notes" href="https://www.polymer-project.org/1.0/docs/release-notes">Release notes</a>
+                                        <a class="sidenav-content indent" name="/1.0/docs/migration" href="https://www.polymer-project.org/1.0/docs/migration">1.0 Migration guide</a>
+                                        <a class="sidenav-content indent" name="/1.0/docs/about_10" href="https://www.polymer-project.org/1.0/docs/about_10">About Polymer 1.0</a>
+                                        <div class="sidenav-content sidenav-endheader"></div>
+                                        <div class="sidenav-content sidenav-header">Resources</div>
+                                        <a class="sidenav-content indent" name="/1.0/docs/community" href="https://www.polymer-project.org/1.0/docs/community">Community</a>
+                                        <a class="sidenav-content indent" name="/1.0/docs/browsers" href="https://www.polymer-project.org/1.0/docs/browsers">Browser compatibility</a>
+                                        <div class="sidenav-content sidenav-endheader"></div>
+                                        <div class="sidenav-content sidenav-header">API Reference</div>
+                                        <a class="sidenav-content indent" name="/1.0/docs/api/Polymer.Base" href="https://www.polymer-project.org/1.0/docs/api/Polymer.Base">Polymer.Base</a>
+                                        <a class="sidenav-content indent" name="/1.0/docs/api/array-selector" href="https://www.polymer-project.org/1.0/docs/api/array-selector">array-selector</a>
+                                        <a class="sidenav-content indent" name="/1.0/docs/api/custom-style" href="https://www.polymer-project.org/1.0/docs/api/custom-style">custom-style</a>
+                                        <a class="sidenav-content indent" name="/1.0/docs/api/dom-bind" href="https://www.polymer-project.org/1.0/docs/api/dom-bind">dom-bind</a>
+                                        <a class="sidenav-content indent" name="/1.0/docs/api/dom-if" href="https://www.polymer-project.org/1.0/docs/api/dom-if">dom-if</a>
+                                        <a class="sidenav-content indent" name="/1.0/docs/api/dom-repeat" href="https://www.polymer-project.org/1.0/docs/api/dom-repeat">dom-repeat</a>
+                                        <a class="sidenav-content indent" name="/1.0/docs/api/dom-template" href="https://www.polymer-project.org/1.0/docs/api/dom-template">dom-template</a>
+                                        <a class="sidenav-content indent" name="/1.0/docs/api/Polymer.Templatizer" href="https://www.polymer-project.org/1.0/docs/api/Polymer.Templatizer">Polymer.Templatizer</a>
+                                        <a class="sidenav-content indent" name="/1.0/docs/devguide/settings" href="https://www.polymer-project.org/1.0/docs/devguide/settings">Global settings</a>
+                                        <div class="sidenav-content sidenav-endheader"></div>
+                        
+      <main>
+        <style>
+  main {
+    position: relative;
+    background: #fafafa;
+    padding: 10px 40px;
+    font-size: 16px;
+    font-family: 'Roboto', 'Noto', sans-serif;
+    line-height: 24px;
+    font-weight: 300;
+    /* layout horizontal-reverse */
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: row-reverse;
+        -ms-flex-direction: row-reverse;
+            flex-direction: row-reverse;
+    -webkit-justify-content: flex-end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+  }
+
+  @media (max-width: 1000px) {
+    main {
+      -webkit-flex-direction: column;
+          -ms-flex-direction: column;
+              flex-direction: column;
+      /* At < 1000px, the TOC floats to the top, so we can add back the right-padding. */
+      padding-right: 40px;
+    }
+  }
+
+  @media (max-width: 500px) {
+    main {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }
+
+  article {
+    min-width: 0;  /* For some reason, this is non-0 */
+    max-width: 800px;
+    padding-right: 20px;
+  }
+
+  .article-wrapper.right-nav {
+    width: calc(100% - 300px);  /* 300px is the width of the TOC */
+  }
+
+  .details-wrapper {
+    display: block;
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: auto;
+    margin-top: 20px;
+    width: 300px;
+  }
+
+  .details-wrapper.fixed {
+    position: fixed;
+    right: 40px;  /* The <main> right padding */
+  }
+
+  .details-wrapper ul {
+    list-style-type: none;
+    font-size: 14px;
+    margin: 0;
+  }
+
+  .details-wrapper ul[data-depth="1"], .details-wrapper ul[data-depth="3"] {
+    padding: 0;
+    margin-top: 10px;
+  }
+
+  .details-wrapper ul[data-depth="1"] a, .details-wrapper ul[data-depth="3"] a {
+    color: black;
+    font-weight: 500;
+  }
+
+  .details-wrapper ul[data-depth="2"] {
+    font-weight: 300;
+    padding: 0 20px;
+  }
+
+  .details-wrapper ul[data-depth="2"] a {
+    font-weight: 300;
+  }
+
+  @media (max-width: 1000px) {
+    .details-wrapper {
+      padding: 0;
+      max-width: 100%;
+    }
+  }
+
+  details {
+    display: block;
+    will-change: transform;
+  }
+
+  @media (min-width: 1001px) {
+    details {
+      padding-left: 20px;
+      border-left: 2px solid #eceff1;
+    }
+  }
+
+  details summary {
+    font-family: 'Roboto Slab', 'Roboto', 'Noto', sans-serif;
+    font-weight: bold;
+    font-size: 15px;
+    line-height: 24px;
+  }
+
+  details summary::-webkit-details-marker {
+    display: none;
+  }
+
+  @media (max-width: 1000px) {
+    details summary::-webkit-details-marker {
+      display: inline-block;
+    }
+  }
+
+  pre {
+    background: white;
+    font-weight: 400;
+  }
+
+  code {
+    color: #0d47a1;
+    font-weight: 400;
+    word-wrap: break-word;
+  }
+
+  h1 {
+    font-size: 40px;
+    font-weight: 300;
+    line-height: 48px;
+  }
+
+  h2 {
+    border-bottom: 1px solid #f50057;
+    margin: 20px 0;
+  }
+
+  h3 {
+    font-family: 'Roboto Slab', 'Roboto', 'Noto', sans-serif;
+    font-size: 24px;
+  }
+
+  @media (max-width: 500px) {
+    h3 {
+      font-size: 18px;
+    }
+  }
+
+  h4, p.caption {
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  p.caption {
+    margin-bottom: 0;
+  }
+
+  a > code {
+    color: #1e88e5 !important;
+  }
+
+  table {
+    border-collapse: collapse;
+  }
+
+  table td {
+    padding-top: 10px;
+    border-top: 1px solid #cfd8dc;
+    /* blue-grey-100 */
+    vertical-align: top;
+  }
+
+  .alert {
+    padding: 10px 10px 10px 44px;  /* 34px from the icon + 10px left padding */
+    margin: 30px;
+    border-radius: 3px;
+    font-size: 15px;
+  }
+
+  @media (max-width: 767px) {
+    .alert {
+      margin: 0px;
+    }
+  }
+
+  .alert:before {
+    display: inline-block;  /* Hack to have the icon in a separate column than the text */
+    float: left;
+    margin-left: -34px;  /* the icon is 24px wide, + 10px padding */
+  }
+
+  .alert.alert-success, .alert.alert-tip {
+    background-color: #E8F5E9;
+    border: 1px solid #C8E6C9;
+  }
+
+  .alert.alert-success:before, .alert.alert-tip:before {
+    content: url(/images/alerts/tip.svg);
+  }
+
+  .alert.alert-info {
+    background-color: #E1F5FE;
+    border: 1px solid #B3E5FC;
+  }
+
+  .alert.alert-info:before {
+    content: url(/images/alerts/info.svg);
+  }
+
+  .alert.alert-error, .alert.alert-warning {
+    background-color: #FBE9E7;
+    border: 1px solid #FFCCBC;
+  }
+
+  .alert.alert-error:before, .alert.alert-warning:before {
+    content: url(/images/alerts/warning.svg);
+  }
+
+  code.hljs {
+    background: white;
+    font-weight: 400;
+  }
+
+  /* Helpers to automagically lay out in a row and resize images */
+  .image-container {
+    width: 100%;
+    max-width: 100%;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+  }
+
+  .image-container .image-wrapper {
+    -webkit-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    margin: 0 10px;
+  }
+
+  .image-container img {
+    width: 100%;
+    height: auto;
+  }
+</style><div class="details-wrapper" style="top: 0px;"><details id="toc" open=""><summary>Contents</summary><ul data-depth="1"><li data-level="H3"><a href="https://www.polymer-project.org/1.0/docs/devguide/styling#styling-distributed-children-content">Styling distributed children (::content)</a></li></ul><ul data-depth="1"><li data-level="H2"><a href="https://www.polymer-project.org/1.0/docs/devguide/styling#xscope-styling">Cross-scope styling</a><ul data-depth="2"><li data-level="H3"><a href="https://www.polymer-project.org/1.0/docs/devguide/styling#background">Background</a></li><li data-level="H3"><a href="https://www.polymer-project.org/1.0/docs/devguide/styling#custom-css-properties">Custom CSS properties</a></li><li data-level="H3"><a href="https://www.polymer-project.org/1.0/docs/devguide/styling#custom-css-mixins">Custom CSS mixins</a></li><li data-level="H3"><a href="https://www.polymer-project.org/1.0/docs/devguide/styling#style-api">Custom property API for Polymer elements</a></li><li data-level="H3"><a href="https://www.polymer-project.org/1.0/docs/devguide/styling#custom-properties-shim-limitations">Custom properties shim limitations</a></li></ul></li><li data-level="H2"><a href="https://www.polymer-project.org/1.0/docs/devguide/styling#custom-style">Custom element for document styling (custom-style)</a></li><li data-level="H2"><a href="https://www.polymer-project.org/1.0/docs/devguide/styling#style-modules">Shared styles and external stylesheets</a><ul data-depth="2"><li data-level="H3"><a href="https://www.polymer-project.org/1.0/docs/devguide/styling#external-stylesheets">External stylesheets (deprecated)</a></li></ul></li><li data-level="H2"><a href="https://www.polymer-project.org/1.0/docs/devguide/styling#scope-subtree">Third-party libraries that modify local DOM</a></li></ul></details></div><div class="article-wrapper right-nav"><article>
+<p>Polymer uses <a href="http://www.html5rocks.com/en/tutorials/webcomponents/shadowdom-201/">Shadow DOM styling
+rules</a> for
+providing scoped styling of the element's local DOM.  Scoped styles should be
+provided via <code>&lt;style&gt;</code> tags placed inside the element's local DOM <code>&lt;template&gt;</code>.</p>
+<pre class=" language-html"><code class=" language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dom-module</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>my-element<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
+
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">&gt;</span></span><span class="token style language-css">
+      <span class="token selector">:host</span> <span class="token punctuation">{</span>
+        <span class="token property">display</span><span class="token punctuation">:</span> block<span class="token punctuation">;</span>
+        <span class="token property">border</span><span class="token punctuation">:</span> 1px solid red<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+      <span class="token selector">#child-element</span> <span class="token punctuation">{</span>
+        <span class="token property">background</span><span class="token punctuation">:</span> yellow<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+      <span class="token comment" spellcheck="true">/* styling elements distributed to content (via ::content) requires */</span>
+      <span class="token comment" spellcheck="true">/* selecting the parent of the &lt;content&gt; element for compatibility with */</span>
+      <span class="token comment" spellcheck="true">/* shady DOM . This can be :host or a wrapper element. */</span>
+      <span class="token selector">.content-wrapper ::content &gt; .special</span> <span class="token punctuation">{</span>
+        <span class="token property">background</span><span class="token punctuation">:</span> orange<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">&gt;</span></span>
+
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>child-element<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>In local DOM!<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>content-wrapper<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>content</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>content</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span>
+
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script language-javascript">
+
+      <span class="token function">Polymer</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+          is<span class="token punctuation">:</span> <span class="token string">'my-element'</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dom-module</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+<p>To place styles outside of the element, or share styles between elements, you can create
+a <a href="https://www.polymer-project.org/1.0/docs/devguide/styling#style-modules">style module</a>.</p>
+<p class="alert alert-info"><strong>Note:</strong>  Prior to Polymer 1.1, the recommendation was to place <code>&lt;style&gt;</code> tags
+inside the <code>&lt;dom-module&gt;</code> for an element (but <em>outside</em> the <code>&lt;template&gt;</code>). This
+is still supported, but is no longer recommended.
+</p>
+<h3 id="styling-distributed-children-content" class="has-permalink">Styling distributed children (::content)</h3>
+<p>Under shady DOM, the <code>&lt;content&gt;</code> tag doesn't appear in the DOM tree. Styles are rewritten to remove the
+<code>::content</code> pseudo-element, <strong>and any combinator immediately to the left of <code>::content</code>.</strong></p>
+<p>This implies:</p>
+<ul>
+<li>
+<p>You must have a selector to the left of the <code>::content</code> pseudo-element.</p>
+<pre class=" language-css"><code class=" language-css"><span class="token punctuation">:</span><span class="token property">host</span> <span class="token punctuation">:</span><span class="token punctuation">:</span>content div
+</code></pre>
+<p>Becomes:</p>
+<pre class=" language-css"><code class=" language-css">x-foo div
+</code></pre>
+<p>(Where <code>x-foo</code> is the name of the custom element.)</p>
+</li>
+<li>
+<p>To limit styles to elements inside the ::content tag, add a wrapper element around the
+<code>&lt;content&gt;</code> element. This is especially important when using a child combinator (<code>&gt;</code>) to
+select top-level children.</p>
+<pre class=" language-html"><code class=" language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dom-module</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>my-element<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
+
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">&gt;</span></span><span class="token style language-css">
+      <span class="token selector">.content-wrapper ::content &gt; .special</span> <span class="token punctuation">{</span>
+        <span class="token property">background</span><span class="token punctuation">:</span> orange<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">&gt;</span></span>
+
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>content-wrapper<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>content</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>content</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dom-module</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+<p>In this case, the rule:</p>
+<pre class=" language-css"><code class=" language-css">.<span class="token property">content-wrapper</span> <span class="token punctuation">:</span><span class="token punctuation">:</span>content &gt; .special
+</code></pre>
+<p>Becomes:</p>
+<pre class=" language-css"><code class=" language-css">.content-wrapper &gt; .special
+</code></pre>
+</li>
+</ul>
+<p class="alert alert-info"><strong>Custom properties can't style distributed children.</strong> The Polymer
+<a href="https://www.polymer-project.org/1.0/docs/devguide/styling#xscope-styling-details">custom properties</a> shim doesn't support styling
+distributed children.
+</p>
+<h2 id="xscope-styling" class="has-permalink">Cross-scope styling</h2>
+<h3 id="background" class="has-permalink">Background</h3>
+<p>Shadow DOM (and its approximation via Shady DOM) bring much needed benefits of
+scoping and style encapsulation to web development, making it safer and easier
+to reason about the effects of CSS on parts of your application.  Styles do not
+leak into the local DOM from above, and styles do not leak from one local DOM
+into the local DOM of other elements inside.</p>
+<p>This is great for <em>protecting</em> scopes from unwanted style leakage.  But what
+about when you intentionally want to <em>customize</em> the style of a custom element's
+local DOM, as the user of an element?  This often comes up under the umbrella of
+"theming".  For example a "custom-checkbox" element that may internally use a
+<code>.checked</code> class can protect itself from being affected by CSS from other
+components that may also happen to use a <code>.checked</code> class.  However, as the user
+of the checkbox you may wish to intentionally change the color of the check to
+match your product's branding, for example.  The same "protection" that Shadow
+DOM provides at the same time introduces a practical barrier to "theming" use
+cases.</p>
+<p class="alert alert-info"><strong>Deprecated shadow DOM selectors.</strong> One solution the Shadow DOM spec authors
+provided to address the theming problem was the <code>/deep/</code> combinator and <code>::shadow</code>
+pseudo-element, which allowed writing rules that pierce through the Shadow DOM
+encapsulation boundary. However, these proved problematic and have been deprecated.
+</p>
+<!-- retain legacy anchor -->
+<p><a id="xscope-styling-details"></a></p>
+<h3 id="custom-css-properties" class="has-permalink">Custom CSS properties</h3>
+<p>Polymer includes a shim for custom CSS properties inspired by (and compatible with)
+the future W3C <a href="http://dev.w3.org/csswg/css-variables/">CSS Custom Properties for Cascading Variables</a>
+specification (see
+<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_variables">Using CSS Variables</a>
+on the Mozilla Developer Network).</p>
+<p>Rather than exposing the details of an element's internal implementation for
+theming, instead an element author defines one or more custom CSS
+properties as part of the element's API.</p>
+<p>These custom properties can be defined similarly to other standard CSS properties
+and will inherit from the point of definition down the composed DOM tree,
+similar to the effect of <code>color</code> and <code>font-family</code>.</p>
+<p>In the simple example below, the author of <code>my-toolbar</code> identified the need for
+users of the toolbar to be able to change the color of the toolbar title.  The
+author exposed a custom property called <code>--my-toolbar-title-color</code> which is
+assigned to the <code>color</code> property of the selector for the title element.  Users
+of the toolbar may define this variable in a CSS rule anywhere up the tree, and
+the value of the property will inherit down to the toolbar where it is used if
+defined, similar to other standard inheriting CSS properties.</p>
+<p class="caption">Example:</p>
+<pre class=" language-html"><code class=" language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dom-module</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>my-toolbar<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
+
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">&gt;</span></span><span class="token style language-css">
+      <span class="token selector">:host</span> <span class="token punctuation">{</span>
+        <span class="token property">padding</span><span class="token punctuation">:</span> 4px<span class="token punctuation">;</span>
+        <span class="token property">background-color</span><span class="token punctuation">:</span> gray<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+      <span class="token selector">.title</span> <span class="token punctuation">{</span>
+        <span class="token property">color</span><span class="token punctuation">:</span> <span class="token function">var</span><span class="token punctuation">(</span>--my-toolbar-title-color<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">&gt;</span></span>
+
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>title<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>{{title}}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">&gt;</span></span>
+
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span>
+
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script language-javascript">
+    <span class="token function">Polymer</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      is<span class="token punctuation">:</span> <span class="token string">'my-toolbar'</span><span class="token punctuation">,</span>
+      properties<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        title<span class="token punctuation">:</span> String
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dom-module</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+<p class="caption">Example usage of <code>my-toolbar</code>:</p>
+<pre class=" language-html"><code class=" language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dom-module</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>my-element<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
+
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">&gt;</span></span><span class="token style language-css">
+
+      <span class="token comment" spellcheck="true">/* Make all toolbar titles in this host green by default */</span>
+      <span class="token selector">:host</span> <span class="token punctuation">{</span>
+        <span class="token property">--my-toolbar-title-color</span><span class="token punctuation">:</span> green<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+
+      <span class="token comment" spellcheck="true">/* Make only toolbars with the .warning class red */</span>
+      <span class="token selector">.warning</span> <span class="token punctuation">{</span>
+        <span class="token property">--my-toolbar-title-color</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+
+    </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">&gt;</span></span>
+
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>my-toolbar</span> <span class="token attr-name">title</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>This one is green.<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>my-toolbar</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>my-toolbar</span> <span class="token attr-name">title</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>This one is green too.<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>my-toolbar</span><span class="token punctuation">&gt;</span></span>
+
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>my-toolbar</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>warning<span class="token punctuation">"</span></span> <span class="token attr-name">title</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>This one is red.<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>my-toolbar</span><span class="token punctuation">&gt;</span></span>
+
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span>
+
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script language-javascript">
+    <span class="token function">Polymer</span><span class="token punctuation">(</span><span class="token punctuation">{</span> is<span class="token punctuation">:</span> <span class="token string">'my-element'</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dom-module</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+<p>The <code>--my-toolbar-title-color</code> property only affects the color of the title
+element encapsulated in <code>my-toolbar</code>'s internal implementation.  In the
+future the <code>my-toolbar</code> author can rename the <code>title</code> class or
+restructure the internal details of <code>my-toolbar</code> without changing the custom
+property exposed to users.</p>
+<p>You can also include a default value in the <code>var()</code> function, to use in case the user
+doesn't set the custom property:</p>
+<pre class=" language-css"><code class=" language-css"><span class="token property">color</span><span class="token punctuation">:</span> <span class="token function">var</span><span class="token punctuation">(</span>--my-toolbar-title-color, blue<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>Thus, custom CSS properties introduce a powerful way for element authors to
+expose a theming API to their users in a way that naturally fits right alongside
+normal CSS styling. It is already on a standards track (currently in the candidate recommendation (CR) stage of the process) with support in Firefox, Safari, and <a href="https://www.chromestatus.com/features/6401356696911872">Chrome 49</a>.</p>
+<h3 id="custom-css-mixins" class="has-permalink">Custom CSS mixins</h3>
+<p>It may be tedious (or impossible) for an element author to predict every
+CSS property that may be important for theming, let alone expose every
+property individually.</p>
+<p>The custom properties shim includes an extension that enables an element
+author to define a set of CSS properties as a single custom property and
+then allow all properties in the set to be applied to a specific CSS rule
+in an element's local DOM. The extension enables this with a mixin capability
+that is analogous to <code>var</code>, but which allows an entire set of properties
+to be mixed in. This extension adheres to the
+<a href="http://tabatkins.github.io/specs/css-apply-rule/">CSS @apply rule</a>
+proposal.</p>
+<p>Use <code>@apply</code> to apply a mixin:</p>
+<pre class=" language-css"><code class=" language-css"><span class="token atrule"><span class="token rule">@apply</span> --mixin-name<span class="token punctuation">;</span></span></code></pre>
+<p>Defining a mixin is just like defining a custom property, but the
+value is an object that defines one or more rules:</p>
+<pre class=" language-css"><code class=" language-css"><span class="token selector">selector</span> <span class="token punctuation">{</span>
+  <span class="token selector">--mixin-name:</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">/* rules */</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p class="caption">Example:</p>
+<pre class=" language-html"><code class=" language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dom-module</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>my-toolbar<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
+
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">&gt;</span></span><span class="token style language-css">
+      <span class="token selector">:host</span> <span class="token punctuation">{</span>
+        <span class="token property">padding</span><span class="token punctuation">:</span> 4px<span class="token punctuation">;</span>
+        <span class="token property">background-color</span><span class="token punctuation">:</span> gray<span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">/* apply a mixin */</span>
+        <span class="token atrule"><span class="token rule">@apply</span> --my-toolbar-theme<span class="token punctuation">;</span></span>
+      <span class="token punctuation">}</span>
+      <span class="token selector">.title</span> <span class="token punctuation">{</span>
+        <span class="token atrule"><span class="token rule">@apply</span> --my-toolbar-title-theme<span class="token punctuation">;</span></span>
+      <span class="token punctuation">}</span>
+    </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">&gt;</span></span>
+
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>title<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>{{title}}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">&gt;</span></span>
+
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span>
+
+  ...
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dom-module</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+<p class="caption">Example usage of <code>my-toolbar</code>:</p>
+<pre class=" language-html"><code class=" language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dom-module</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>my-element<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
+
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">&gt;</span></span><span class="token style language-css">
+      <span class="token comment" spellcheck="true">/* Apply custom theme to toolbars */</span>
+      <span class="token selector">:host</span> <span class="token punctuation">{</span>
+        <span class="token selector">--my-toolbar-theme:</span> <span class="token punctuation">{</span>
+          <span class="token property">background-color</span><span class="token punctuation">:</span> green<span class="token punctuation">;</span>
+          <span class="token property">border-radius</span><span class="token punctuation">:</span> 4px<span class="token punctuation">;</span>
+          <span class="token property">border</span><span class="token punctuation">:</span> 1px solid gray<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token selector">;
+        --my-toolbar-title-theme:</span> <span class="token punctuation">{</span>
+          <span class="token property">color</span><span class="token punctuation">:</span> green<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+
+      <span class="token comment" spellcheck="true">/* Make only toolbars with the .warning class red and bold */</span>
+      <span class="token selector">.warning</span> <span class="token punctuation">{</span>
+        <span class="token selector">--my-toolbar-title-theme:</span> <span class="token punctuation">{</span>
+          <span class="token property">color</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span>
+          <span class="token property">font-weight</span><span class="token punctuation">:</span> bold<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">&gt;</span></span>
+
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>my-toolbar</span> <span class="token attr-name">title</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>This one is green.<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>my-toolbar</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>my-toolbar</span> <span class="token attr-name">title</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>This one is green too.<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>my-toolbar</span><span class="token punctuation">&gt;</span></span>
+
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>my-toolbar</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>warning<span class="token punctuation">"</span></span> <span class="token attr-name">title</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>This one is red.<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>my-toolbar</span><span class="token punctuation">&gt;</span></span>
+
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span>
+
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script language-javascript">
+    <span class="token function">Polymer</span><span class="token punctuation">(</span><span class="token punctuation">{</span> is<span class="token punctuation">:</span> <span class="token string">'my-element'</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dom-module</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+<p class="alert alert-info"><strong>Older @apply syntax.</strong> The <code>@apply</code> syntax was originally implemented in Polymer using
+parenthesis: <code>@apply(<var>--mixin-name</var>)</code>. Polymer 1.6.0 and later accepts <code>@apply</code>
+without parenthesis, matching the proposal. You can continue using the older syntax in Polymer 1.x,
+but starting in Polymer 2.0, only the newer syntax (without parenthesis) is accepted.
+</p>
+<h3 id="style-api" class="has-permalink">Custom property API for Polymer elements</h3>
+<p>Polymer's custom property shim evaluates and applies custom property values once
+at element creation time.  In order to have an element (and its subtree) re-
+evaluate custom property values due to dynamic changes such as application of
+CSS classes, etc., call the <a href="https://www.polymer-project.org/1.0/docs/api/Polymer.Base#method-updateStyles"><code>updateStyles</code></a>
+method on the element. To update all elements on the page, you can also call
+<code>Polymer.updateStyles</code>.</p>
+<p>You can  directly modify a Polymer element's custom property by setting
+key-value pairs in <a href="https://www.polymer-project.org/1.0/docs/api/Polymer.Base#property-customStyle"><code>customStyle</code></a>
+on the element (analogous to setting <code>style</code>) and then calling <code>updateStyles</code>.
+Or you can pass a dictionary of property names and values as an argument to
+<code>updateStyles</code>.</p>
+<p>To get the value of a custom property on an element, use
+<a href="https://www.polymer-project.org/1.0/docs/api/Polymer.Base#method-getComputedStyleValue"><code>getComputedStyleValue</code></a>.</p>
+<p class="caption">Example:</p>
+<pre class=" language-html"><code class=" language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dom-module</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>x-custom<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
+
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">&gt;</span></span><span class="token style language-css">
+      <span class="token selector">:host</span> <span class="token punctuation">{</span>
+        <span class="token property">--my-toolbar-color</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">&gt;</span></span>
+
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>my-toolbar</span><span class="token punctuation">&gt;</span></span>My awesome app<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>my-toolbar</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">on-tap</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>changeTheme<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Change theme<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span>
+
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span>
+
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script language-javascript">
+    <span class="token function">Polymer</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      is<span class="token punctuation">:</span> <span class="token string">'x-custom'</span><span class="token punctuation">,</span>
+      changeTheme<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>customStyle<span class="token punctuation">[</span><span class="token string">'--my-toolbar-color'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'blue'</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">updateStyles</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dom-module</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+<h3 id="custom-properties-shim-limitations" class="has-permalink">Custom properties shim limitations</h3>
+<p>Cross-platform support for custom properties is provided in Polymer by a
+JavaScript library that <strong>approximates</strong> the capabilities of the CSS Variables
+specification  <em>for the specific use case of theming custom elements</em>, while
+also extending it to add the capability to mixin property sets to rules as
+described above. For performance reasons, Polymer <strong>does
+not attempt to replicate all aspects of native custom properties.</strong>
+The shim trades off aspects of the full dynamism possible in CSS in the
+interests of practicality and performance.</p>
+<p>Below are current limitations of the shim. Improvements to performance and
+dynamism will continue to be explored.</p>
+<h4 id="dynamism-limitations" class="has-permalink">Dynamism limitations</h4>
+<p>Only property definitions which match the element at <em>creation time</em> are applied.
+Any dynamic changes that update property values are not applied automatically. You
+can force styles to be re-evaluated by calling the
+<a href="https://www.polymer-project.org/1.0/docs/api/Polymer.Base#method-updateStyles"><code>updateStyles</code></a> method on a
+Polymer element, or <code>Polymer.updateStyles</code> to update all element
+styles.</p>
+<p>For example, given this markup inside an element:</p>
+<p class="caption">HTML:</p>
+<pre class=" language-html"><code class=" language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>container<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>x-foo</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>a<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>x-foo</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+<p class="caption">CSS:</p>
+<pre class=" language-css"><code class=" language-css"><span class="token comment" spellcheck="true">/* applies */</span>
+<span class="token selector">x-foo.a</span> <span class="token punctuation">{</span>
+  <span class="token property">--foo</span><span class="token punctuation">:</span> brown<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">/* does not apply */</span>
+<span class="token selector">x-foo.b</span> <span class="token punctuation">{</span>
+  <span class="token property">--foo</span><span class="token punctuation">:</span> orange<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">/* does not apply to x-foo */</span>
+<span class="token selector">.container</span> <span class="token punctuation">{</span>
+  <span class="token property">--nog</span><span class="token punctuation">:</span> blue<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>After adding class <code>b</code> to <code>x-foo</code> above, the host element must call <code>this.updateStyles</code>
+to apply the new styling. This re-calculates and applies styles down the tree from this point.</p>
+<p>Dynamic effects <strong>are</strong> reflected at the point of a property's application.</p>
+<p>For the following example, adding/removing the <code>highlighted</code> class on the <code>#title</code> element will
+have the desired effect, since the dynamism is related to <em>application</em> of a custom property.</p>
+<pre class=" language-css"><code class=" language-css"><span class="token selector">#title</span> <span class="token punctuation">{</span>
+  <span class="token property">background-color</span><span class="token punctuation">:</span> <span class="token function">var</span><span class="token punctuation">(</span>--title-background-normal<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">#title.highlighted</span> <span class="token punctuation">{</span>
+  <span class="token property">background-color</span><span class="token punctuation">:</span> <span class="token function">var</span><span class="token punctuation">(</span>--title-background-highlighted<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h4 id="inheritance-limitations" class="has-permalink">Inheritance limitations</h4>
+<p>Unlike normal CSS inheritance which flows from parent to child, custom
+properties in Polymer's shim can only change when inherited by a custom element
+from rules that set properties in scope(s) above it, or in a <code>:host</code> rule for
+that scope.  <strong>Within a given element's local DOM scope, a custom property can
+only have a single value.</strong>  Calculating property changes within a scope would be
+prohibitively expensive for the shim and is not required to achieve cross-scope
+styling for custom elements, which is the primary goal of the shim.</p>
+<pre class=" language-html"><code class=" language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dom-module</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>my-element<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
+
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">&gt;</span></span><span class="token style language-css">
+     <span class="token selector">:host</span> <span class="token punctuation">{</span>
+       <span class="token property">--custom-color</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span>
+     <span class="token punctuation">}</span>
+     <span class="token selector">.container</span> <span class="token punctuation">{</span>
+       <span class="token comment" spellcheck="true">/* Setting the custom property here will not change */</span>
+       <span class="token comment" spellcheck="true">/* the value of the property for other elements in  */</span>
+       <span class="token comment" spellcheck="true">/* this scope.                                      */</span>
+       <span class="token property">--custom-color</span><span class="token punctuation">:</span> blue<span class="token punctuation">;</span>
+     <span class="token punctuation">}</span>
+     <span class="token selector">.child</span> <span class="token punctuation">{</span>
+       <span class="token comment" spellcheck="true">/* This will be always be red. */</span>
+       <span class="token property">color</span><span class="token punctuation">:</span> <span class="token function">var</span><span class="token punctuation">(</span>--custom-color<span class="token punctuation">)</span><span class="token punctuation">;</span>
+     <span class="token punctuation">}</span>
+    </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">&gt;</span></span>
+
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>container<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>child<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>I will be red<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span>
+
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script language-javascript">
+    <span class="token function">Polymer</span><span class="token punctuation">(</span><span class="token punctuation">{</span> is<span class="token punctuation">:</span> <span class="token string">'my-element'</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dom-module</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+<h4 id="styling-distributed-elements-not-supported" class="has-permalink">Styling distributed elements not supported</h4>
+<p>The custom properties shim doesn't support styling distributed elements.</p>
+<pre class=" language-css"><code class=" language-css"><span class="token comment" spellcheck="true">/* Not supported */</span>
+<span class="token selector">:host ::content div</span> <span class="token punctuation">{</span>
+  <span class="token property">--custom-color</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="custom-style" class="has-permalink">Custom element for document styling (custom-style)</h2>
+<p>Polymer provides a <code>&lt;style is="custom-style"&gt;</code> custom element
+for defining styles <strong>in the main document</strong> that can take advantage of several
+special features of Polymer's styling system:</p>
+<ul>
+<li>
+<p>Document styles defined in a <code>custom-style</code> are shimmed to ensure they do
+not leak into local DOM when running on browsers without native Shadow
+DOM.</p>
+</li>
+<li>
+<p>Custom properties used by Polymer's
+<a href="https://www.polymer-project.org/1.0/docs/devguide/styling#xscope-styling-details">shim for cross-scope styling</a> may be defined in an
+<code>custom-style</code>. Use the <code>:root</code> selector to define custom properties that apply
+to all custom elements.</p>
+</li>
+<li>
+<p>For backwards compatibility, the deprecated <code>/deep/</code> combinator and <code>::shadow</code>
+pseudo-element are shimmed on browsers without native Shadow DOM. You should avoid
+using these in new code.</p>
+</li>
+</ul>
+<p class="caption">Example:</p>
+<pre class=" language-html"><code class=" language-html"><span class="token doctype">&lt;!doctype html&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>components/webcomponentsjs/webcomponents-lite.js<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token script language-javascript"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>import<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>components/polymer/polymer.html<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span> <span class="token attr-name">is</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>custom-style<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token style language-css">
+
+    <span class="token comment" spellcheck="true">/* Will be prevented from affecting local DOM of Polymer elements */</span>
+    <span class="token selector">*</span> <span class="token punctuation">{</span>
+      <span class="token property">box-sizing</span><span class="token punctuation">:</span> border-box<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment" spellcheck="true">/* Use the :root selector to define custom properties and mixins */</span>
+    <span class="token comment" spellcheck="true">/* at the document level  */</span>
+    <span class="token selector">:root</span> <span class="token punctuation">{</span>
+      <span class="token property">--my-toolbar-title-color</span><span class="token punctuation">:</span> green<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+  </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span>
+
+    ...
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+<p>All features of <code>custom-style</code> are available when defining styles as part of
+Polymer elements (for example, in <code>&lt;style&gt;</code> elements within a custom element's
+<code>&lt;dom-module&gt;</code>). The exception is the <code>:root</code> selector, which is only useful at
+the document level. <strong>The <code>custom-style</code> extension should only be used for
+defining document styles, outside of a custom element's local DOM.</strong></p>
+<h2 id="style-modules" class="has-permalink">Shared styles and external stylesheets</h2>
+<p>To share style declarations between elements, you can package a set
+of style declarations inside a <code>&lt;dom-module&gt;</code> element. In this section,
+a <code>&lt;dom-module&gt;</code> holding styles is called a <em>style module</em> for convenience.</p>
+<p>A style module declares a named set of style rules that can be imported into
+an element definition, or into a <code>custom-style</code> element.</p>
+<p class="alert alert-info"><strong>Note:</strong> Style modules were introduced in Polymer 1.1;
+they replace the experimental support for <a href="https://www.polymer-project.org/1.0/docs/devguide/styling#external-stylesheets">external stylesheets</a>.
+</p>
+<p>Define a style module inside an HTML import using the <code>&lt;dom-module&gt;</code>
+element.</p>
+<pre class=" language-html"><code class=" language-html"><span class="token comment" spellcheck="true">&lt;!-- shared-styles.html --&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dom-module</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>shared-styles<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">&gt;</span></span><span class="token style language-css">
+      <span class="token selector">.red</span> <span class="token punctuation">{</span> <span class="token property">color</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span> <span class="token punctuation">}</span>
+    </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dom-module</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+<p>The <code>id</code> attribute specifies the name you'll use to reference
+your shared styles. Style module names use the same namespace as elements,
+so your style modules must have unique names.</p>
+<p>Using the shared styles is a two-step process: you need to use a <code>&lt;link&gt;</code> tag
+to <em>import</em> the module, and a <code>&lt;style&gt;</code> tag to <em>include</em> the styles in the correct place.</p>
+<p>To use a style module in an element:</p>
+<pre class=" language-html"><code class=" language-html"><span class="token comment" spellcheck="true">&lt;!-- import the module  --&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>import<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>../shared-styles/shared-styles.html<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dom-module</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>x-foo<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
+    <span class="token comment" spellcheck="true">&lt;!-- include the style module by name --&gt;</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span> <span class="token attr-name">include</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>shared-styles<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token style language-css"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">&gt;</span></span><span class="token style language-css"><span class="token selector">:host</span> <span class="token punctuation">{</span> <span class="token property">display</span><span class="token punctuation">:</span> block<span class="token punctuation">;</span> <span class="token punctuation">}</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">&gt;</span></span>
+    Hi
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script language-javascript"><span class="token function">Polymer</span><span class="token punctuation">(</span><span class="token punctuation">{</span>is<span class="token punctuation">:</span> <span class="token string">'x-foo'</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dom-module</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+<p>You can also use a shared style module in a <code>custom-style</code> element.</p>
+<pre class=" language-html"><code class=" language-html"><span class="token comment" spellcheck="true">&lt;!-- import the shared styles  --&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>import<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>../shared-styles/shared-styles.html<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+<span class="token comment" spellcheck="true">&lt;!-- include the shared styles --&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span> <span class="token attr-name">is</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>custom-style<span class="token punctuation">"</span></span> <span class="token attr-name">include</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>shared-styles<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token style language-css"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+<p>A single style tag can both <code>include</code> shared styles
+and define local rules:</p>
+<pre class=" language-html"><code class=" language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span> <span class="token attr-name">include</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>shared-styles<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token style language-css">
+  <span class="token selector">:host</span> <span class="token punctuation">{</span> <span class="token property">display</span><span class="token punctuation">:</span> block<span class="token punctuation">;</span> <span class="token punctuation">}</span>
+</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+<p>(This works for both <code>custom-style</code> elements and <code>&lt;style&gt;</code> tags inside
+custom elements.) The shared styles are applied <em>before</em> the styles defined
+inside the body of the <code>&lt;style&gt;</code> tag, so the shared styles can be overridden
+by the styles defined in the body.</p>
+<h3 id="external-stylesheets" class="has-permalink">External stylesheets (deprecated)</h3>
+<p class="alert alert-info"><strong>Deprecated feature.</strong> This experimental feature is now deprecated in favor of
+<a href="https://www.polymer-project.org/1.0/docs/devguide/styling#style-modules">style modules</a>. It is still supported, but support will
+be removed in the future.
+</p>
+<p>Polymer includes an experimental feature to support loading external stylesheets
+that will be applied to the local DOM of an element.  This is typically
+convenient for developers who like to separate styles, share common styles
+between elements, or use style pre-processing tools.  The syntax is slightly
+different from how stylesheets are typically loaded, as the feature leverages
+HTML Imports (or the HTML Imports polyfill, where appropriate) to load the
+stylesheet text such that it may be properly shimmed and/or injected as an
+inline style.</p>
+<p>To include a remote stylesheet that applies to your Polymer element's local DOM,
+place a special HTML import <code>&lt;link&gt;</code> tag with <code>type="css"</code> in your <code>&lt;dom- module&gt;</code> that refers to the external stylesheet to load.</p>
+<p class="caption">Example:</p>
+<pre class=" language-html"><code class=" language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dom-module</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>my-awesome-button<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+
+  <span class="token comment" spellcheck="true">&lt;!-- special import with type=css used to load remote CSS
+       Note: this style of importing CSS is deprecated --&gt;</span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>import<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>css<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>my-awesome-button.css<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
+    ...
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span>
+
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script language-javascript">
+    <span class="token function">Polymer</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      is<span class="token punctuation">:</span> <span class="token string">'my-awesome-button'</span><span class="token punctuation">,</span>
+      <span class="token operator">...</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dom-module</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+<h2 id="scope-subtree" class="has-permalink">Third-party libraries that modify local DOM</h2>
+<p>If you are using a third-party library that adds local DOM nodes to your
+Polymer element, you may notice that styles on the element do not update
+properly.</p>
+<p>The correct way to add DOM nodes to a Polymer element's local DOM is via
+the Polymer <a href="https://www.polymer-project.org/1.0/docs/devguide/local-dom#dom-api">DOM API</a>. This API lets you manipulate
+nodes in a way that respects the local DOM and ensures that styles are
+updated properly.</p>
+<p>When using third-party libraries that <strong>do not use</strong> the Polymer DOM
+API, use the <a href="https://www.polymer-project.org/1.0/docs/api/Polymer.Base#method-scopeSubtree"><code>scopeSubtree</code></a>
+method to apply proper CSS scoping to a node and all of its descendants.</p>
+<ol>
+<li>
+<p>Create a container node inside your element's local DOM, and have your
+third-party library create DOM under that container node.</p>
+<pre class=" language-html"><code class=" language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dom-module</span> <span class="token attr-name">is</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>x-example<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>container<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dom-module</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+</li>
+<li>
+<p>Call <code>scopeSubtree</code> on the container node.</p>
+<pre class=" language-js"><code class=" language-js">ready<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">scopeSubtree</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>$<span class="token punctuation">.</span>container<span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p><code>containerNode</code> is the root node of the tree you wish to scope. Setting
+the second argument to <code>false</code> scopes the specified node and descendants
+<strong>once.</strong> Setting it to <code>true</code> enables a mutation observer that applies CSS
+scoping whenever <code>containerNode</code> or any of its descendants are modified.</p>
+</li>
+</ol>
+<p class="alert alert-error"><strong>Not for use on Polymer elements.</strong> If the subtree that you scope
+contains any Polymer elements with local DOM, <code>scopeSubtree</code> will
+cause the descendants' local DOM to be styled incorrectly.
+</p>
+</article></div>
+      </main>
+    </devguide-shell>
+
+  </pw-shell>
+  <pw-footer></pw-footer>
+  <script src="./Styling local DOM - Polymer Project_files/app.js"></script>
+
+</body></html>

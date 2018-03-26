@@ -1,0 +1,192 @@
+/* ------------------------------------------------
+	comments
+------------------------------------------------- */
+.timeline-horizontal{
+	color: inherit;
+	display: table;
+	table-layout: fixed;
+	width: 100%;
+
+	> li{
+		display: table-cell;
+		text-align: center;
+		position: relative;
+
+		&.active{
+			&:before{
+				background: $color-success;
+			}
+			&:after{
+				border-color: $color-success;
+			}
+		}
+
+		&:before{
+			content: attr(data-step);
+			width: 26px;
+			height: 26px;
+			display: block;
+			margin: 0 auto;
+			line-height: 25px;
+			background: $timelineBgColor;
+			@include border-radius(50%);
+			text-align: center;
+			color: $timelineColor;
+			z-index: 2;
+			position: relative;
+		}
+
+		&:after{
+			position: absolute;
+			width: 100%;
+			top: 10px;
+			left: -50%;
+			content: '';
+			border-top:4px solid $timelineBgColor;
+			z-index: 1;
+		}
+
+		&:first-child{
+			&:after{
+				display: none;
+			}
+		}
+	}
+
+	.timeline-content{
+		max-width: 120px;
+		margin: 10px auto 0;
+	}
+}
+
+.timeline-vertical{
+	float: left;
+	padding-left: 35px;
+	width: 100%;
+
+	>li{
+		display: block;
+		text-align: left;
+		min-height: 50px;
+		position: relative;
+		padding-bottom: 20px;
+
+		&:last-child{
+			&:after{
+				display: none;
+			}
+		}
+
+		&:after{
+			position: absolute;
+			content: '';
+			z-index: 1;
+			border-top: 0 none;
+	    height: 100%;
+	    left: -22px;
+	    top: 0;
+	    border-left: 1px dotted $timelineBgColor;
+		}
+
+		&:before{
+			position: absolute;
+			left: -35px;
+			content: attr(data-step);
+			width: 26px;
+			height: 26px;
+			display: block;
+			line-height: 25px;
+			background: $timelineBgColor;
+			@include border-radius(50%);
+			text-align: center;
+			color: $timelineColor;
+			z-index: 2;
+		}
+	}
+
+	&.right{
+		padding-right: 35px;
+		padding-left: 0;
+
+		>li{
+			&:before{
+				margin-left: 0;
+				margin-right: -30px;
+				right: 0;
+				left: auto;
+			}
+	
+			&:after{
+				right: -18px;
+				left: auto;
+			}
+		}
+	}
+
+	&.center{
+		padding-left: 0;
+
+		>li{
+			float: left;
+			width: 50%;
+			clear: right;
+			padding-right: 30px;
+	
+			&:before{
+				right: -13px;
+				left: auto;
+			}
+	
+			&:after{
+				right: -1px;
+				left: auto;
+			}
+	
+			&:nth-child(2n){
+				float: right;
+				clear: left;
+				padding-left: 30px;
+				padding-right: 0;
+	
+				.timeline-icon{
+					&:before{
+						border-left: 0 none;
+						border-right: 8px solid $timelineBorderColor;
+						right: auto;
+						left: 23px;
+					}
+				}
+	
+				&:before{
+					left: -13px;
+					right: auto;
+				}
+	
+				&:after{
+					left: -1px;
+					right: auto;
+				}
+			}
+		}
+	}
+}
+
+.timeline-icon{
+	border: 1px solid $timelineBorderColor;
+	padding: ($gutter / 2);
+	background: $timelineColor;
+	@include border-radius($timelineBorderRadius);
+	
+	&:before{
+		width: 0;
+		height: 0;
+		border-top: 8px solid transparent;
+		border-bottom: 8px solid transparent;
+		border-left: 8px solid $timelineBorderColor;
+		content: '';
+		position: absolute;
+		right: 23px;
+		top: 15px;
+		margin-top: -10px;
+	}
+}

@@ -1,0 +1,27 @@
+/*------------------------------------------------ 
+	//comments
+------------------------------------------------*/
+.status-block{
+	.panel{
+		text-transform: uppercase;
+		color: $color-dark;
+		@extend %bold;
+
+		&:hover{
+			background-color: $color-blue;
+			color: $color-white;
+
+			.text-primary{
+				color: $color-white;
+			}
+
+			&:after{
+				border-color: $color-white;
+			}
+		}
+	}
+
+	.angle{
+		padding: 17px 50px 17px 10px;
+	}
+}

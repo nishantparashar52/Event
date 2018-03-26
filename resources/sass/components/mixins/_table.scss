@@ -1,0 +1,18 @@
+/*---------------------------------------------------------- 
+  @mixin for create table color variation
+  @param: $name - name of table color.
+  @param: $color - for background color.
+----------------------------------------------------------*/
+
+// Tables
+
+@mixin table-row-variant($state, $background) {
+  .table-#{$state} {
+    thead{
+      th {
+        background-color: $background;
+        color: $color-white;
+      }
+    }
+  }
+}

@@ -1,0 +1,85 @@
+/* --------------------------------------------
+	Include font familys
+-------------------------------------------- */
+@include fontFace('Lato Regular','../fonts/lato-reg');
+@include fontFace('Lato Bold','../fonts/lato-bol');
+@include fontFace('RupeeSign','../fonts/WebRupee.V2.0');
+@include fontFace('Fontawesome','../fonts/FontAwesome-webfont');
+
+/* --------------------------------------------
+	font style
+-------------------------------------------- */
+strong,
+b,
+.bold {
+	@extend %bold;
+}
+
+.normal {
+	font-family: $font-family-base;
+	font-weight: normal;
+}
+
+.rs{
+	font-family: 'RupeeSign';
+}
+
+/*---------------------------------------------
+	if $basicTextAlignment is true.
+	generate basic text alignment.
+---------------------------------------------*/
+@if $basicTextAlignment{
+  .text-left{text-align: left;}
+  .text-right{text-align: right;}
+  .text-center{text-align: center;}
+
+  .text-left-center-md{
+  	text-align: left;
+
+  	@include screen(medium){
+  		text-align: center;
+  	}
+  }
+
+  .text-right-center-md{
+  	text-align: right;
+
+  	@include screen(medium){
+  		text-align: center;
+  	}
+  }
+}
+
+/*---------------------------------------------
+	if $basicTextAlignment is true.
+	generate basic text alignment.
+---------------------------------------------*/
+@if $basicTypeCase{
+  .uppercase{text-transform: uppercase;}
+  .lowercase{text-transform: lowercase;}
+  .capitalize{text-transform: capitalize;}
+}
+
+/*---------------------------------------------
+	if $basicTextColor is true.
+	generate basic text color which is defined.
+---------------------------------------------*/
+@if $basicTextColor{
+  .text-primary{color: $color-primary;}
+  .text-secondary{color: $color-secondary;}
+  .text-error{color: $color-error;}
+  .text-success{color: $color-success;}
+  .text-lt-gray{color: $color-lt-gray;}
+  .text-white{color: $color-white;}
+}
+
+/* --------------------------------------------
+	font size
+-------------------------------------------- */
+@if $basicFontSize{
+	.fs-xs{font-size:$font-size-xs;} //11px
+	.fs-sm{font-size:$font-size-sm;} //12px
+	.fs-md{font-size:$font-size-md;} //16px
+	.fs-lg{font-size:$font-size-lg;} //18px
+	.fs-xlg{font-size:$font-size-xlg;} //30px
+}

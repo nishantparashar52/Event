@@ -1,0 +1,87 @@
+/*---------------------------------------------------------- 
+  default input styling
+----------------------------------------------------------*/
+.input-group{
+	border-collapse: separate;
+  display: table;
+	
+	.input{
+		display: table-cell;
+    width: 100%;
+
+		&:first-child{
+	    @include border-radius($inputBorderRadius 0 0 $inputBorderRadius);
+	    border-right: 0 none;
+		}
+
+		&:last-child{
+	    @include border-radius(0 $inputBorderRadius $inputBorderRadius 0);
+	    border-left: 0 none;
+		}
+	}
+
+	&.disabled{
+		cursor: not-allowed;
+
+		.button{
+			cursor: not-allowed;
+
+			@include hover-focus{
+        background-color: $color-gray;
+      }
+		}
+	}
+}
+
+.input-addon-button{
+	display: table-cell;
+	vertical-align: middle;
+  white-space: nowrap;
+  width: 1%;
+
+  .button{
+		padding: ($gutter / 2);	
+		line-height: 1;
+	}
+
+  &:first-child{
+  	.button{
+	    @include border-radius($inputBorderRadius 0 0 $inputBorderRadius);
+  	}
+	}
+
+	&:last-child{
+		.button{
+	    @include border-radius(0 $inputBorderRadius $inputBorderRadius 0);
+  	}
+	}
+}
+
+.input-addon{
+	background: $color-gray;
+	border: 1px solid $color-gray;
+	color: $color-white;
+	display: table-cell;
+	padding: ($gutter / 2);
+	vertical-align: middle;
+	white-space: nowrap;
+	width: 1%;
+
+  &:first-child{
+    @include border-radius($inputBorderRadius 0 0 $inputBorderRadius);
+	}
+
+	&:last-child{
+    @include border-radius(0 $inputBorderRadius $inputBorderRadius 0);
+	}
+}
+
+/*---------------------------------------------------------- 
+  if required mulitple input variation.
+----------------------------------------------------------*/
+@if $inputGroupColorOption{
+	@include inputGroupVariation(primary, $color-primary);
+	@include inputGroupVariation(secondary, $color-secondary);
+	@include inputGroupVariation(error, $color-error);
+	@include inputGroupVariation(success, $color-success);
+}

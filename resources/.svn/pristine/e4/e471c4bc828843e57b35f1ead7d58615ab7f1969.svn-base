@@ -1,0 +1,17 @@
+/*---------------------------------------------------------- 
+  @mixin for create panel color variation
+  @param: $name - name of panel color.
+  @param: $color - for background color.
+----------------------------------------------------------*/
+
+@mixin panelVariation($name, $color){
+  .#{$name}{
+    .panel-heading {
+      background-color: $color;
+    }
+
+    .panel-title{
+      color: white;
+    }
+  }
+}

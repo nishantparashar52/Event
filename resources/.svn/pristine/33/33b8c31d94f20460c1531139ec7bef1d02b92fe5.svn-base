@@ -1,0 +1,81 @@
+@import "font-awesome/variables";
+@import "font-awesome/mixins";
+//@import "font-awesome/path";
+@import "font-awesome/core";
+//@import "font-awesome/larger";
+//@import "font-awesome/fixed-width";
+//@import "font-awesome/list";
+//@import "font-awesome/bordered-pulled";
+//@import "font-awesome/animated";
+//@import "font-awesome/rotated-flipped";
+//@import "font-awesome/stacked";
+//@import "font-awesome/icons";
+//@import "font-awesome/screen-reader";
+
+$ico-list: 	($fa-var-remove, 'remove'),
+						($fa-var-home, 'home'),
+						($fa-var-link, 'link'),
+						($fa-var-info, 'info'),
+						($fa-var-arrow-circle-o-right, 'arrow-circle-o-right'),
+						($fa-var-map-marker, 'map-marker'),
+						($fa-var-phone, 'phone'),
+						($fa-var-circle-thin, 'circle-thin'),
+						($fa-var-info-circle, 'info-circle'),
+						($fa-var-exchange, 'exchange'),
+						($fa-var-bus, 'bus'),
+						($fa-var-user, 'user'),
+						($fa-var-money, 'money'),
+						($fa-var-list-ul, 'list-ul'),
+						($fa-var-bars, 'bars'),
+						($fa-var-caret-left, 'caret-left'),
+						($fa-var-caret-right, 'caret-right'),
+						($fa-var-caret-down, 'caret-down'),
+						($fa-var-calendar, 'calendar'),
+						($fa-var-close, 'close'),
+						($fa-var-times, 'times'),
+						($fa-var-plane, 'plane'),
+						($fa-var-twitter, 'twitter'),
+						($fa-var-twitter-square, 'twitter-square'),
+						($fa-var-search, 'search'),
+						($fa-var-cog, 'cog'),
+						($fa-var-bell-o, 'bell-o'),
+						($fa-var-pencil-square-o, 'pencil-square-o'),
+						($fa-var-pencil, 'pencil'),
+						($fa-var-ticket, 'ticket'),
+						($fa-var-file-text-o, 'file-text-o'),
+						($fa-var-angle-down, 'angle-down'),
+						($fa-var-angle-left, 'angle-left'),
+						($fa-var-angle-right, 'angle-right'),
+						($fa-var-dollar, 'dollar'),
+						($fa-var-usd, 'usd'),
+						($fa-var-list, 'list'),
+						($fa-var-times-circle-o, 'times-circle-o'), 
+						($fa-var-long-arrow-right, 'long-arrow-right'), 
+						($fa-var-train, 'train'),
+						($fa-var-bed, 'bed'),
+						($fa-var-check-square-o, 'check-square-o'),
+						($fa-var-check, 'check'),
+						($fa-var-repeat, 'repeat'),
+						($fa-var-inbox,'inbox'),
+						($fa-var-envelope,'envelope'),
+						($fa-var-birthday-cake,'birthday-cake'),
+						($fa-var-tripadvisor,'tripadvisor'),
+						($fa-var-reply, 'reply'); 
+
+@each $icoVar, $icoName in $ico-list {
+	.#{$fa-css-prefix}-#{$icoName} {
+		&:before {
+			content:"#{$icoVar}";
+		}
+	}
+}
+
+.icon-right{
+	padding-right: .7em;
+
+	&:before{
+		position: absolute;
+		right: 0;
+		top: 10%;
+	}		
+}
