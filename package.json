@@ -1,41 +1,41 @@
 {
-  "name": "marketplace",
-  "version": "1.0.0",
-  "description": "Holiday Marketplace",
-  "main": "gulpfile.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "Yatra UI",
-  "license": "ISC",
-  "devDependencies": {
-    "autoprefixer": "^6.3.1",
-    "browser-sync": "^2.11.1",
-    "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^3.1.0",
-    "gulp-compass": "^2.1.0",
-    "gulp-css-prefix": "^0.1.0",
-    "gulp-csscomb": "^3.0.7",
-    "gulp-csslint": "^0.2.0",
-    "gulp-csslint-filereporter": "0.0.5",
-    "gulp-group-css-media-queries": "^1.1.0",
-    "gulp-iconfont": "^5.0.1",
-    "gulp-if": "^2.0.0",
-    "gulp-imagemin": "^2.4.0",
-    "gulp-postcss": "^6.0.1",
-    "gulp-ruby-sass": "^2.0.6",
-    "gulp-sass": "^2.1.1",
-    "gulp-sourcemaps": "^1.6.0",
-    "gulp-strip-css-comments": "^1.2.0",
-    "gulp-uglify": "^1.5.1",
-    "gulp-uncss": "^1.0.4",
-    "gulp-util": "^3.0.7",
-    "gulp.spritesmith": "^4.1.1",
-    "node-font-awesome": "^1.0.2",
-    "vinyl-buffer": "^1.0.0",
-    "yargs": "^3.32.0"
-  },
+  "name": "react-redux-saga-demo",
+  "version": "0.0.0",
+  "private": true,
   "dependencies": {
-    "compass": "^0.1.1"
+    "axios": "0.17.0",
+    "babel-jest": "^24.9.0",
+    "bootstrap": "^4.4.1",
+    "node-sass": "^4.13.1",
+    "react": "^16.3.0",
+    "react-dom": "^16.3.0",
+    "react-redux": "5.0.6",
+    "react-router-dom": "4.2.2",
+    "redux": "3.7.2",
+    "redux-form": "7.1.1",
+    "redux-saga": "0.16.0",
+    "regenerator-runtime": "0.11.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "react-hot-loader": "^4.12.19",
+    "react-scripts": "latest"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }

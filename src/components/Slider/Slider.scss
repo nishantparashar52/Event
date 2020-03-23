@@ -1,0 +1,119 @@
+/* lot of things that can be used from common*/
+.w100 {
+    width: 100%;
+}
+.h100 {
+    height: 100%;
+}
+.carousel {
+    box-sizing: border-box;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+    -khtml-user-select: none;
+    -ms-touch-action: pan-y;
+    touch-action: pan-y;
+    -webkit-tap-highlight-color: transparent;
+    position: relative;
+    // width: 100vw;
+    margin: 20px -.9375rem;
+    max-width: 1290px;
+  
+    .carousel-slide-container,
+    .carousel-track {
+      position: relative;
+      -webkit-transform: translate3d(0, 0, 0);
+      -moz-transform: translate3d(0, 0, 0);
+      -ms-transform: translate3d(0, 0, 0);
+      -o-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+    }
+  
+    .carousel-slide-container {
+      overflow: hidden;
+      margin: 0;
+      padding: 0;
+    }
+  
+    .carousel-track {
+      display: flex;
+    }
+  
+    .carousel-slide img {
+      width: 100%;
+      max-width: 100vw;
+    }
+  
+    .carousel-next,
+    .carousel-prev {
+      position: absolute;
+      display: block;
+      height: 100%;
+      width: 40px;
+      cursor: pointer;
+      top: 50%;
+      -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+      transform: translateY(-50%);
+      padding: 0;
+      border: none;
+      z-index: 1;
+    }
+  
+    .carousel-next,
+    .carousel-next:focus,
+    .carousel-next:hover,
+    .carousel-prev,
+    .carousel-prev:focus,
+    .carousel-prev:hover {
+      background: transparent;
+      color: transparent;
+      outline: none;
+    }
+  
+    .carousel-prev {
+      left: 0;
+    }
+    .carousel-prev:before {
+      content: "\27E8";
+      margin-left: 5px;
+      color: #9e9e9e;
+      opacity: 1;
+      font-size: 40px;
+    }
+  
+    .carousel-next {
+      right: 0;
+    }
+    .carousel-next:before {
+      content: "\27E9";
+      margin-right: 5px;
+      color: #9e9e9e;
+      opacity: 1;
+      font-size: 40px;
+    }
+  
+    .nav-dots-container {
+      bottom: 30px;
+      position: relative;
+      display: flex;
+      justify-content: center;
+    }
+  
+    .nav-dot {
+      height: 10px;
+      width: 10px;
+      margin: 0 5px;
+      background-color: #fff;
+      border-radius: 50%;
+      transition: background-color 0.6s ease;
+      border: 1px solid #ddd;
+    }
+  
+    .active {
+      background-color: #18cfa8;
+    }
+  }
+  
