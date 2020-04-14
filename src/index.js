@@ -7,6 +7,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Index from './components/Index';
 import Equipment from './components/Equipment';
 import Artist from './components/Artist';
+import Venue from './components/Venue';
 
 import configureStore from './store';
 const store = configureStore();
@@ -19,6 +20,7 @@ ReactDOM.render(
         <Switch>
           <Route path="/equipment" component={Equipment} />
           <Route path="/artist" component={Artist} />
+          <Route path="/venue" component={Venue} />
           <Route path="/" component={Index} />
         </Switch>
       </div>

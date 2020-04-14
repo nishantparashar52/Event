@@ -1,0 +1,87 @@
+.search-container {
+    background-color: rgb(255, 255, 255);
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 8px;
+    color: rgb(34, 34, 34);
+    display: inline-flex;
+    width: 100%;
+    position: relative;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(247, 247, 247);
+    border-image: initial;
+    border-radius: 12px;
+    .label {
+        display: block;
+        cursor: pointer;
+        position: relative;
+        z-index: 2;
+        transition: border-color 0.2s ease 0s;
+        border-width: 2px;
+        border-style: solid;
+        border-color: transparent;
+        border-image: initial;
+        border-radius: 12px;
+        padding: 16px 22px;
+    }
+    .search {
+        flex: 1;
+    }
+    .search-text {
+        display: block;
+        width: 100%;
+        font-size: 14px;
+        line-height: 18px;
+        font-weight: 600;
+        color: rgb(34, 34, 34);
+        text-overflow: ellipsis;
+        border-width: 0px;
+        border-style: initial;
+        border-color: initial;
+        border-image: initial;
+        margin: 0px;
+        padding: 0px;
+        background: none;
+    }
+    .space {
+        align-self: center;
+        height: 44px;
+        border-right: 1px solid rgb(221, 221, 221);
+        flex: 0 1 0px;
+    }
+    .button-section {
+        margin-left: 2px;
+        padding: 11px;
+    }
+    .btn {
+        cursor: pointer;
+        display: inline-block;
+        position: relative;
+        text-align: center;
+        width: auto;
+        font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
+        font-size: 14px;
+        line-height: 18px;
+        font-weight: 600;
+        padding-top: 14px;
+        padding-bottom: 14px;
+        padding-left: 24px;
+        padding-right: 24px;
+        color: rgb(255, 255, 255);
+        white-space: nowrap;
+        margin: 0px;
+        text-decoration: none;
+        border-radius: 8px;
+        outline: none;
+        transition: box-shadow 0.2s ease 0s, -ms-transform 0.1s ease 0s, -webkit-transform 0.1s ease 0s, transform 0.1s ease 0s;
+        border-width: initial;
+        border-style: none;
+        border-color: initial;
+        border-image: initial;
+        background: linear-gradient(to right, rgb(230, 30, 77) 0%, rgb(227, 28, 95) 50%, rgb(215, 4, 102) 100%);
+    }
+    .search-block {
+        flex: 1;
+        justify-content: space-between;
+        display: flex;
+    }
+}

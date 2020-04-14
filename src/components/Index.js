@@ -13,9 +13,6 @@ class Index extends Component {
     this.props.fetchPosts();
   }
 
-  renderPosts() {
-  }
-
   render() {
   const item = {
     aspectRatio: 3.4,
@@ -64,9 +61,9 @@ class Index extends Component {
               </div>);
           })}
       </Slider>
+      <Venue />
       <Info />
       <Maps />
-      <Venue />
         {/* <div className="text-xs-right">
           <Link className="btn btn-primary" to="/posts/new">
             Add a Post
