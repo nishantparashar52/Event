@@ -1,0 +1,29 @@
+.venue {
+    .banner-title {
+        visibility: visible;
+        animation-duration: 1.5s;
+        animation-delay: 700ms;
+        animation-name: fadeInUp;
+    }
+    .full-banner {
+        display: flex;
+        justify-content: space-around;
+        margin: 100px 0;
+         > a{
+            background-color: #d34836;
+            color: #fff;
+            font-size: 12px;
+            min-width: 150px;
+            padding: 8px;
+            line-height: 13px;
+            text-transform: uppercase;
+            text-align: center;
+            border-radius: 3px;
+            font-weight: 700;
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            min-height: 50px;
+        }
+    }
+}

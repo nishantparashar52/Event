@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import { fetchPosts } from '../actions';
 import Header from './Header/Header';
 import Slider from './Slider/Slider';
@@ -8,7 +7,8 @@ import LinkProvider from './LinkProvider';
 import LazyLoadProvider from './LazyLoadProvider/LazyLoadProvider';
 import Info from './Info/Info'
 import Maps from './Google/Google';
-class PostsIndex extends Component {
+import Venue from './Venue/Venue';
+class Index extends Component {
   componentDidMount() {
     this.props.fetchPosts();
   }
@@ -66,6 +66,7 @@ class PostsIndex extends Component {
       </Slider>
       <Info />
       <Maps />
+      <Venue />
         {/* <div className="text-xs-right">
           <Link className="btn btn-primary" to="/posts/new">
             Add a Post
@@ -84,4 +85,4 @@ const mapStateToProps = state => ({
   posts: state.posts
 });
 
-export default connect(mapStateToProps, { fetchPosts })(PostsIndex);
+export default connect(mapStateToProps, { fetchPosts })(Index);

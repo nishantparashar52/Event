@@ -29,7 +29,7 @@ class Swipe extends React.PureComponent {
 
     onTouchMove(event) {
         // this fn ensure event is swiping and not pinching
-        if (event.touches.length > 1 || event.scale && event.scale !== 1) return;
+        if (event.touches.length > 1 || (event.scale && event.scale !== 1)) return;
         this.deltaX = event.touches[0].pageX - this.start.pageX;
 
         if (this.isScrolling == null) {
@@ -43,12 +43,12 @@ class Swipe extends React.PureComponent {
          * and if slide amt is greater than 20px
          * or if slide amt is greater than half the width
          */
-        const isValidSlide = Number(new Date()) - this.start.time < 250 && Math.abs(this.deltaX) > 20 || Math.abs(this.deltaX) > this.containerWidth / 2;
+        // const isValidSlide = Number(new Date()) - (this.start.time < 250) && Math.abs(this.deltaX) > 20 || (Math.abs(this.deltaX) > this.containerWidth / 2);
 
-        if (!this.isScrolling && isValidSlide) {
-            const fn = this.deltaX < 0 ? this.props.next : this.props.previous;
-            fn();
-        }
+        // if (!this.isScrolling && isValidSlide) {
+        //     const fn = this.deltaX < 0 ? this.props.next : this.props.previous;
+        //     fn();
+        // }
     }
 
     render() {

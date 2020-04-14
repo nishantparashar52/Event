@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react';
+// import { Link } from 'react-router-dom';
 import './Info.scss';
 
 function Info() {
@@ -26,7 +26,7 @@ function Info() {
                 <h4 className="text-uppercase m-0">Email</h4>
                 <hr className="my-4" />
                 <div className="small text-black-50">
-                  <a href="#">eventkarde@gmail.com</a>
+                  <a href="mailto:eventkarde@gmail.com?Subject=Hello%20again" target="_top">eventkarde@gmail.com</a>
                 </div>
               </div>
             </div>
@@ -38,7 +38,7 @@ function Info() {
                 <i className="fas fa-mobile-alt text-primary mb-2"></i>
                 <h4 className="text-uppercase m-0">Phone</h4>
                 <hr className="my-4" />
-                <a className="small text-black-50"  href="tel:+091-9250550650">+091-9250550650</a>
+                <a className="small text-black-50" accessible href="tel:+091-9250550650" value="+091-9250550650">+091-9250550650</a>
               </div>
             </div>
           </div>

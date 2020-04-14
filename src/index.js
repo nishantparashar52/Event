@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import './custom.scss';
 import { Provider } from 'react-redux';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-import PostsIndex from './components/PostsIndex';
-import PostsNew from './components/PostsNew';
-import PostsShow from './components/PostsShow';
-import './custom.scss';
+import Index from './components/Index';
+import Equipment from './components/Equipment';
+import Artist from './components/Artist';
 
 import configureStore from './store';
 const store = configureStore();
@@ -17,9 +17,9 @@ ReactDOM.render(
     <BrowserRouter>
       <div>
         <Switch>
-          <Route path="/posts/new/" component={PostsNew} />
-          <Route path="/posts/:id" component={PostsShow} />
-          <Route path="/" component={PostsIndex} />
+          <Route path="/equipment" component={Equipment} />
+          <Route path="/artist" component={Artist} />
+          <Route path="/" component={Index} />
         </Switch>
       </div>
     </BrowserRouter>

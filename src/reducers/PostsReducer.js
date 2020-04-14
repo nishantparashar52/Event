@@ -17,7 +17,7 @@ export default (state = {}, action) => {
       var newState = { ...state };
       delete newState[action.payload.id];
       return newState;
+    default:
+      return state;
   }
-
-  return state;
 };

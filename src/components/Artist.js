@@ -31,7 +31,7 @@ const FIELDS = {
   }
 };
 
-class PostsNew extends Component {
+class Artist extends Component {
   renderField(field) {
     const { meta: { touched, error } } = field;
     const className = `form-group ${touched && error ? 'has-danger' : ''}`;
@@ -58,7 +58,7 @@ class PostsNew extends Component {
   }
 
   render() {
-    const { handleSubmit, anyTouched, submitting } = this.props;
+    const { handleSubmit, submitting } = this.props;
 
     return (
       <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
@@ -108,4 +108,4 @@ const validate = values => {
 export default reduxForm({
   validate,
   form: 'PostsNewForm'
-})(connect(null, { createPost })(PostsNew));
+})(connect(null, { createPost })(Artist));

@@ -15,25 +15,6 @@ export const getQueryParam = (query, param) => {
     return param ? result[param] : result;
 };
 
-export const hasFrameOnlyProduct = (cartItems = []) => {
-    return cartItems.some(eyeFrame => (eyeFrame.classification === 'eyeframe' || eyeFrame.classification === 'sunglasses') && eyeFrame.powerRequired === 'POWER_REQUIRED');
-};
-
-export const getHelplineNo = (config, categoryType) => {
-    let buyoncallConfig;
-    if (config) {
-        buyoncallConfig = JSON.parse(config);
-    }
-    const catConfig = buyoncallConfig ? buyoncallConfig[categoryType] : {};
-    if (catConfig && catConfig.isShown !== 'ON') {
-        return null;
-    }
-    if (catConfig && catConfig.contactNumberDisplay) {
-        return buyoncallConfig[categoryType].contactNumberDisplay;
-    }
-    return '';
-};
-
 export const getNumericChars = str => {
     if (str) {
         return str.replace(/\D/g, '');
@@ -134,33 +115,6 @@ export function enableBackgroundScroll() {
     document.body.classList.remove('overflow-hidden');
 }
 
-export function determineCategory(pathname, cmsCategoryArray) {
-    let category = 'accessories';
-    category = category.replace('_', '-');
-    if (cmsCategoryArray.indexOf(category) < 0) {
-        if (pathname.indexOf('eyeglasses') > -1) {
-            category = 'eyeglasses';
-        }
-        if (pathname.indexOf('sunglasses') > -1) {
-            category = 'sunglasses';
-        }
-        if (pathname.indexOf('power-sunglasses') > -1) {
-            category = 'power sunglasses';
-            document.cookie = 'product_category=power_sunglasses';
-        }
-        if (pathname.indexOf('premium-eyeglasses') > -1) {
-            category = 'premium eyeglasses';
-        }
-        if (pathname.indexOf('contact-lenses') > -1) {
-            category = 'contact-lenses';
-        }
-    }
-    if (category !== 'contact-lenses') {
-        category = category.replace('-', ' ');
-    }
-    return category;
-}
-
 export function showElement(query, show) { // used in case of lazy load
     const $element = document.querySelector(query);
     if ($element) {
@@ -178,46 +132,6 @@ export function checkElementInViewport($element) {
         && rect.bottom <= (window.innerHeight || document.documentElement.clientHeight)
         && rect.right <= (window.innerWidth || document.documentElement.clientWidth)
     );
-}
-
-export const extractAndAppendScriptSourceForCMS = domString => {
-    const scriptTagString = domString;
-    scriptTagString.split('</script>').forEach((domString, index) => {
-        // delete node first if they are exist
-        const scriptEl = document.getElementById(`cms${index}`);
-        if (scriptEl) document.body.removeChild(scriptEl);
-        if (domString.indexOf('<script') > -1) {
-            const script = document.createElement('script');
-            script.id = `cms${index}`;
-            if (domString.indexOf('src=') > -1) {
-                // in script tag of cms pages src must be last in the tag otherwise condition will break.
-                const srcPath = domString.substring(domString.indexOf('src=') + 5, domString.length - 2);
-                script.src = srcPath;
-            } else {
-                const scriptToAppend = domString.substr(domString.indexOf('<script>') + 8);
-                script.type = 'text/javascript';
-                // script.append(scriptToAppend);
-                script.innerHTML = scriptToAppend;
-            }
-            document.body.appendChild(script);
-        }
-    });
-};
-
-export function updateImageResolution(url, resolution = null) {
-    if (url) {
-        const urlArray = url.split('/');
-        const indexMinusTwo = urlArray.indexOf('cache');
-        if (urlArray[indexMinusTwo + 1] === '1' && resolution) {
-            const index = indexMinusTwo + 2;
-            urlArray[index] = 'thumbnail';
-            urlArray[index + 1] = resolution;
-            const newUrlString = urlArray.join('/');
-            return convertHttps(newUrlString);
-        }
-        return convertHttps(url);
-    }
-    return '';
 }
 
 export function debounce(func, wait, immediate) {
@@ -240,21 +154,6 @@ export function calcPriceWithGST(price, gstPercentage) {
     return price + gst;
 }
 
-export function getLocationApiErrorMessage(error) {
-    switch (error.code) {
-        case error.PERMISSION_DENIED:
-            return 'Error! Location access has earlier been denied, kindly enable it from the browser setting to access the auto detect location.';
-        case error.POSITION_UNAVAILABLE:
-            return 'Error! Please enable your location services or enter your address or pin-code in search bar.';
-        case error.TIMEOUT:
-            return 'Error! The request to get user location timed out.';
-        case error.UNKNOWN_ERROR:
-            return 'Error! An unknown error occurred.';
-        default:
-            return 'Could not determine your location, please try again';
-    }
-}
-
 export function removeDuplicatesInArray(arr, match = '') {
     const dups = [];
     const retArray = arr.filter(el => {
@@ -269,19 +168,9 @@ export function removeDuplicatesInArray(arr, match = '') {
     return retArray;
 }
 
-export const readQueryParam = (name, url, isServer) => {
-    if (!url && !isServer) url = window.location.href;
-    name = name.replace(/[\[\]]/g, '\\$&');
-    const regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)');
-    const results = regex.exec(url);
-    if (!results) return null;
-    if (!results[2]) return '';
-    return decodeURIComponent(results[2].replace(/\+/g, ' '));
-};
-
-export const removeParameterFromUrl = (url, parameter) => {
-    return url.replace(new RegExp('^([^#]*\?)(([^#]*)&)?' + parameter + '(\=[^&#]*)?(&|#|$)'), '$1$3$5').replace(/^([^#]*)((\?)&|\?(#|$))/, '$1$3$4');
-};
+// export const removeParameterFromUrl = (url, parameter) => {
+//     return url.replace(new RegExp('^([^#]*\?)(([^#]*)&)?' + parameter + '(\=[^&#]*)?(&|#|$)'), '$1$3$5').replace(/^([^#]*)((\?)&|\?(#|$))/, '$1$3$4');
+// }
 
 export const appendScriptToDOM = (scriptSrc, id, isAsync, callback) => {
     const script = document.createElement('script');
@@ -309,7 +198,7 @@ export const appendScriptToDOM = (scriptSrc, id, isAsync, callback) => {
         }
     }
     document.head.appendChild(script);
-};
+}
 
 export function setParam(uri, key, val) {
     return uri
@@ -322,21 +211,14 @@ export function capitalize(str = '') {
 }
 
 // detect search crawler
-export function isSearchCrawler(serverCallUserAgent = null) {
-    const botPattern = '(googlebot\/|Googlebot|Googlebot-Mobile|Googlebot-Image|Google favicon|Mediapartners-Google|bingbot|slurp|java|wget|curl|Commons-HttpClient|Python-urllib|libwww|httpunit|nutch|phpcrawl|msnbot|jyxobot|FAST-WebCrawler|FAST Enterprise Crawler|biglotron|teoma|convera|seekbot|gigablast|exabot|ngbot|ia_archiver|GingerCrawler|webmon |httrack|webcrawler|grub.org|UsineNouvelleCrawler|antibot|netresearchserver|speedy|fluffy|bibnum.bnf|findlink|msrbot|panscient|yacybot|AISearchBot|IOI|ips-agent|tagoobot|MJ12bot|dotbot|woriobot|yanga|buzzbot|mlbot|yandexbot|purebot|Linguee Bot|Voyager|CyberPatrol|voilabot|baiduspider|citeseerxbot|spbot|twengabot|postrank|turnitinbot|scribdbot|page2rss|sitebot|linkdex|Adidxbot|blekkobot|ezooms|dotbot|Mail.RU_Bot|discobot|heritrix|findthatfile|europarchive.org|NerdByNature.Bot|sistrix crawler|ahrefsbot|Aboundex|domaincrawler|wbsearchbot|summify|ccbot|edisterbot|seznambot|ec2linkfinder|gslfbot|aihitbot|intelium_bot|facebookexternalhit|yeti|RetrevoPageAnalyzer|lb-spider|sogou|lssbot|careerbot|wotbox|wocbot|ichiro|DuckDuckBot|lssrocketcrawler|drupact|webcompanycrawler|acoonbot|openindexspider|gnam gnam spider|web-archive-net.com.bot|backlinkcrawler|coccoc|integromedb|content crawler spider|toplistbot|seokicks-robot|it2media-domain-crawler|ip-web-crawler.com|siteexplorer.info|elisabot|proximic|changedetection|blexbot|arabot|WeSEE:Search|niki-bot|CrystalSemanticsBot|rogerbot|360Spider|psbot|InterfaxScanBot|Lipperhey SEO Service|CC Metadata Scaper|g00g1e.net|GrapeshotCrawler|urlappendbot|brainobot|fr-crawler|binlar|SimpleCrawler|Livelapbot|Twitterbot|cXensebot|smtbot|bnf.fr_bot|A6-Indexer|ADmantX|Facebot|Twitterbot|OrangeBot|memorybot|AdvBot|MegaIndex|SemanticScholarBot|ltx71|nerdybot|xovibot|BUbiNG|Qwantify|archive.org_bot|Applebot|TweetmemeBot|crawler4j|findxbot|SemrushBot|yoozBot|lipperhey|y!j-asr|Domain Re-Animator Bot|AddThis)';
-    const re = new RegExp(botPattern, 'i');
-    if (serverCallUserAgent) {
-        return re.test(serverCallUserAgent);
-    }
-    return typeof window !== 'undefined' && re.test(window.navigator.userAgent);
-}
-
-export const composeValidators = (...validators) => value => validators.reduce((error, validator) => error || validator(value), undefined);
-
-export const sleep = milliseconds => {
-    return new Promise(resolve => setTimeout(resolve, milliseconds));
-};
-
+// export function isSearchCrawler(serverCallUserAgent = null) {
+//     const botPattern = '(googlebot\/|Googlebot|Googlebot-Mobile|Googlebot-Image|Google favicon|Mediapartners-Google|bingbot|slurp|java|wget|curl|Commons-HttpClient|Python-urllib|libwww|httpunit|nutch|phpcrawl|msnbot|jyxobot|FAST-WebCrawler|FAST Enterprise Crawler|biglotron|teoma|convera|seekbot|gigablast|exabot|ngbot|ia_archiver|GingerCrawler|webmon |httrack|webcrawler|grub.org|UsineNouvelleCrawler|antibot|netresearchserver|speedy|fluffy|bibnum.bnf|findlink|msrbot|panscient|yacybot|AISearchBot|IOI|ips-agent|tagoobot|MJ12bot|dotbot|woriobot|yanga|buzzbot|mlbot|yandexbot|purebot|Linguee Bot|Voyager|CyberPatrol|voilabot|baiduspider|citeseerxbot|spbot|twengabot|postrank|turnitinbot|scribdbot|page2rss|sitebot|linkdex|Adidxbot|blekkobot|ezooms|dotbot|Mail.RU_Bot|discobot|heritrix|findthatfile|europarchive.org|NerdByNature.Bot|sistrix crawler|ahrefsbot|Aboundex|domaincrawler|wbsearchbot|summify|ccbot|edisterbot|seznambot|ec2linkfinder|gslfbot|aihitbot|intelium_bot|facebookexternalhit|yeti|RetrevoPageAnalyzer|lb-spider|sogou|lssbot|careerbot|wotbox|wocbot|ichiro|DuckDuckBot|lssrocketcrawler|drupact|webcompanycrawler|acoonbot|openindexspider|gnam gnam spider|web-archive-net.com.bot|backlinkcrawler|coccoc|integromedb|content crawler spider|toplistbot|seokicks-robot|it2media-domain-crawler|ip-web-crawler.com|siteexplorer.info|elisabot|proximic|changedetection|blexbot|arabot|WeSEE:Search|niki-bot|CrystalSemanticsBot|rogerbot|360Spider|psbot|InterfaxScanBot|Lipperhey SEO Service|CC Metadata Scaper|g00g1e.net|GrapeshotCrawler|urlappendbot|brainobot|fr-crawler|binlar|SimpleCrawler|Livelapbot|Twitterbot|cXensebot|smtbot|bnf.fr_bot|A6-Indexer|ADmantX|Facebot|Twitterbot|OrangeBot|memorybot|AdvBot|MegaIndex|SemanticScholarBot|ltx71|nerdybot|xovibot|BUbiNG|Qwantify|archive.org_bot|Applebot|TweetmemeBot|crawler4j|findxbot|SemrushBot|yoozBot|lipperhey|y!j-asr|Domain Re-Animator Bot|AddThis)';
+//     const re = new RegExp(botPattern, 'i');
+//     if (serverCallUserAgent) {
+//         return re.test(serverCallUserAgent);
+//     }
+//     return typeof window !== 'undefined' && re.test(window.navigator.userAgent);
+// }
 export function formatDate(time, pattern, year = '') {
     let formattedString = '';
     if (isNaN(time)) return '';
@@ -354,23 +236,6 @@ export function formatDate(time, pattern, year = '') {
     return formattedString;
 }
 
-
-export function getLogo(cartData, redisCommonData = {}) {
-    let dealskartLogo;
-    const { RBI_POLICY_MARKETPLACE_CONFIG } = redisCommonData;
-    try {
-        const rbiMarketPolicy = RBI_POLICY_MARKETPLACE_CONFIG ? JSON.parse(RBI_POLICY_MARKETPLACE_CONFIG) : {};
-        dealskartLogo = rbiMarketPolicy.checkout === 'ON' ? rbiMarketPolicy.msitedkLogo : null;
-    } catch (error) {
-        console.log(error);
-    }
-    const merchantId = cartData.merchantId ? cartData.merchantId.toLowerCase() : 'lenskart';
-    if (merchantId === 'dealskart' && cartData.items && cartData.items.length) {
-        return dealskartLogo;
-    }
-    return null;
-}
-
 export function getCardType(cardNo) {
     const cards = {
         visa: '^4[0-9]{6,}$',
@@ -385,24 +250,6 @@ export function getCardType(cardNo) {
         return regx.test(cardNo);
     });
     return type || '';
-}
-
-export function getClassification(type) {
-    let classification;
-    switch (type) {
-        case 'eyeframe':
-            classification = 'Eyeglasses';
-            break;
-        case 'sunglasses':
-            classification = 'Sunglasses';
-            break;
-        case 'contact_lens':
-            classification = 'Contact Lens';
-            break;
-        default:
-            classification = 'Accessories';
-    }
-    return classification;
 }
 
 export function getOSType() {
@@ -450,46 +297,6 @@ export function calcGSTPrice(classification, brandName, frameType, lenskartPrice
     return finalprice;
 }
 
-export function resetOrientation(srcBase64, srcOrientation, callback) {
-    const img = new Image();
-
-    img.onload = function () {
-        const width = img.width;
-        const height = img.height;
-        const canvas = document.createElement('canvas');
-        const ctx = canvas.getContext('2d');
-
-        // set proper canvas dimensions before transform & export
-        if (srcOrientation > 4 && srcOrientation < 9) {
-            canvas.width = height;
-            canvas.height = width;
-        } else {
-            canvas.width = width;
-            canvas.height = height;
-        }
-
-        // transform context before drawing image
-        switch (srcOrientation) {
-            case 2: ctx.transform(-1, 0, 0, 1, width, 0); break;
-            case 3: ctx.transform(-1, 0, 0, -1, width, height); break;
-            case 4: ctx.transform(1, 0, 0, -1, 0, height); break;
-            case 5: ctx.transform(0, 1, 1, 0, 0, 0); break;
-            case 6: ctx.transform(0, 1, -1, 0, height, 0); break;
-            case 7: ctx.transform(0, -1, -1, 0, height, width); break;
-            case 8: ctx.transform(0, -1, 1, 0, 0, width); break;
-            default: break;
-        }
-
-        // draw image
-        ctx.drawImage(img, 0, 0);
-
-        // export base64
-        callback(canvas.toDataURL('image/jpeg'));
-    };
-
-    img.src = srcBase64;
-}
-
 export function dataURItoBlob(dataURI) {
     const byteString = atob(dataURI.split(',')[1]);
     const mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
@@ -504,34 +311,6 @@ export function dataURItoBlob(dataURI) {
 //     '//www.google-analytics.com',
 //     '//www.googletagmanager.com',
 // ];
-export const preFetchOrigins = [
-    '//www.google-analytics.com',
-    '//www.googletagmanager.com',
-    // '//api.lenskart.com',
-    // '//assets.adobedtm.com',
-    // '//cdn.trackjs.com',
-    // '//cdn.freshmarketer.com',
-    // '//static.lenskart.com',
-    '//static.lenskart.com',
-    '//static.lenskart.com',
-    '//static5.lenskart.com',
-    // '//api.yotpo.com',
-    // '//staticw2.yotpo.com',
-    // '//cdn.appsflyer.com',
-    // '//asia.creativecdn.com',
-    // '//dis.as.criteo.com',
-    // '//www.facebook.com',
-    // '//connect.facebook.net',
-    // '//static.criteo.net',
-    // '//usage.trackjs.com',
-    // '//gum.criteo.com',
-    // '//sslwidget.criteo.com',
-    // '//wa.appsflyer.com',
-    // '//s-cs.send.microad.jp',
-    // '//wzrkt.com',
-    // '//bat.bing.com'
-];
-
 export function getGeocodeDetails(data) {
     return new Promise((resolve, reject) => {
         const geocoder = new window.google.maps.Geocoder();
@@ -546,7 +325,7 @@ export function getGeocodeDetails(data) {
 }
 
 export function getAddressFromPlaces(place) {
-    const location = place.geometry && place.geometry.location || {};
+    const location = (place.geometry && place.geometry.location) || {};
     const lat = typeof location.lat === 'function' ? location.lat() : undefined;
     const lng = typeof location.lng === 'function' ? location.lng() : undefined;
     if (place && place.address_components && place.address_components.length) {

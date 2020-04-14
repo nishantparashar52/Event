@@ -1,4 +1,3 @@
-import axios from 'axios';
 
 export const types = {
   FETCH_POST: 'FETCH_POST',
