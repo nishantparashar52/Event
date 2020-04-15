@@ -13,7 +13,7 @@ const Venue = props => {
 
                         <Link to="/artist/">
                             <i className="fa fa-users" aria-hidden="true"></i>Book an Artist</Link>
-                        <Link to="/event-venue"><i className="fa fa-building-o" aria-hidden="true"></i> Find Venue</Link>
+                        <Link to="/venue"><i className="fa fa-building-o" aria-hidden="true"></i> Find Venue</Link>
                     </div>
                 </div>
             </div>

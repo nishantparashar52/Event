@@ -15,9 +15,7 @@ const Listing = memo(props => {
                                     <div data-id="456" data-name="L Acoustic Kara " onclick="GetProductEnquiry()"
                                     className="view-speaker"> <i className="icon icon-cart"></i> </div>
                             </div>
-                            <div className="ts-speaker-info">
-                                <div className="fs14">{item.text} </div>
-                            </div>
+                            <div className="ts-speaker-info fsp16">{item.text}</div>
                         </div>
                     </div>
                 );
