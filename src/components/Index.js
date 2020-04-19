@@ -2,57 +2,58 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchPosts } from '../actions';
 import Header from './Header/Header';
-import Slider from './Slider/Slider';
-import LinkProvider from './LinkProvider';
-import LazyLoadProvider from './LazyLoadProvider/LazyLoadProvider';
+// import Slider from './Slider/Slider';
+// import LinkProvider from './LinkProvider';
+// import LazyLoadProvider from './LazyLoadProvider/LazyLoadProvider';
 import Info from './Info/Info'
 import Maps from './Google/Google';
 import Venue from './Venue/Venue';
+import Timer from './Timer/Timer';
 class Index extends Component {
   componentDidMount() {
     this.props.fetchPosts();
   }
 
   render() {
-  const item = {
-    aspectRatio: 3.4,
-    slidesPerView: 1,
-    paddingBtwnSlides: '2px',
-    items: [
-      {
-          "img": "http://pegasusevents.in/wp-content/uploads/2017/09/Home-Page-Header-1-new.jpg",
-          "url": "https://www.eventkarde.com/frame-size",
-          "page": "home:banner",
-          "componentName": "air",
-          "horizontalPosition": "1"
-      },
-      {
-          "img": "http://pegasusevents.in/wp-content/uploads/2017/09/Home-Page-Header-2-New.jpg",
-          "url": "https://www.eventkarde.com/eyeglasses/brands/vincent-chase-eyeglasses/vc-round-eyeglasses.html",
-          "page": "home:banner",
-          "componentName": "eoss",
-          "horizontalPosition": "1"
-      },
-      {
-          "img": "http://pegasusevents.in/wp-content/uploads/2017/09/Home-Page-Header-3-New.jpg",
-          "url": "https://www.eventkarde.com/sunglasses/special/sunglasses-hexagon-men.html",
-          "page": "home:banner",
-          "componentName": "eoss",
-          "horizontalPosition": "1"
-      },
-      {
-          "img": "http://pegasusevents.in/wp-content/uploads/2017/09/Home-Page-Header-2-New.jpg",
-          "url": "https://www.eventkarde.com/eyeglasses/promotions/transparent-john-jacobs-eyeglasses.html",
-          "page": "home:banner",
-          "componentName": "eoss",
-          "horizontalPosition": "1"
-      }
-  ]
-  }
+  // const item = {
+  //   aspectRatio: 3.4,
+  //   slidesPerView: 1,
+  //   paddingBtwnSlides: '2px',
+  //   items: [
+  //     {
+  //         "img": "http://pegasusevents.in/wp-content/uploads/2017/09/Home-Page-Header-1-new.jpg",
+  //         "url": "https://www.eventkarde.com/frame-size",
+  //         "page": "home:banner",
+  //         "componentName": "air",
+  //         "horizontalPosition": "1"
+  //     },
+  //     {
+  //         "img": "http://pegasusevents.in/wp-content/uploads/2017/09/Home-Page-Header-2-New.jpg",
+  //         "url": "https://www.eventkarde.com/eyeglasses/brands/vincent-chase-eyeglasses/vc-round-eyeglasses.html",
+  //         "page": "home:banner",
+  //         "componentName": "eoss",
+  //         "horizontalPosition": "1"
+  //     },
+  //     {
+  //         "img": "http://pegasusevents.in/wp-content/uploads/2017/09/Home-Page-Header-3-New.jpg",
+  //         "url": "https://www.eventkarde.com/sunglasses/special/sunglasses-hexagon-men.html",
+  //         "page": "home:banner",
+  //         "componentName": "eoss",
+  //         "horizontalPosition": "1"
+  //     },
+  //     {
+  //         "img": "http://pegasusevents.in/wp-content/uploads/2017/09/Home-Page-Header-2-New.jpg",
+  //         "url": "https://www.eventkarde.com/eyeglasses/promotions/transparent-john-jacobs-eyeglasses.html",
+  //         "page": "home:banner",
+  //         "componentName": "eoss",
+  //         "horizontalPosition": "1"
+  //     }
+  // ]
+  // }
     return (
       <div className="">
         <Header />
-        <Slider aspectRatio={item.aspectRatio} slidesPerView={item.slidesPerView} paddingBtwnSlides={item.paddingBtwnSlides} item={item}>
+        {/* <Slider aspectRatio={item.aspectRatio} slidesPerView={item.slidesPerView} paddingBtwnSlides={item.paddingBtwnSlides} item={item}>
           {item.items.map((unit, i) => {
               return (<div key={`slider-child-${i}`} style={{ paddingRight: item.paddingBtwnSlides }} className="w100 h100 block">
                   <LinkProvider key={`link-${i}`} to={unit.url} className="w100 h100 inline-block">
@@ -60,8 +61,9 @@ class Index extends Component {
                   </LinkProvider>
               </div>);
           })}
-      </Slider>
-      <Venue />
+      </Slider> */}
+      <Timer targetDate="Oct 25, 2020" targetTime="18:00:00" />
+      {/* <Venue /> */}
       <Info />
       <Maps />
         {/* <div className="text-xs-right">

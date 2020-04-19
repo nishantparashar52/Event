@@ -1,0 +1,124 @@
+:root {
+    --color-dark-blue: #007fb7;
+    --color-light-blue: #59c6ec;
+    --color-extra-dark-blue: #004f87;
+    --color-extra-light-blue: #9bbedb;
+}
+
+.heading {
+    text-align: center;
+    color: #256e9d;
+    font-size: 2rem;
+
+}
+
+.subText {
+    color: #57b3ee;
+}
+
+//countdown component styles
+.counter {
+    // margin: 0 -5px;
+    text-align: center;
+    display: inline-flex;
+    justify-content: center;
+    width: 100%;
+    background-color: #57b3ee;
+    padding: 25px 10px;
+}
+
+.entry {
+    text-align: center;
+    padding: 10px 20px;
+
+    .entry-value {
+        position: relative;
+        height: 95px;
+        perspective: 200px;
+        backface-visibility: hidden;
+        transform: translateZ(0);
+        transform: translate3d(0, 0, 0);
+        margin: 0 auto;
+        min-width: 150px;
+    }
+
+    .entry-title {
+        min-width: 80px;
+        color: #fff;
+        margin-top: 10px;
+        font-weight: bold;
+    }
+}
+
+.count {
+    background-color: #0b2b40;
+    color: #fff;
+    display: block;
+    font-size: 2em;
+    line-height: 2.4em;
+    overflow: hidden;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    width: 100%;
+
+    &.top {
+        height: 50%;
+        line-height: 95px;
+        transform-origin: 50% 100%;
+    }
+
+    &.bottom {
+        line-height: 0;
+        height: 50%;
+        top: 50%;
+        transform-origin: 50% 0;
+    }
+
+    &.flipTop {
+        animation-name: flipTop;
+        animation-duration: 0.3s;
+        animation-fill-mode: both;
+        z-index: 1;
+    }
+
+    &.flipBottom {
+        animation-name: flipBottom;
+        animation-duration: 0.3s;
+        animation-delay: 0.3s;
+        animation-fill-mode: both;
+        z-index: 1;
+    }
+}
+
+.alert-danger {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    position: relative;
+    padding: .75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+    text-align: center;
+}
+
+@keyframes flipTop {
+    from {
+        transform: rotateX(0deg);
+    }
+
+    to {
+        transform: rotateX(-90deg);
+    }
+}
+
+@keyframes flipBottom {
+    from {
+        transform: rotateX(90deg);
+    }
+
+    to {
+        transform: rotateX(0deg);
+    }
+}
