@@ -62,7 +62,7 @@ class Index extends Component {
               </div>);
           })}
       </Slider> */}
-      <Timer targetDate="Oct 25, 2020" targetTime="18:00:00" />
+      <Timer targetDate="Jun 25, 2020" targetTime="18:00:00" />
       {/* <Venue /> */}
       <Info />
       <Maps />
