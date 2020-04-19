@@ -10,7 +10,6 @@ const Venue = props => {
                     <div className="full-banner">
                         <Link to="/equipment/">
                             <i className="fa fa-building-o" aria-hidden="true"></i>Book Event Equipment</Link>
-
                         <Link to="/artist/">
                             <i className="fa fa-users" aria-hidden="true"></i>Book an Artist</Link>
                         <Link to="/venue"><i className="fa fa-building-o" aria-hidden="true"></i> Find Venue</Link>

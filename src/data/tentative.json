@@ -1,0 +1,30 @@
+{
+    "equipments": {
+        "Light_Sound" : [{}],
+        "Security_Equipments" : [{}],
+        "Stage": [{}],
+        "Led_Wall": [{}],
+        "Tent" : [{}],
+        "Branding" : [{}],
+        "Exhibitions" : [{}],
+        "Other" : [{}]
+    },
+    "Artist": {
+        "Bollywood_Singer" : [{}],
+        "Punjabi_Singer" : [{}],
+        "Anchor": [{}],
+        "Band": [{}],
+        "DJ" : [{}],
+        "Comedian" : [{}],
+        "Other" : [{}]
+    },
+    "Venue": {
+        "Wedding" : [{}],
+        "Concert" : [{}],
+        "Club": [{}],
+        "Annual Festival": [{}],
+        "Conference" : [{}],
+        "Private" : [{}],
+        "Other" : [{}]
+    }
+}

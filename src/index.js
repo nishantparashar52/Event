@@ -8,6 +8,7 @@ import Index from './components/Index';
 import Equipment from './components/Equipment';
 import Artist from './components/Artist';
 import Venue from './components/Venue';
+import Detail from './components/Detail/Detail';
 
 import configureStore from './store';
 const store = configureStore();
@@ -22,6 +23,7 @@ ReactDOM.render(
           <Route path="/artist" component={Artist} />
           <Route path="/venue" component={Venue} />
           <Route path="/" component={Index} />
+          <Route path="/:id" component={Detail} />
         </Switch>
       </div>
     </BrowserRouter>
