@@ -1,0 +1,10 @@
+.filter-wrapper {
+    display: flex;
+    margin: 2rem 1rem;
+    .filters {
+        padding: 10px;
+        border: 1px solid #ccc;
+        margin-right: 15px;
+        cursor: pointer;
+    }
+}

@@ -1,9 +1,31 @@
 {
     "equipments": {
-        "Light_Sound" : [{}],
-        "Security_Equipments" : [{}],
-        "Stage": [{}],
-        "Led_Wall": [{}],
+        "Light_Sound" : [{
+            "text": "L ACOUSTIC KARA",
+            "src": "https://hire4event.com/equipments/2019-10-24-15-10-48L%20acoustic%20Kara.jpg",
+            "alt": "2019-10-24-15-10-48L acoustic Kara.jpg",
+            "link": "/acoustic Kara"
+        },
+        {
+            "text": "ADAMSON S7 SPEAKER",
+            "src": "https://hire4event.com/equipments/2019-10-24-13-10-37Admson%20S7%20Speaker.jpg",
+            "alt": "2019-10-24-13-10-37Admson S7 Speaker.jpg"
+        }],
+        "Security_Equipments" : [{
+            "text": "ADAMSON S7 SPEAKER",
+            "src": "https://hire4event.com/equipments/2019-10-24-13-10-37Admson%20S7%20Speaker.jpg",
+            "alt": "2019-10-24-13-10-37Admson S7 Speaker.jpg"
+        }],
+        "Stage": [{
+            "text": "ADAMSON S7 SPEAKER",
+            "src": "https://hire4event.com/equipments/2019-10-24-13-10-37Admson%20S7%20Speaker.jpg",
+            "alt": "2019-10-24-13-10-37Admson S7 Speaker.jpg"
+        }],
+        "Led_Wall": [{
+            "text": "ADAMSON S7 SPEAKER",
+            "src": "https://hire4event.com/equipments/2019-10-24-13-10-37Admson%20S7%20Speaker.jpg",
+            "alt": "2019-10-24-13-10-37Admson S7 Speaker.jpg"
+        }],
         "Tent" : [{}],
         "Branding" : [{}],
         "Exhibitions" : [{}],

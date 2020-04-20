@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
 import Listing from './Listing/Listing';
 import data from './../data/Data.json';
+import tentative from './../data/tentative.json';
+import Filters from './Filters/Filters';
 import { debounce } from '../helper';
 
-// const filterData = () => {
-//   const inputVal = inputEl.current.value;
-// };
 const Equipment = () => {
   const [count, setCount] = useState(1);
-  // const inputEl = useRef();
+  const [filter, isFilteredData] = useState(false);
   return (
     <section style={{ background: '#f3f3f3', padding: '10px 0px' }}>
       <div className="container">
@@ -22,10 +21,11 @@ const Equipment = () => {
           </div>
         </form>
       </div>
-      <Listing data={data.equipments.slice(0, count * 20)} />
-      <div className="mr-auto text-center">
-        <button type="button" className="btn btn-outline-primary btn-lg" onClick={() => setCount(prevCount => prevCount + 1)}>See More</button>
-      </div>
+      <Filters data={tentative.equipments} FilterApply={data => isFilteredData(tentative.equipments[data])} />
+      <Listing data={filter || data.equipments.slice(0, count * 20)} isFilteredData={isFilteredData} />
+      {!filter && <div className="mr-auto text-center">
+        <button type="button" className="btn btn-outline-primary btn-lg" onClick={() => setCount(prevCount => prevCount + 1)}>See More</button>}
+      </div>}
     </section>
   );
 }

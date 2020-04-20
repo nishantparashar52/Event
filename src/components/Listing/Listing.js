@@ -1,4 +1,5 @@
 import React, { memo } from 'react';
+// import { Link } from 'react-router-dom';
 import './Listing.scss';
 
 const Listing = memo(props => {
@@ -12,7 +13,7 @@ const Listing = memo(props => {
                             <div className="speaker-img">
                                 <img className="img-fluid" src={item.src}
                                     alt={item.alt} />
-                                    <div data-id="456" data-name="L Acoustic Kara " onclick="GetProductEnquiry()"
+                                    <div data-id="456" data-name="L Acoustic Kara " onClick="GetProductEnquiry()"
                                     className="view-speaker"> <i className="icon icon-cart"></i> </div>
                             </div>
                             <div className="ts-speaker-info fsp16">{item.text}</div>
