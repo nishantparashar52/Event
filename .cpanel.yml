@@ -2,4 +2,4 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/user/public_html/covid
-    - /bin/cp index.html $DEPLOYPATH
+    - /build/cp index.html $DEPLOYPATH
