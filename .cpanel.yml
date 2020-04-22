@@ -1,5 +1,5 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/user/public_html/covid/
+    - export DEPLOYPATH=/home/eventkar/public_html/covid/
     - /bin/cp build/index.html $DEPLOYPATH
