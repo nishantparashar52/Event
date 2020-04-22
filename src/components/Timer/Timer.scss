@@ -25,6 +25,9 @@
     width: 100%;
     background-color: #57b3ee;
     padding: 25px 10px;
+    @media only screen and (max-width: 992px) {
+        flex-direction: column;
+    }
 }
 
 .entry {

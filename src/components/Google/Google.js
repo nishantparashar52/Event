@@ -4,7 +4,7 @@ import './Google.scss';
 function Maps() {
 
     return (
-        <div className="display-flex justify-content-around mr-t20">
+        <div className="row justify-content-around mr-t20">
             <div className="flex-08">
                 <h2 className="column-title">
                     <div className="header-title">Reach us</div> Connect with us </h2>
