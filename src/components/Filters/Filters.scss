@@ -1,10 +1,59 @@
 .filter-wrapper {
     display: flex;
-    margin: 2rem 1rem;
-    .filters {
-        padding: 10px;
-        border: 1px solid #ccc;
-        margin-right: 15px;
-        cursor: pointer;
+    margin: 1.5rem 0.5rem;
+    align-items: center;
+    justify-content: center;
+    input[type="checkbox"] {
+        opacity: 0;
+        z-index: 1;
+        position: absolute;
+        margin-left: -20px;
     }
+    .checkbox {
+        margin-right: 15px;
+        flex: 1;
+        label {
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding-left: 5px;
+            border: 1px solid #ccc;
+            padding: 8px;
+            font-size: 16px;
+            justify-content: center;
+            cursor: pointer;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            transition: border .2s ease-in-out;
+            &:hover {
+                border: 1px solid #007bff;
+            }
+        }
+        input[type="checkbox"] {
+            &:checked {
+                + label {
+                    border: 1px solid #007bff;
+                    color: #007bff;
+                }
+            }
+            &:disabled {
+                + label {
+                    opacity: 0.65;
+                }
+                label{
+                    &:before {
+                        background-color: #eeeeee;
+                        cursor: not-allowed;
+                    }
+                }
+            }
+        }
+    }
+    // .filters {
+    //     padding: 10px;
+    //     border: 1px solid #ccc;
+    //     margin-right: 15px;
+    //     cursor: pointer;
+    // }
 }

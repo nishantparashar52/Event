@@ -22,7 +22,7 @@ function Maps() {
                     </div>
                 </div>
             </div>
-            <iframe title="google" className="map flex-1 mr-l10" width="924" height="308" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/?ie=UTF8&t=m&ll=18.575300,73.764000&spn=0.003381,0.017231&z=16&output=embed"></iframe>
+            <iframe title="google" className="map flex-1 mr-l10" width="924" height="308" frameborder="0" scrolling="no" marginHeight="0" marginWidth="0" src="https://maps.google.com/?ie=UTF8&t=m&ll=18.575300,73.764000&spn=0.003381,0.017231&z=16&output=embed"></iframe>
         </div>
     );
 }

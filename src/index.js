@@ -9,6 +9,7 @@ import Equipment from './components/Equipment';
 import Artist from './components/Artist';
 import Venue from './components/Venue';
 import Detail from './components/Detail/Detail';
+import AboutUs from './containers/AboutUs/AboutUs';
 
 import configureStore from './store';
 const store = configureStore();
@@ -22,8 +23,9 @@ ReactDOM.render(
           <Route path="/equipment" component={Equipment} />
           <Route path="/artist" component={Artist} />
           <Route path="/venue" component={Venue} />
-          <Route path="/" component={Index} />
           <Route path="/:id" component={Detail} />
+          <Route path="/about-us" component={AboutUs} />
+          <Route path="/" component={Index} />
         </Switch>
       </div>
     </BrowserRouter>

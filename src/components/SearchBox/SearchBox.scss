@@ -1,0 +1,13 @@
+.btn{
+    &.blue-gradient {
+        background: linear-gradient(40deg,#45cafc,#303f9f);
+        border: 0;
+        color: #fff;
+    }
+}
+.custom-input {
+    background-color: transparent;
+    border: 0;
+    border-bottom: 1px solid #ced4da;
+    border-radius: 0;
+}

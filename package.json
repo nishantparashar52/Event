@@ -8,6 +8,7 @@
     "bootstrap": "^4.4.1",
     "node-sass": "^4.13.1",
     "react": "^16.3.0",
+    "react-bootstrap": "^1.0.1",
     "react-dom": "^16.3.0",
     "react-final-form": "^6.4.0",
     "react-redux": "5.0.6",

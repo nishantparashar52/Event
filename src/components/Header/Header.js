@@ -13,10 +13,10 @@ function Header() {
                 <a href="/" className="logo">Event Karde</a>
                 <div className="menu">
                     <Link to=""><div className="menu-list"><span>Home</span></div></Link>
-                    <Link to="/about"><div className="menu-list"><span>About Us</span></div></Link>
-                    <Link to="/services"><div className="menu-list"><span>Services</span></div></Link>
-                    <Link to="/corporate"><div className="menu-list"><span>Corporate Events</span></div></Link>
-                    <Link to="/enquiry"><div className="menu-list"><span>Enquiry</span></div></Link>
+                    <Link to="/about-us/"><div className="menu-list"><span>About Us</span></div></Link>
+                    <Link to="/services/"><div className="menu-list"><span>Services</span></div></Link>
+                    <Link to="/corporate/"><div className="menu-list"><span>Corporate Events</span></div></Link>
+                    <Link to="/enquiry/"><div className="menu-list"><span>Enquiry</span></div></Link>
                 </div>
             </div>
         </div>
