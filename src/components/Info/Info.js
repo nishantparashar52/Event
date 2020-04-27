@@ -38,7 +38,7 @@ function Info() {
                 <i className="fas fa-mobile-alt text-primary mb-2"></i>
                 <h4 className="text-uppercase m-0">Phone</h4>
                 <hr className="my-4" />
-                <a className="small text-black-50" accessible href="tel:+091-9250550650" value="+091-9250550650" accessible="true">+091-9250550650</a>
+                <a className="small text-black-50" href="tel:+091-9250550650" value="+091-9250550650" accessible="true">+091-9250550650</a>
               </div>
             </div>
           </div>
